@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2021/03/26 22:48:48 by spoliart         ###   ########.fr       */
+/*   Created: 2021/03/29 03:21:56 by spoliart          #+#    #+#             */
+/*   Updated: 2021/03/29 03:25:56 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
-
-int		main(int argc, char **argv)
+int	add_back(t_elem *elem)
 {
-	if (argc == 2 || argc == 3)
-		minirt(argv);
-	else
-		print_error_and_exit("Error: Wrong number of arguments\n");
+	t_elem tmp;
+
+	tmp = *elem;
+	if (tmp)
+		while (tmp->next)
+			tmp = tmp->next;
+	tmp->
 }

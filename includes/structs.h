@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2021/03/21 16:30:20 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/04/29 19:25:55 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,52 @@
 
 typedef struct	s_color
 {
-	float	r;
-	float	g;
-	float	b;
+	double		r;
+	double		g;
+	double		b;
 }				t_color;
 
-typedef struct	s_vector
+typedef struct	s_coord
 {
-	float	x;
-	float	y;
-	float	z;
-}				t_vector;
+	double		x;
+	double		y;
+	double		z;
+}				t_coord;
 
 typedef struct	s_ray
 {
-	t_vector	origin;
-	t_vector	direction;
+	t_coord		origin;
+	t_coord		direction;
 }				t_ray;
 
-typedef struct	s_elem
+typedef struct	s_list
 {
-	int			id;
-	t_color		color;
-	t_vector	orient;
-	t_vector	pos;
-	float		diameter;
-	float		height;
-}				t_elem;
+	int				id;
+	void			*content;
+	struct s_list	*next;
+}				t_list;
+
+typedef struct	s_light
+{
+	t_coord			pos;
+	double			ratio;
+	t_color			color;
+	struct s_light	*next;
+}				t_light;
+
+typedef struct	s_cam
+{
+	t_ray			ray;
+	double			fov;
+	struct s_cam	*next;
+}				t_cam;
+
+typedef struct	s_scene
+{
+	t_coord			res;
+	t_light			ambient;
+	t_light			**light;
+	t_cam			**cam;
+	t_cam			*actual_cam
+	t_list			*elem;
+}				t_scene;
