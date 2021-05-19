@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:53:04 by spoliart          #+#    #+#             */
-/*   Updated: 2021/03/24 17:55:02 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/19 18:40:20 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,16 @@ typedef struct  s_vars {
     void        *win;
 }               t_vars;
 
-int		key_hook(int keycode, t_vars *vars)
+void	key_hook(int keycode, t_vars *vars)
 {
-    return(printf("%d\n", keycode));
+    printf("%d\n", keycode);
 }
 
-int	exit_and_free(t_vars *vars)
+void	exit_and_free(t_vars *vars)
 {
-	printf("tamer");
 	mlx_clear_window(vars->mlx, vars->win);
 	mlx_destroy_window(vars->mlx, vars->win);
 	exit(EXIT_SUCCESS);
-	return(1);
 }
 
 int main()
