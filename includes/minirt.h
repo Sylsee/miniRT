@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2021/04/29 19:48:11 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/19 19:40:51 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@
 # include <math.h>
 # include <stdio.h>
 # include <pthread.h>
-
 
 #endif
