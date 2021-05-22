@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:47:46 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/22 20:27:08 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/22 22:06:17 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int		check_color(t_color color)
 			color.b < 0 || color.b > 255));
 }
 
-int		check_orientation(t_coord orien)
+int		check_orientation(t_coord orientation)
 {
-	return (!(orien.x < -1 || orien.x > 1 || orien.y < -1 || orien.y > 1 ||
-			orien.z < -1 || orien.z > 1));
+	return (!(orientation.x < -1 || orientation.x > 1 || orientation.y < -1 ||
+			orientation.y > 1 || orientation.z < -1 || orientation.z > 1));
 }

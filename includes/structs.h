@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/22 20:06:01 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/22 22:07:57 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,50 +51,6 @@ typedef struct	s_cam
 	t_vector	vector;
 	double		fov;
 }				t_cam;
-
-typedef struct	s_sphere
-{
-	int			id;
-	t_coord		pos;
-	double		diameter;
-	t_color		color;
-}				t_sphere;
-
-typedef struct	s_plane
-{
-	int			id;
-	t_coord		pos;
-	t_coord		orientation;
-	t_color		color;
-}				t_plane;
-
-typedef struct	s_square
-{
-	int			id;
-	t_coord		pos;
-	t_coord		orientation;
-	double		size;
-	t_color		color;
-}				t_square;
-
-typedef struct	s_cylinder
-{
-	int			id;
-	t_coord		pos;
-	t_coord		orientation;
-	double		diameter;
-	double		height;
-	t_color		color;
-}				t_cylinder;
-
-typedef struct	s_triangle
-{
-	int			id;
-	t_coord		first;
-	t_coord		second;
-	t_coord		third;
-	t_color		color;
-}				t_triangle;
 
 typedef struct	s_scene
 {

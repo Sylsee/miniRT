@@ -6,11 +6,24 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:53:58 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/22 20:12:14 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/22 22:01:36 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+void	parse_sphere(t_scene *scene, char **data)
+{
+	t_sphere	*sphere;
+
+	if (!(sphere = (t_sphere *)malloc(sizeof(sphere))))
+		print_err_and_exit("Malloc error");
+	sphere->id = SPHERE;
+	sphere->pos = parse_coord(data[1], data[2], data[3]);
+	sphere->diameter = ft_atof(data[4]);
+	sphere->color = parse_color(data[5], data[6], data[7]);
+	ft_lstadd_front(&(scene->obj), ft_lstnew(sphere));
+}
 
 void	parse_plane(t_scene *scene, char **data)
 {

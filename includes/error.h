@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/29 03:21:56 by spoliart          #+#    #+#             */
-/*   Updated: 2021/03/29 03:25:56 by spoliart         ###   ########.fr       */
+/*   Created: 2021/05/22 22:08:29 by spoliart          #+#    #+#             */
+/*   Updated: 2021/05/22 22:09:25 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	add_back(t_elem *elem)
-{
-	t_elem tmp;
+#ifndef ERROR_H
+# define ERROR_H
 
-	tmp = *elem;
-	if (tmp)
-		while (tmp->next)
-			tmp = tmp->next;
-	tmp->
-}
+void		print_err_and_exit(char *s);
+
+#endif

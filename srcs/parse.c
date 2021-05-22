@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/22 20:27:33 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/22 23:10:21 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ int		init_scene(t_scene *scene)
 	scene->ambient.color.g = 0;
 	scene->ambient.color.b = 0;
 	if (!(scene->light = ft_lstnew(NULL)))
-		return (NULL);
+		print_err_and_exit("Malloc error");
 	if (!(scene->cam = ft_lstnew(NULL)))
-		return (NULL);
+		print_err_and_exit("Malloc error");
 	if (!(scene->obj = ft_lstnew(NULL)))
-		return (NULL);
+		print_err_and_exit("Malloc error");
 	return (1);
 }
 
-void	parsing(char *file, t_scene *scene)
+t_scene	*parsing(char *file)
 {
 	int		fd;
 	int		ret;
@@ -67,8 +67,7 @@ void	parsing(char *file, t_scene *scene)
 		print_err_and_exit("First argument must be a '.rt' file");
 	if ((fd = open(file, O_RDONLY)) == -1)
 		print_err_and_exit("Open error");
-	if (!(init_scene(&scene)))
-		print_err_and_exit("Scene error");
+	init_scene(&scene);
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
 		if (!(parse_line(&scene, data = ft_split(line, " \t\n,"))))
@@ -78,8 +77,8 @@ void	parsing(char *file, t_scene *scene)
 		}
 		ft_free_tab(&data);
 	}
+	close(fd);
 	if (ret < 0 || !(parse_line(&scene, data = ft_split(line, " \t\n,"))))
 		print_err_and_exit("GNL error");
 	ft_free_tab(&data);
-	return (scene);
 }

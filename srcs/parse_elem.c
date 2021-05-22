@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/22 20:14:29 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/22 22:02:32 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,4 @@ void	parse_light(t_scene *scene, char **data)
 		print_err_and_exit("Ratio must be a number beetween 0 and 1");
 	light->color = parse_color(data[5], data[6], data[7]);
 	ft_lstadd_front(&(scene->light), ft_lstnew(light));
-}
-
-void	parse_sphere(t_scene *scene, char **data)
-{
-	t_sphere	*sphere;
-
-	if (!(sphere = (t_sphere *)malloc(sizeof(sphere))))
-		print_err_and_exit("Malloc error");
-	sphere->id = SPHERE;
-	sphere->pos = parse_coord(data[1], data[2], data[3]);
-	sphere->diameter = ft_atof(data[4]);
-	sphere->color = parse_color(data[5], data[6], data[7]);
-	ft_lstadd_front(&(scene->obj), ft_lstnew(sphere));
 }
