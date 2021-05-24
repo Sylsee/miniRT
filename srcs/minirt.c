@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/24 22:22:07 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/24 22:24:40 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	minirt(int argc, char **argv)
 	if (argc == 3)
 		minirt->save = 1;
 	init_minirt(&minirt, scene);
+	create_img(&minirt, &scene);
 }
 
 int		main(int argc, char **argv)
