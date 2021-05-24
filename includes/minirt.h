@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/22 23:09:26 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/24 19:08:23 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,13 @@
 
 typedef struct	s_minirt
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*mlx_img;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	char		*data;
+	int			pixel_bits;
+	int			line_bytes;
+	int			endian;
 	int			save;
 }				t_minirt;
 
