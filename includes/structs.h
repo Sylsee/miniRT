@@ -6,12 +6,14 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/22 22:07:57 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/26 00:26:12 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+# include "minirt.h"
 
 typedef struct	s_color
 {

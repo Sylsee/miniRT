@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/24 22:24:40 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/26 01:26:33 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 void	init_minirt(t_minirt *minirt, t_scene *scene)
 {
-	if (!(minirt = (t_minirt *)malloc(sizeof(t_minirt))))
-		print_err_and_exit("Malloc error");
 	if (!(minirt->mlx = mlx_init()))
 		print_err_and_exit("MinilibX error");
 	if (minirt->save == 0)
@@ -37,11 +35,14 @@ void	minirt(int argc, char **argv)
 	t_minirt	*minirt;
 	t_scene		*scene;
 
+	if (!(minirt = (t_minirt *)malloc(sizeof(t_minirt))))
+		print_err_and_exit("Malloc error");
 	scene = parsing(argv[1]);
 	if (argc == 3)
 		minirt->save = 1;
-	init_minirt(&minirt, scene);
-	create_img(&minirt, &scene);
+	init_minirt(minirt, scene);
+	create_img(minirt, scene);
+	mlx_put_image_to_window(minirt->mlx, minirt->win, minirt->data, 0, 0);
 }
 
 int		main(int argc, char **argv)

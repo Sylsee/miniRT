@@ -6,26 +6,30 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/24 19:08:23 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/26 01:18:49 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include "../libft/includes/libft.h"
-# include "../minilibx/mlx.h"
-# include "objects.h"
-# include "structs.h"
-# include "parsing.h"
-# include "error.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <string.h>
 # include <math.h>
 # include <stdio.h>
-# include <pthread.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include "../lib/libft/includes/libft.h"
+# include "../lib/minilibx-linux/mlx.h"
+# include "structs.h"
+# include "objects.h"
+# include "parsing.h"
+# include "error.h"
+# include "ui.h"
+//# include <pthread.h>
 
 typedef struct	s_minirt
 {
@@ -38,5 +42,9 @@ typedef struct	s_minirt
 	int			endian;
 	int			save;
 }				t_minirt;
+
+# include "image.h"
+
+void	minirt(int argc, char **argv);
 
 #endif
