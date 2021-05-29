@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/26 01:18:49 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/29 18:25:35 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_minirt
 	int			line_bytes;
 	int			endian;
 	int			save;
+	t_scene		*scene;
 }				t_minirt;
 
 # include "image.h"

@@ -6,15 +6,11 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/26 18:12:19 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/29 18:55:29 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-/*
-** mlx_put_image_to_window(minirt->mlx, minirt->win, minirt->img, 0, 0);
-*/
 
 void	init_minirt(t_minirt *minirt, t_scene *scene)
 {
@@ -32,23 +28,26 @@ void	init_minirt(t_minirt *minirt, t_scene *scene)
 
 void	set_img(t_minirt *minirt)
 {
+	mlx_clear_window(minirt->mlx, minirt->win);
 	mlx_put_image_to_window(minirt->mlx, minirt->win, minirt->data, 0, 0);
+	mlx_hook(minirt->win, 2, 1L, handle_key, minirt);
+	mlx_hook(minirt->win, 17, 1L << 17, quit_program, minirt);
+	mlx_loop(minirt->mlx);
 }
 
 void	minirt(int argc, char **argv)
 {
 	t_minirt	*minirt;
-	t_scene		*scene;
 
 	if (!(minirt = (t_minirt *)malloc(sizeof(t_minirt))))
 		print_err_and_exit("Malloc error");
-	scene = parsing(argv[1]);
-	if (argc == 3)
-		minirt->save = 1;
-	init_minirt(minirt, scene);
-	create_img(minirt, scene);
-	set_img(minirt);
-	clean(minirt, scene);
+	minirt->scene = parsing(argv[1]);
+	init_minirt(minirt, minirt->scene);
+	create_img(minirt, minirt->scene);
+	if (argc == 2)
+		set_img(minirt);
+	else if (argc == 3)
+		set_bmp(minirt);
 }
 
 int		main(int argc, char **argv)
