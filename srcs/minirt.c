@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/26 01:26:33 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:12:19 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void	init_minirt(t_minirt *minirt, t_scene *scene)
 		&(minirt->line_bytes), &(minirt->endian));
 }
 
+void	set_img(t_minirt *minirt)
+{
+	mlx_put_image_to_window(minirt->mlx, minirt->win, minirt->data, 0, 0);
+}
+
 void	minirt(int argc, char **argv)
 {
 	t_minirt	*minirt;
@@ -42,7 +47,8 @@ void	minirt(int argc, char **argv)
 		minirt->save = 1;
 	init_minirt(minirt, scene);
 	create_img(minirt, scene);
-	mlx_put_image_to_window(minirt->mlx, minirt->win, minirt->data, 0, 0);
+	set_img(minirt);
+	clean(minirt, scene);
 }
 
 int		main(int argc, char **argv)
