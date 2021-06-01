@@ -6,10 +6,10 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:53:04 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/23 15:36:51 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/06/01 11:52:19 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "../lib/minilibx-linux/mlx.h"
 #include "../lib/libft/includes/libft.h"
 #include <stdio.h>
@@ -50,7 +50,6 @@ int main()
 	return (0);
 }
 
-/*
 int             main(void)
 {
     t_vars      vars;
@@ -61,3 +60,38 @@ int             main(void)
 	mlx_hook(vars.win, 17, 0, exit_and_free, &vars);
     mlx_loop(vars.mlx);
 }*/
+
+#include "../lib/minilibx-linux/mlx.h"
+#include "../lib/libft/includes/libft.h"
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+int	uiclose(t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+	exit(0);
+}
+
+int	key_hook(int keycode, t_vars *vars)
+{
+	printf("key: [%d]\n", keycode);
+	if (keycode == 65307)
+		uiclose(vars);
+//	else if (keycode == 114)
+//		next_cam(vars);
+}
+
+int	main(void)
+{
+	t_vars	vars;
+
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 300, 300, "Hello world!");
+	mlx_hook(vars.win, 33, 0, uiclose, &vars);
+    mlx_key_hook(vars.win, key_hook, &vars);
+	//mlx_hook(vars.win, 2, 1L<<0, uiclose, &vars);
+	mlx_loop(vars.mlx);
+}

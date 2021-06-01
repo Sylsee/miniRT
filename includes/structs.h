@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/26 00:26:12 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/30 13:31:51 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,20 @@ typedef struct	s_cam
 	double		fov;
 }				t_cam;
 
+typedef struct	s_list_rt
+{
+	int					id;
+	void				*content;
+	struct s_list_rt	*next;
+}				t_list_rt;
+
 typedef struct	s_scene
 {
-	t_couple		res;
+	t_couple	res;
 	t_light		ambient;
 	t_list		*light;
 	t_list		*cam;
-	t_list		*obj;
+	t_list_rt	*obj;
 }				t_scene;
 
 #endif

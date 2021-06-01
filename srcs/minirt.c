@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/29 18:55:29 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/06/01 12:46:18 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	set_img(t_minirt *minirt)
 	mlx_clear_window(minirt->mlx, minirt->win);
 	mlx_put_image_to_window(minirt->mlx, minirt->win, minirt->data, 0, 0);
 	mlx_hook(minirt->win, 2, 1L, handle_key, minirt);
-	mlx_hook(minirt->win, 17, 1L << 17, quit_program, minirt);
+	mlx_hook(vars.win, 33, 0, uiclose, &vars);
+    mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_loop(minirt->mlx);
 }
 
@@ -39,7 +40,7 @@ void	minirt(int argc, char **argv)
 {
 	t_minirt	*minirt;
 
-	if (!(minirt = (t_minirt *)malloc(sizeof(t_minirt))))
+	if (!(minirt = malloc(sizeof(t_minirt))))
 		print_err_and_exit("Malloc error");
 	minirt->scene = parsing(argv[1]);
 	init_minirt(minirt, minirt->scene);

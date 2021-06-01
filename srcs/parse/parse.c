@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/26 01:24:10 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/30 13:30:06 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_scene	*init_scene()
 		print_err_and_exit("Malloc error");
 	if (!(scene->cam = ft_lstnew(NULL)))
 		print_err_and_exit("Malloc error");
-	if (!(scene->obj = ft_lstnew(NULL)))
+	if (!(scene->obj = ft_lstnew_rt(NULL)))
 		print_err_and_exit("Malloc error");
 	return (scene);
 }
