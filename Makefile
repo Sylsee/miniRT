@@ -6,119 +6,92 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/05/26 01:27:22 by spoliart         ###   ########.fr        #
+#    Updated: 2021/12/11 01:58:13 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-###### VARIABLES ######
+# [ VARIABLES ] #
 
+NAME	=	minirt
+RM		=	/bin/rm -rf
+MAKE	=	make
+LIBFT	=	libft
+LIBX	=	minilibx
 
-## CUSTOMIZATION ##
+# [ COLORS ] #
 
-_END		=	\e[0m
+_END	=	\e[0m
+_RED	=	\e[31m
+_GREEN	=	\e[32m
+_YELLOW	=	\e[33m
 
-_RED		=	\e[31m
-_GREEN		=	\e[32m
-_YELLOW		=	\e[33m
+# [ COMPILATION VARIABLES ]#
 
-## COMPILATION ##
+CC		=	gcc
+CFLAGS	=	-Wall -Wextra -Werror -g
+LDFLAGS	=	-Llib/libft -lft -Llib/minilibx -lx
 
-CC				=	gcc
+# [ VALGRIND VARIABLES ] #
 
-L_FLAGS			=	-lft -lmlx_Linux -lXext -lm -lX11 -Llibft -Lminilibx-linux
-CC_FLAGS		=	-Wall -Wextra -Werror
+VALGRIND	=	/usr/bin/valgrind
+VFLAGS		=	--suppressions=ignoreliberror --leak-check=full --show-leak-kinds=all --track-origins=yes
 
-## DELETE ##
+# [ DIRECTORIES ] #
 
-RM				=	rm -rf
+S		=	srcs/
+O		=	objs/
+I		=	-I./includes
 
-## NORME ##
+# [ SOURCES ] #
 
-NORMINETTE		:=	${HOME}/.norminette/norminette.rb
+PARSING	=	parse.c \
+			parse_elem.c \
+			parse_elem2.c
 
-## DIRECTORIES ##
+SRCS	=	main.c \
+			$(PARSING)
 
-DIR_HEADERS		=	./includes/
+# [ OBJECTS ] #
 
-DIR_SRCS		=	./srcs/
+OBJS	=	$(SRCS:%=$O%.o)
 
-DIR_OBJS		=	./objs/
+# [ PATH ] #
 
-SUB_DIRS		=	. \
-					error \
-					image \
-					math \
-					objects \
-					parse
+VPATH	=	includes:srcs:srcs/parsing:srcs/math:srcs/utils
 
-SUB_DIR_OBJS	=	$(SUB_DIRS:%=$(DIR_OBJS)%)
+# [ RULES ] #
 
-## FILES ##
+all:		$(NAME)
 
-SRCS			=	error/error.c \
-					image/image.c \
-					math/math_func.c \
-					objects/intersec_sphere.c \
-					parse/parse.c \
-					parse/parse_elem.c \
-					parse/parse_elem2.c \
-					parse/parse_utils.c
+$(NAME):	$(OBJS)
+			@printf "\033[2K\r$(_GREEN) All files compiled into '$O'. $(_END)✅\n"
+			@$(MAKE) -s -C $(LIBFT)
+			@$(MAKE) -s -C $(LIBX)
+			@$(CC) $(CFLAGS) $^ -o $@ $I $(LDFLAGS)
+			@printf "$(_GREEN) Binary '$(NAME)' created. $(_END)✅\n"
 
-## COMPILED ##
+$O:
+			@mkdir -p $@
 
-OBJS		=	$(SRCS:%.c=$(DIR_OBJS)%.o)
-
-NAME		=	minirt
-
-# **************************************************************************** #
-
-###### RULES ######
-
-all:			$(NAME)
-
-## VARIABLES RULES ##
-
-$(NAME):		$(OBJS)
-					@printf "\033[2K\r$(_GREEN) All files compiled into '$(DIR_OBJS)'. $(_END)✅\n"
-					@make -C lib/libft/
-					@make -C lib/minilibx-linux/
-					@cp lib/libft/libft.a ./minirt.a
-					@cp lib/minilibx-linux/libmlx.a ./minirt.a
-					@ar rc minirt.a $(OBJS)
-					@gcc -Iincludes $(OBJS) $(L_FLAGS) $(CC_FLAGS) srcs/minirt.c minirt.a lib/libft/libft.a lib/minilibx-linux/libmlx.a -o minirt
-					@printf "$(_GREEN) $(NAME) created. $(_END)✅\n"
-
-$(DIR_OBJS)%.o:	$(DIR_SRCS)%.c
-					@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-					@$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) -c $< -o $@
-
-$(OBJS):		| $(DIR_OBJS)
-
-$(DIR_OBJS):	$(SUB_DIR_OBJS)
-
-$(SUB_DIR_OBJS):
-					@mkdir -p $(SUB_DIR_OBJS)
-
-## OBLIGATORY PART ##
+$O%.o:		%	| $O
+			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
+			@$(CC) $(CFLAGS) $I -c $< -o $@
 
 clean:
-					@make clean -C lib/libft/
-					@$(RM) $(DIR_OBJS)
-					@printf "$(_RED) '$(DIR_OBJS)' has been deleted. $(_END)🗑️\n"
+			@make -s clean -C $(LIBFT)
+			@$(RM) $O
+			@printf "$(_RED) '$O' has been deleted. $(_END)🗑️\n"
 
-fclean:			clean
-					@make fclean -C lib/libft/
-					@$(RM) $(NAME) minirt minirt.a
-					@printf "$(_RED) '$(NAME)' and minirt.a has been deleted. $(_END)🗑️\n"
+fclean:		clean
+			@make -s fclean -C $(LIBFT)
+			@$(RM) $(NAME)
+			@printf "$(_RED) '$(NAME)' has been deleted. $(_END)🗑️\n"
 
-re:				fclean all
+re:			fclean all
 
-## NORME ##
+valgrind: 	all
+			@$(VALGRIND) $(VFLAGS) ./$(NAME)
 
-norme:
-					@$(NORMINETTE) $(DIR_SRCS)
-					@$(NORMINETTE) $(DIR_HEADERS)
+# [ PHONY ] #
 
-## PHONY ##
-
-.PHONY:			all clean re fclean norme
+.PHONY:	all clean fclean re valgrind
