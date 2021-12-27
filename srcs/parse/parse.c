@@ -6,85 +6,86 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/30 13:30:06 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/12/24 14:10:23 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int		parse_line(t_scene *scene, char **data)
+static int	check_line(char *line)
 {
-	if (data && data[0][0])
-	{
-		if (ft_strcmp(data[0], "sp") && ft_tablen(data) == NB_SPHERE)
-			parse_sphere(scene, data);
-		else if (ft_strcmp(data[0], "pl") && ft_tablen(data) == NB_PLANE)
-			parse_plane(scene, data);
-		else if (ft_strcmp(data[0], "sq") && ft_tablen(data) == NB_SQUARE)
-			parse_square(scene, data);
-		else if (ft_strcmp(data[0], "cy") && ft_tablen(data) == NB_CYLINDER)
-			parse_cylinder(scene, data);
-		else if (ft_strcmp(data[0], "tr") && ft_tablen(data) == NB_TRIANGLE)
-			parse_triangle(scene, data);
-		else if (data[0][0] == 'R' && ft_tablen(data) == NB_RES)
-			parse_resolution(scene, data);
-		else if (data[0][0] == 'A' && ft_tablen(data) == NB_AL)
-			parse_ambient(scene, data);
-		else if (data[0][0] == 'c' && ft_tablen(data) == NB_CAM)
-			parse_camera(scene, data);
-		else if (data[0][0] == 'l' && ft_tablen(data) == NB_LIGHT)
-			parse_light(scene, data);
-		return (0);
-	}
-	return (1);
+	while (ft_isalnum(*line) || ft_isspace(*line) || *line == '.' ||
+			*line == ',' || *line == '+' || *line == '-')
+		line++;
+	if (*line)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
-t_scene	*init_scene()
+static int	parse_line(t_scene *scene, char *line)
 {
-	t_scene *scene;
+	int			i;
+	char		**data;
+	const char	*obj_name[] = {"sp", "pl", "sq", "cy", "tr", "R", "A", "c",
+		"l"};
+	void	(*obj_func[])(t_scene *, char **) = {&parse_sphere,
+		&parse_plane, &parse_square, &parse_cylinder, &parse_triangle,
+		&parse_resolution, &parse_ambient, &parse_camera, &parse_light};
 
-	if (!(scene = malloc(sizeof(scene))))
-		print_err_and_exit("Malloc error");
+	if (!line || line[0] == '\0')
+		return (EXIT_SUCCESS);
+	if (check_line(line) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	data = ft_split(line, "\t\n\v\f ,");
+	if (!data)
+		internal_error("unable to allocate memory");
+	i = 0;
+	while (i < 9 && !(line[0] == obj_name[i][0] &&
+			(!obj_name[i][1] || line[1] == obj_name[i][1])))
+		i++;
+	if (i < 9)
+		obj_func[i](scene, data);
+	ft_free_tab(data, NULL);
+	if (i >= 9 && line && line[0])
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
+}
+
+static void	init_scene(t_scene *scene)
+{
 	scene->res.x = 0;
 	scene->res.y = 0;
 	scene->ambient.ratio = 0;
 	scene->ambient.color.r = 0;
 	scene->ambient.color.g = 0;
 	scene->ambient.color.b = 0;
-	if (!(scene->light = ft_lstnew(NULL)))
-		print_err_and_exit("Malloc error");
-	if (!(scene->cam = ft_lstnew(NULL)))
-		print_err_and_exit("Malloc error");
-	if (!(scene->obj = ft_lstnew_rt(NULL)))
-		print_err_and_exit("Malloc error");
-	return (scene);
+	scene->light = NULL;
+	scene->cam = NULL;
+	scene->obj = NULL;
 }
 
-t_scene	*parsing(char *file)
+t_scene	parsing(char *file)
 {
 	int		fd;
 	int		ret;
 	char	*line;
-	char	**data;
-	t_scene	*scene;
+	t_scene	scene;
 
-	if (!(ft_str_end(file, ".rt")))
-		print_err_and_exit("First argument must be a '.rt' file");
-	if ((fd = open(file, O_RDONLY)) == -1)
-		print_err_and_exit("Open error");
-	scene = init_scene();
-	while ((ret = get_next_line(fd, &line)) == 1)
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		internal_error("unable to open `.rt' file");
+	init_scene(&scene);
+	while (true)
 	{
-		if (!(parse_line(scene, data = ft_split(line, " \t\n,"))))
-		{
-			ft_free_split(data);
-			print_err_and_exit("GNL error");
-		}
-		ft_free_split(data);
+		ret = get_next_line(fd, &line);
+		if (ret == -1)
+			internal_error("get_next_line error");
+		if (parse_line(&scene, line) == EXIT_FAILURE)
+			internal_error("File format error");
+		free(line);
+		if (ret == 0)
+			break ;
 	}
 	close(fd);
-	if (ret < 0 || !(parse_line(scene, data = ft_split(line, " \t\n,"))))
-		print_err_and_exit("GNL error");
-	ft_free_split(data);
 	return (scene);
 }

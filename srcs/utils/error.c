@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quit.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 18:13:36 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/29 18:46:40 by spoliart         ###   ########.fr       */
+/*   Created: 2021/05/03 18:57:59 by spoliart          #+#    #+#             */
+/*   Updated: 2021/12/13 18:51:47 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	quit_program(t_minirt *minirt)
+void	internal_error(char *s)
 {
-	ft_lstclear(minirt->scene->light, free);
-	free(minirt->scene->light);
-	ft_lstclear(minirt->scene->cam, free);
-	free(minirt->scene->cam);
-	ft_lstclear(minirt->scene->obj, free);
-	free(minirt->scene->obj);
-	free(minirt->scene);
-	mlx_destroy_image(minirt->mlx, minirt->img);
-	mlx_destroy_window(minirt->mlx, minirt->win);
-	free(minirt);
-	exit(0);
+	ft_putstr_fd("Minirt: ", STDERR_FILENO);
+	ft_putendl_fd(s, STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }

@@ -6,32 +6,14 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 19:48:22 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/26 01:15:55 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/12/24 14:30:15 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
 
-# include "minirt.h"
-
-# define NB_RES			3
-# define NB_AL			5
-# define NB_CAM			8
-# define NB_LIGHT		8
-# define NB_SPHERE		8
-# define NB_PLANE		10
-# define NB_SQUARE		11
-# define NB_CYLINDER	12
-# define NB_TRIANGLE	13
-
-# define SPHERE		1
-# define PLANE		2
-# define SQUARE		3
-# define CYLINDER	4
-# define TRIANGLE	5
-
-t_scene			*parsing(char *file);
+t_scene			parsing(char *file);
 
 t_coord			parse_coord(char *x, char *y, char *z);
 t_color			parse_color(char *r, char *g, char *b);

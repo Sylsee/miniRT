@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/12/11 01:58:13 by spoliart         ###   ########.fr        #
+#    Updated: 2021/12/26 14:53:37 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@
 NAME	=	minirt
 RM		=	/bin/rm -rf
 MAKE	=	make
-LIBFT	=	libft
-LIBX	=	minilibx
+LIBFT	=	lib/libft
+LIBX	=	lib/minilibx
 
 # [ COLORS ] #
 
@@ -28,28 +28,46 @@ _YELLOW	=	\e[33m
 # [ COMPILATION VARIABLES ]#
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -g
-LDFLAGS	=	-Llib/libft -lft -Llib/minilibx -lx
+CFLAGS	=	-Wall -Wextra -Werror
+LDFLAGS	=	-Llib/libft -lft -Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lz
 
 # [ VALGRIND VARIABLES ] #
 
 VALGRIND	=	/usr/bin/valgrind
-VFLAGS		=	--suppressions=ignoreliberror --leak-check=full --show-leak-kinds=all --track-origins=yes
+VFLAGS		=	--leak-check=full --show-leak-kinds=all --track-origins=yes
 
 # [ DIRECTORIES ] #
 
 S		=	srcs/
 O		=	objs/
-I		=	-I./includes
+I		=	-Iincludes -Ilib/minilibx -I/usr/include
 
 # [ SOURCES ] #
 
+OBJECTS	=	inter_sphere.c
+
+RAYTRACING	=	$(OBJECTS)
+
+IMAGE	=	image.c \
+			color.c \
+			ray.c
+
 PARSING	=	parse.c \
 			parse_elem.c \
-			parse_elem2.c
+			parse_objects.c \
+			parse_utils.c
+
+UTILS	=	lst.c \
+			error.c
+
+MATH	=	vector_calculs.c
 
 SRCS	=	main.c \
-			$(PARSING)
+			$(UTILS) \
+			$(PARSING) \
+			$(IMAGE) \
+			$(RAYTRACING) \
+			$(MATH)
 
 # [ OBJECTS ] #
 
@@ -57,7 +75,7 @@ OBJS	=	$(SRCS:%=$O%.o)
 
 # [ PATH ] #
 
-VPATH	=	includes:srcs:srcs/parsing:srcs/math:srcs/utils
+VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths
 
 # [ RULES ] #
 
@@ -67,7 +85,7 @@ $(NAME):	$(OBJS)
 			@printf "\033[2K\r$(_GREEN) All files compiled into '$O'. $(_END)✅\n"
 			@$(MAKE) -s -C $(LIBFT)
 			@$(MAKE) -s -C $(LIBX)
-			@$(CC) $(CFLAGS) $^ -o $@ $I $(LDFLAGS)
+			@$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 			@printf "$(_GREEN) Binary '$(NAME)' created. $(_END)✅\n"
 
 $O:
@@ -75,7 +93,7 @@ $O:
 
 $O%.o:		%	| $O
 			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -c $< -o $@
+			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
 
 clean:
 			@make -s clean -C $(LIBFT)
@@ -91,6 +109,15 @@ re:			fclean all
 
 valgrind: 	all
 			@$(VALGRIND) $(VFLAGS) ./$(NAME)
+
+test: del
+		@make -C lib/minilibx/
+		@make -C lib/libft/
+		@gcc $(CFLAGS) test/test.c -o test/test lib/libft/libft.a lib/minilibx/libmlx.a -lXext -lX11 -lm -lz
+		@./test/test
+
+del:
+		@rm -f test/test
 
 # [ PHONY ] #
 

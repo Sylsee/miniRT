@@ -6,54 +6,60 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/30 13:28:49 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/12/15 23:13:52 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	parse_resolution(t_scene *scene, char **data)
+void	parse_resolution(t_scene *scene, char **line)
 {
-	scene->res.x = ft_atoi(data[1]);
+	scene->res.x = ft_atoi(line[1]);
 	if (scene->res.x > 1080)
 		scene->res.x = 1080;
-	scene->res.y = ft_atoi(data[2]);
+	else if (scene->res.x < 10)
+		scene->res.x = 10;
+	scene->res.y = ft_atoi(line[2]);
 	if (scene->res.y > 720)
 		scene->res.y = 720;
+	else if (scene->res.y < 10)
+		scene->res.y = 10;
 }
 
-void	parse_ambient(t_scene *scene, char **data)
+void	parse_ambient(t_scene *scene, char **line)
 {
-	scene->ambient.ratio = ft_atof(data[1]);
+	scene->ambient.ratio = ft_atof(line[1]);
 	if (scene->ambient.ratio < 0 || scene->ambient.ratio > 1)
-		print_err_and_exit("Ratio must be a number beetween 0 and 1");
-	scene->ambient.color = parse_color(data[2], data[3], data[4]);
+		internal_error("Ratio must be a number beetween 0 and 1");
+	scene->ambient.color = parse_color(line[2], line[3], line[4]);
 }
 
-void	parse_camera(t_scene *scene, char **data)
+void	parse_camera(t_scene *scene, char **line)
 {
 	t_cam	*cam;
 
-	if (!(cam = malloc(sizeof(cam))))
-		print_err_and_exit("Malloc error");
-	cam->vector.origin = parse_coord(data[1], data[2], data[3]);
-	cam->vector.orientation = parse_coord(data[4], data[5], data[6]);
-	if (!(check_orientation(cam->vector.orientation)))
-		print_err_and_exit("Orientation must be a number beetween -1 and 1");
-	cam->fov = ft_atof(data[7]);
+	cam = alloc(sizeof(t_cam), NULL);
+	if (!cam)
+		internal_error("unable to allocate memory");
+	cam->origin = parse_coord(line[1], line[2], line[3]);
+	cam->orientation = parse_coord(line[4], line[5], line[6]);
+	if (check_orientation(cam->orientation))
+		internal_error("Camera orientation must be a number beetween -1 and 1");
+	cam->fov = ft_atof(line[7]);
 	ft_lstadd_front(&(scene->cam), ft_lstnew(cam));
 }
 
-void	parse_light(t_scene *scene, char **data)
+void	parse_light(t_scene *scene, char **line)
 {
 	t_light	*light;
 
-	if (!(light = malloc(sizeof(light))))
-		print_err_and_exit("Malloc error");
-	light->pos = parse_coord(data[1], data[2], data[3]);
-	light->ratio = ft_atof(data[4]);
+	light = alloc(sizeof(t_light), NULL);
+	if (!light)
+		internal_error("unable to allocate memory");
+	light->pos = parse_coord(line[1], line[2], line[3]);
+	light->ratio = ft_atof(line[4]);
 	if (scene->ambient.ratio < 0 || scene->ambient.ratio > 1)
-		print_err_and_exit("Ratio must be a number beetween 0 and 1");
-	light->color = parse_color(data[5], data[6], data[7]);
+		internal_error("Ratio must be a number beetween 0 and 1");
+	light->color = parse_color(line[5], line[6], line[7]);
 	ft_lstadd_front(&(scene->light), ft_lstnew(light));
 }

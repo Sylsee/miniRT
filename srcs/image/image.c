@@ -6,34 +6,74 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2021/06/04 21:33:55 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:23:49 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-#include <math.h>
-
-void	put_color(t_minirt *minirt, t_scene *scene, int x, int y)
+/*
+static t_hit	intersection(t_scene scene, t_vector ray)
 {
-	minirt->data[(y * scene->res.x + x) * 3] = 255;
-	minirt->data[(y * scene->res.x + x) * 3 + 1] = 255;
-	minirt->data[(y * scene->res.x + x) * 3 + 2] = 255;
+	bool	has_inter;
+	t_hit	t;
+	t_hit	t_max;
+	t_lst	*tmp;
+
+	t_max.dist = -1;
+	tmp = scene.obj;
+	while (tmp)
+	{
+		has_inter = false;
+		if (tmp->id == SPHERE)
+			has_inter = inter_sphere(tmp->object, ray, &t);
+*//*		else if (tmp->id == PLANE)
+			has_inter = inter_plane(tmp->object, ray, &t);
+		else if (tmp->id == SQUARE)
+			has_inter = inter_square(tmp->object, ray, &t);
+		else if (tmp->id == CYLINDER)
+			has_inter = inter_cylinder(tmp->object, ray, &t);
+		else if (tmp->id == TRIANGLE)
+			has_inter = inter_triangle(tmp->object, ray, &t);*/
+/*		if (has_inter == true && (t_max.dist == -1 || t.dist < t_max.dist))
+			t_max = t;
+		tmp = tmp->next;
+	}
+	return (t_max);
 }
 
-void	create_img(t_minirt *minirt, t_scene *scene, t_cam *cam)
+static int	get_color(t_scene scene, t_vector ray)
+{
+	int		color;
+	t_hit	t;
+
+	color = 0;
+	t = intersection(scene, ray);
+	if (t.dist != -1)
+	{
+		color = create_rgb(t.color.r, t.color.g, t.color.b);
+//		printf("color: [%d] t.r: [%f] t.g: [%f] t.b: [%f]\n", color, t.color.r, t.color.g, t.color.b);
+	}
+	return (color);
+}
+*/
+void	create_img(t_data *data, t_scene scene)
 {
 	int			x;
 	int			y;
+	int			color;
+	//t_vector	ray;
 
-	y = scene->res.y + 1;
-	while (y--)
+	y = 0;
+	while (y < scene.res.y)
 	{
-		x = scene->res.x + 1;
-		while (x--)
+		x = 0;
+		while (x < scene.res.x)
 		{
-			normalize(&(ray.orientation));
-			if (intersec_obj(s, ray))
-				my_mlx_pixel_put(minirt, x, y, color);
+//			ray = new_ray(scene.cam->content, scene, x, y);
+			color = create_rgb(255, 0, 0);//get_color(scene, ray);
+			put_color(data, x, y, color);
+			x++;
 		}
+		y++;
 	}
 }
