@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/25 21:35:25 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/12/28 17:14:45 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_data
 	void		*mlx;
 	void		*win;
 	void		*img;
-	void		*data;
+	char		*data;
 	int			pixel_bits;
 	int			line_bytes;
 	int			endian;

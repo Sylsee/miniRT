@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:53:04 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/26 22:38:19 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/12/28 18:51:41 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,11 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	main(void)
 {
+	int		i = 500;
+	int		j = 500;
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
-
-
-
-
-	int i = 1275;
-	int j = 1275;
 
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, i, j, "Hello world!");
