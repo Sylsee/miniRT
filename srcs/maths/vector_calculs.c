@@ -6,15 +6,15 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:36:04 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/04 14:05:30 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/07 00:19:24 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_coord	v_sub(t_coord v, t_coord u)
+t_p3	v_sub(t_p3 v, t_p3 u)
 {
-	t_coord	ret;
+	t_p3	ret;
 
 	ret.x = v.x - u.x;
 	ret.y = v.y - u.y;
@@ -22,9 +22,9 @@ t_coord	v_sub(t_coord v, t_coord u)
 	return (ret);
 }
 
-t_coord	v_add(t_coord v, t_coord u)
+t_p3	v_add(t_p3 v, t_p3 u)
 {
-	t_coord	ret;
+	t_p3	ret;
 
 	ret.x = v.x + u.x;
 	ret.y = v.y + u.y;
@@ -32,27 +32,37 @@ t_coord	v_add(t_coord v, t_coord u)
 	return (ret);
 }
 
-t_coord	v_scale(t_coord v, double f)
+t_p3	v_scale(t_p3 v, double f)
 {
-	t_coord	ret;
+	t_p3	ret;
 
 	ret.x = v.x * f;
-	ret.x = v.y * f;
-	ret.x = v.z * f;
+	ret.y = v.y * f;
+	ret.z = v.z * f;
 	return (ret);
 }
 
-double	prod_scalaire(t_coord v, t_coord u)
+t_p3	v_cross(t_p3 u, t_p3 v)
+{
+	t_p3	res;
+
+	res.x = u.y * v.z - u.z * v.y;
+	res.y = u.z * v.x - u.x * v.z;
+	res.z = u.x * v.y - u.y * v.x;
+	return (res);
+}
+
+double	prod_scalaire(t_p3 v, t_p3 u)
 {
 	return (v.x * u.x + v.y * u.y + v.z * u.z);
 }
 
-double	get_norm2(t_coord v)
+double	get_norm2(t_p3 v)
 {
 	return (v.x * v.x + v.y * v.y + v.z * v.z);
 }
 
-void	normalize(t_coord *v)
+void	normalize(t_p3 *v)
 {
 	double	norme;
 

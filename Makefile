@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/12/26 14:53:37 by spoliart         ###   ########.fr        #
+#    Updated: 2022/01/06 23:13:49 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ PARSING	=	parse.c \
 UTILS	=	lst.c \
 			error.c
 
-MATH	=	vector_calculs.c
+MATH	=	vector_calculs.c \
+			points.c
 
 SRCS	=	main.c \
 			$(UTILS) \

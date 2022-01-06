@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/05 22:20:28 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/07 00:50:43 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ void	parse_camera(t_scene *scene, char **line)
 	cam = alloc(sizeof(t_cam), NULL);
 	if (!cam)
 		internal_error("unable to allocate memory");
-	cam->origin = parse_coord(line[1], line[2], line[3]);
-	cam->orientation = parse_coord(line[4], line[5], line[6]);
-	if (check_orientation(cam->orientation))
+	cam->origin = parse_point(line[1], line[2], line[3]);
+	cam->dir = parse_point(line[4], line[5], line[6]);
+	if (check_orientation(cam->dir))
 		internal_error("Camera orientation must be a number beetween -1 and 1");
+	if (cam->dir.x == 0 && cam->dir.y != 0 && cam->dir.z == 0)
+		cam->dir.x = 0.000000001;
 	cam->fov = ft_atof(line[7]);
 	ft_lstadd_front(&(scene->cam), ft_lstnew(cam));
 }
@@ -56,7 +58,7 @@ void	parse_light(t_scene *scene, char **line)
 	light = alloc(sizeof(t_light), NULL);
 	if (!light)
 		internal_error("unable to allocate memory");
-	light->pos = parse_coord(line[1], line[2], line[3]);
+	light->pos = parse_point(line[1], line[2], line[3]);
 	light->ratio = ft_atof(line[4]);
 	if (scene->ambient.ratio < 0 || scene->ambient.ratio > 1)
 		internal_error("Ratio must be a number beetween 0 and 1");

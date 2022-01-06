@@ -16,7 +16,7 @@
 typedef struct s_hit
 {
 	double	dist;
-	t_coord	pos;
+	t_p3	pos;
 	t_color	color;
 }			t_hit;
 

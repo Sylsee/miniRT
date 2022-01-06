@@ -17,9 +17,9 @@ void	printplane(t_plane *plane)
 	printf("pos.x: [%f]\n", plane->pos.x);
 	printf("pos.y: [%f]\n", plane->pos.y);
 	printf("pos.z: [%f]\n", plane->pos.z);
-	printf("orientation.x: [%f]\n", plane->orientation.x);
-	printf("orientation.y: [%f]\n", plane->orientation.y);
-	printf("orientation.z: [%f]\n", plane->orientation.z);
+	printf("dir.x: [%f]\n", plane->dir.x);
+	printf("dir.y: [%f]\n", plane->dir.y);
+	printf("dir.z: [%f]\n", plane->dir.z);
 	printf("color.r: [%f]\n", plane->color.r);
 	printf("color.g: [%f]\n", plane->color.g);
 	printf("color.b: [%f]\n", plane->color.b);
@@ -30,9 +30,9 @@ void	printcam(t_cam *cam)
 	printf("origin.x: [%f]\n", cam->origin.x);
 	printf("origin.y: [%f]\n", cam->origin.y);
 	printf("origin.z: [%f]\n", cam->origin.z);
-	printf("orientation.x: [%f]\n", cam->orientation.x);
-	printf("orientation.y: [%f]\n", cam->orientation.y);
-	printf("orientation.z: [%f]\n", cam->orientation.z);
+	printf("dir.x: [%f]\n", cam->dir.x);
+	printf("dir.y: [%f]\n", cam->dir.y);
+	printf("dir.z: [%f]\n", cam->dir.z);
 	printf("fov: [%f]\n", cam->fov);
 }
 

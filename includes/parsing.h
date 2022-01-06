@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 19:48:22 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/24 14:30:15 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/06 14:34:25 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 t_scene			parsing(char *file);
 
-t_coord			parse_coord(char *x, char *y, char *z);
+t_p3			parse_point(char *x, char *y, char *z);
 t_color			parse_color(char *r, char *g, char *b);
 int				check_color(t_color color);
-int				check_orientation(t_coord orientation);
+int				check_orientation(t_p3 dir);
 
 void			parse_resolution(t_scene *scene, char **data);
 void			parse_ambient(t_scene *scene, char **data);
