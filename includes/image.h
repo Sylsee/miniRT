@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:55:57 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/30 00:28:06 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/07 13:42:56 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 typedef struct s_hit
 {
-	double	dist;
-	t_p3	pos;
-	t_color	color;
+	double		dist;
+	t_vector	normal;
+	t_color		color;
 }			t_hit;
 
 void	set_img(t_data data);

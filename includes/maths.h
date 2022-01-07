@@ -18,7 +18,7 @@
 t_p3	new_p3(double x, double y, double z);
 void	normalize(t_p3 *v);
 double	get_norm2(t_p3 v);
-double	prod_scalaire(t_p3 v, t_p3 u);
+double	dot(t_p3 v, t_p3 u);
 t_p3	v_add(t_p3 v, t_p3 u);
 t_p3	v_sub(t_p3 v, t_p3 u);
 t_p3	v_scale(t_p3 v, double f);

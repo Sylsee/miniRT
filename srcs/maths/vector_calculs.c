@@ -52,7 +52,7 @@ t_p3	v_cross(t_p3 u, t_p3 v)
 	return (res);
 }
 
-double	prod_scalaire(t_p3 v, t_p3 u)
+double	dot(t_p3 v, t_p3 u)
 {
 	return (v.x * u.x + v.y * u.y + v.z * u.z);
 }

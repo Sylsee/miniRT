@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/28 17:14:45 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/07 14:06:10 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_data
 	int			line_bytes;
 	int			endian;
 }				t_data;
+
+# include "define.h"
 # include "utils.h"
 # include "scene.h"
 # include "image.h"
