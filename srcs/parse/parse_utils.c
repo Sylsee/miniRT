@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:47:46 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/06 14:34:34 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/07 00:59:45 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ t_color	parse_color(char *r, char *g, char *b)
 	return (color);
 }
 
-int		check_color(t_color color)
+int	check_color(t_color color)
 {
-	return (color.r < 0 || color.r > 255 || color.g < 0 || color.g > 255 ||
-			color.b < 0 || color.b > 255);
+	return (color.r < 0 || color.r > 255 || color.g < 0 || color.g > 255
+		|| color.b < 0 || color.b > 255);
 }
 
-int		check_orientation(t_p3 dir)
+int	check_orientation(t_p3 dir)
 {
-	return (dir.x < (double)-1 || dir.x > (double)1 ||
-			dir.y < (double)-1 || dir.y > (double)1 ||
-			dir.z < (double)-1 || dir.z > (double)1);
+	return (dir.x < (double)-1 || dir.x > (double)1
+		|| dir.y < (double)-1 || dir.y > (double)1
+		|| dir.z < (double)-1 || dir.z > (double)1);
 }

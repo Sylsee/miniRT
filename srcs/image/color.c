@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 12:46:35 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/25 21:45:04 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/07 01:01:15 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	put_color(t_data *data, int x, int y, int color)
 	char	*dst;
 
 	dst = data->data + (y * data->line_bytes + x * (data->pixel_bits / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 int	create_rgb(int r, int g, int b)

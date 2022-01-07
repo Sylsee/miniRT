@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/24 14:10:23 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/07 00:58:59 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	check_line(char *line)
 {
-	while (ft_isalnum(*line) || ft_isspace(*line) || *line == '.' ||
-			*line == ',' || *line == '+' || *line == '-')
+	while (ft_isalnum(*line) || ft_isspace(*line) || *line == '.'
+		|| *line == ',' || *line == '+' || *line == '-')
 		line++;
 	if (*line)
 		return (EXIT_FAILURE);
@@ -28,7 +28,7 @@ static int	parse_line(t_scene *scene, char *line)
 	char		**data;
 	const char	*obj_name[] = {"sp", "pl", "sq", "cy", "tr", "R", "A", "c",
 		"l"};
-	void	(*obj_func[])(t_scene *, char **) = {&parse_sphere,
+	void		(*obj_func[])(t_scene *, char **) = {&parse_sphere,
 		&parse_plane, &parse_square, &parse_cylinder, &parse_triangle,
 		&parse_resolution, &parse_ambient, &parse_camera, &parse_light};
 
@@ -40,8 +40,8 @@ static int	parse_line(t_scene *scene, char *line)
 	if (!data)
 		internal_error("unable to allocate memory");
 	i = 0;
-	while (i < 9 && !(line[0] == obj_name[i][0] &&
-			(!obj_name[i][1] || line[1] == obj_name[i][1])))
+	while (i < 9 && !(line[0] == obj_name[i][0]
+		&& (!obj_name[i][1] || line[1] == obj_name[i][1])))
 		i++;
 	if (i < 9)
 		obj_func[i](scene, data);

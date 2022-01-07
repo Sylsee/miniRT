@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/28 18:53:00 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/07 00:57:18 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_mlx(t_data *data, t_scene scene)
 	if (data->save == false)
 	{
 		data->win = mlx_new_window(data->mlx, scene.res.x,
-			scene.res.y, "MiniRT");
+				scene.res.y, "MiniRT");
 		if (!data->win)
 			internal_error("unable to create minilibx window");
 	}
@@ -39,7 +39,7 @@ void	init_mlx(t_data *data, t_scene scene)
 	if (!data->img)
 		internal_error("unable to create minilibx image");
 	data->data = mlx_get_data_addr(data->img, &data->pixel_bits,
-		&data->line_bytes, &data->endian);
+			&data->line_bytes, &data->endian);
 }
 
 void	set_img(t_data data)

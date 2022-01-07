@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:56:45 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/05 22:36:01 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/07 01:00:13 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	inter_sphere(t_sphere *s, t_vector ray, t_hit *hit)
 	double	t2;
 
 	b = 2 * prod_scalaire(ray.dir, v_sub(ray.origin, s->pos));
-	c = get_norm2(v_sub(ray.origin, s->pos)) -
-		(s->diameter / 2) * (s->diameter / 2);
+	c = get_norm2(v_sub(ray.origin, s->pos))
+		- (s->diameter / 2) * (s->diameter / 2);
 	delta = b * b - 4 * c;
 	if (delta < 0)
 		return (false);
