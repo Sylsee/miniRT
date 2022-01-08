@@ -1,4 +1,4 @@
-##arguilla part :
+## arguilla part :
 - 
 - 
 - 
@@ -6,7 +6,7 @@
 - 
 - 
 
-##spoliart part :
+## spoliart part :
 - 
 - 
 - 
