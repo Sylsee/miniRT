@@ -4,6 +4,6 @@
 - Selection objets et appliquer changement souhaite
 
 ## spoliart part :
-- Gestion lumiere ambiente, spot, ombres
+- Gestion lumiere ambiante, spot, ombres
 - Intersection objets
 - BONUS: Mirroir, lumiere phong, multi spots
