@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/06 23:13:49 by spoliart         ###   ########.fr        #
+#    Updated: 2022/01/09 20:21:08 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ I		=	-Iincludes -Ilib/minilibx -I/usr/include
 
 OBJECTS	=	inter_sphere.c
 
-RAYTRACING	=	$(OBJECTS)
+RAYTRACING	=	$(OBJECTS) \
+				light.c
 
 IMAGE	=	image.c \
 			color.c \

@@ -42,7 +42,7 @@ int	inter_sphere(t_sphere *s, t_vector ray, t_hit *hit)
 	double	delta;
 	double	t[2];
 
-	b = 2 * dot(ray.dir, v_sub(ray.origin, s->pos));
+	b = 2 * v_dot(ray.dir, v_sub(ray.origin, s->pos));
 	c = get_norm2(v_sub(ray.origin, s->pos))
 		- (s->diameter / 2) * (s->diameter / 2);
 	delta = b * b - 4 * c;

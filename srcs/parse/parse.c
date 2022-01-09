@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/07 00:58:59 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/08 21:59:13 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	parse_line(t_scene *scene, char *line)
 	int			i;
 	char		**data;
 	const char	*obj_name[] = {"sp", "pl", "sq", "cy", "tr", "R", "A", "c",
-		"l"};
+		"l", NULL};
 	void		(*obj_func[])(t_scene *, char **) = {&parse_sphere,
 		&parse_plane, &parse_square, &parse_cylinder, &parse_triangle,
 		&parse_resolution, &parse_ambient, &parse_camera, &parse_light};
@@ -40,13 +40,13 @@ static int	parse_line(t_scene *scene, char *line)
 	if (!data)
 		internal_error("unable to allocate memory");
 	i = 0;
-	while (i < 9 && !(line[0] == obj_name[i][0]
+	while (obj_name[i] && !(line[0] == obj_name[i][0]
 		&& (!obj_name[i][1] || line[1] == obj_name[i][1])))
 		i++;
-	if (i < 9)
+	if (obj_name[i])
 		obj_func[i](scene, data);
 	ft_free_tab(data, NULL);
-	if (i >= 9 && line && line[0])
+	if (obj_name[i] == NULL && line && line[0])
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
