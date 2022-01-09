@@ -7,4 +7,4 @@
 ## spoliart part :
 - Gestion lumiere ambiante, spot, ombres
 - Intersection objets
-- BONUS: Mirroir, lumiere phong, multi spots
+- BONUS: Mirroir, lumiere phong, ~~multi spots~~
