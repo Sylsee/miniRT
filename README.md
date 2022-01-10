@@ -5,6 +5,7 @@
 - gestion des objets en cliquant dessus (voir fonction intersection)
 
 ## spoliart part :
-- ~~Gestion lumiere ambiante~~, ~~spot~~, ombres
+- ~~Gestion lumiere ambiante~~, ~~spot~~, ~~ombres~~
 - Intersection objets
+- Gestion multicam
 - BONUS: Mirroir, lumiere phong, ~~multi spots~~, ~~lumiere coloree~~
