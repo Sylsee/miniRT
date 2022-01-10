@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/09 20:21:08 by spoliart         ###   ########.fr        #
+#    Updated: 2022/01/10 16:25:09 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ I		=	-Iincludes -Ilib/minilibx -I/usr/include
 OBJECTS	=	inter_sphere.c
 
 RAYTRACING	=	$(OBJECTS) \
-				light.c
+				light.c \
+				shadow.c
 
 IMAGE	=	image.c \
 			color.c \
@@ -62,7 +63,8 @@ UTILS	=	lst.c \
 			error.c
 
 MATH	=	vector_calculs.c \
-			points.c
+			points.c \
+			maths.c
 
 SRCS	=	main.c \
 			$(UTILS) \
