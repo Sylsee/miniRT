@@ -6,13 +6,13 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/09 19:35:29 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/10 16:35:41 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static t_hit	intersection(t_scene scene, t_vector ray)
+t_hit	intersection(t_scene scene, t_vector ray)
 {
 	bool	has_inter;
 	t_hit	t;
@@ -39,8 +39,8 @@ static t_hit	intersection(t_scene scene, t_vector ray)
 
 static int	get_color(t_scene scene, t_vector ray)
 {
-	t_color		color;
 	t_hit	hit;
+	t_color	color;
 
 	hit = intersection(scene, ray);
 	if (hit.dist == -1)

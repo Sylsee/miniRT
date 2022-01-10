@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:55:57 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/09 15:13:12 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/10 15:27:53 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_hit
 	t_color		color;
 }			t_hit;
 
+t_hit	intersection(t_scene scene, t_vector ray);
 void	set_img(t_data data);
 void	create_img(t_data *data, t_scene scene);
 void	put_color(t_data *data, int x, int y, int color);
