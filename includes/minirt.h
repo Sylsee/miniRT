@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 08:59:20 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/11 16:38:16 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_data
 # include "objects.h"
 # include "key.h"
 # include "light.h"
+# include "lst.h"
 
 # include <sys/types.h>
 # include <sys/stat.h>

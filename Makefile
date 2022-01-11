@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/11 09:23:19 by arguilla         ###   ########.fr        #
+#    Updated: 2022/01/11 10:01:07 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,8 +58,7 @@ PARSING	=	parse.c \
 			parse_objects.c \
 			parse_utils.c
 
-UTILS	=	lst.c \
-			error.c
+UTILS	=	error.c \
 
 MATH	=	vector_calculs.c \
 			points.c
@@ -67,6 +66,8 @@ MATH	=	vector_calculs.c \
 EVENT	=	init_mlx_events.c \
 			mlx_exit.c \
 
+LST		=	lst.c \
+			cam_lst.c \
 
 SRCS	=	main.c \
 			$(UTILS) \
@@ -75,6 +76,7 @@ SRCS	=	main.c \
 			$(RAYTRACING) \
 			$(MATH)\
 			$(EVENT) \
+			$(LST) \
 
 # [ OBJECTS ] #
 
@@ -82,7 +84,7 @@ OBJS	=	$(SRCS:%=$O%.o)
 
 # [ PATH ] #
 
-VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths:srcs/events
+VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths:srcs/events:srcs/lst
 
 # [ RULES ] #
 

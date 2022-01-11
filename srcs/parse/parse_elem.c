@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 09:44:24 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/11 17:35:35 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,6 @@ void	parse_ambient(t_scene *scene, char **line)
 	scene->ambient.color = parse_color(line[2], line[3], line[4]);
 }
 
-t_cam	*cam_lstlast(t_cam *lst)
-{
-	if (lst)
-		while (lst->next)
-			lst = lst->next;
-	return (lst);
-}
-
-void	cam_lstadd_front(t_cam **alst, t_cam *new)
-{
-	if (new)
-	{
-		new->next = *alst;
-		new->prev = cam_lstlast(*alst);
-	}
-	*alst = new;
-}
-
 void	parse_camera(t_scene *scene, char **line)
 {
 	t_cam	*cam;
@@ -66,9 +48,7 @@ void	parse_camera(t_scene *scene, char **line)
 	if (cam->dir.x == 0 && cam->dir.y != 0 && cam->dir.z == 0)
 		cam->dir.x = 0.000000001;
 	cam->fov = ft_atof(line[7]);
-	cam_lstadd_front(&(scene->cam), cam);
-	printf("AAAAAAAAAAAAAAAAAAA: %f\n\n", scene->cam->fov);
-	fflush(stdout);
+	cam_lstadd_back(&(scene->cam), cam);
 }
 
 void	parse_light(t_scene *scene, char **line)

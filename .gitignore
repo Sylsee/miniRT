@@ -1,3 +1,5 @@
 objs/
 **/.*.swp
+.*.swp
+*.swp
 minirt
