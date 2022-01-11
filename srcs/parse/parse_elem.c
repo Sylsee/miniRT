@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/07 00:50:43 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/10 17:29:51 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	parse_resolution(t_scene *scene, char **line)
 {
 	scene->res.x = ft_atoi(line[1]);
-	if (scene->res.x > 1080)
-		scene->res.x = 1080;
+	if (scene->res.x > 2560)
+		scene->res.x = 2560;
 	else if (scene->res.x < 10)
 		scene->res.x = 10;
 	scene->res.y = ft_atoi(line[2]);
-	if (scene->res.y > 720)
-		scene->res.y = 720;
+	if (scene->res.y > 1440)
+		scene->res.y = 1440;
 	else if (scene->res.y < 10)
 		scene->res.y = 10;
 }

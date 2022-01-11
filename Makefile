@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/10 16:25:09 by spoliart         ###   ########.fr        #
+#    Updated: 2022/01/11 22:42:05 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ OBJECTS	=	inter_sphere.c
 
 RAYTRACING	=	$(OBJECTS) \
 				light.c \
-				shadow.c
+				shadow.c \
+				mirror.c
 
 IMAGE	=	image.c \
 			color.c \

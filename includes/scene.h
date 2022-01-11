@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/15 21:40:33 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/11 22:33:27 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ typedef struct s_light
 
 typedef struct s_cam
 {
-	t_p3		origin;
-	t_p3		dir;
-	double		fov;
+	t_p3			origin;
+	t_p3			dir;
+	double			fov;
 }				t_cam;
 
 typedef struct s_scene

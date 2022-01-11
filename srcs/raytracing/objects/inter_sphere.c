@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:56:45 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/07 14:25:27 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/11 16:28:40 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static bool	get_hit_infos(t_sphere *s, t_vector ray, t_hit *hit, double t[2])
 {
 	hit->color = s->color;
+	hit->mirror = s->mirror;
 	if (t[0] > 0)
 		hit->dist = t[0];
 	else
@@ -35,7 +36,7 @@ static bool	get_hit_infos(t_sphere *s, t_vector ray, t_hit *hit, double t[2])
 **	@return true if there is an intersection, else false
 */
 
-int	inter_sphere(t_sphere *s, t_vector ray, t_hit *hit)
+bool	inter_sphere(t_sphere *s, t_vector ray, t_hit *hit)
 {
 	double	b;
 	double	c;
