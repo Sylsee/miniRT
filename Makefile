@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/11 08:44:20 by arguilla         ###   ########.fr        #
+#    Updated: 2022/01/11 09:01:53 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,9 @@ UTILS	=	lst.c \
 MATH	=	vector_calculs.c \
 			points.c
 
-EVENT	=	mlx_exit.c \
+EVENT	=	init_mlx_events.c \
+			mlx_exit.c \
+
 
 SRCS	=	main.c \
 			$(UTILS) \

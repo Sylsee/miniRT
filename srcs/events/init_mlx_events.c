@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.h                                           :+:      :+:    :+:   */
+/*   init_mlx_events.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/11 09:01:35 by arguilla         ###   ########.fr       */
+/*   Created: 2022/01/11 09:00:59 by arguilla          #+#    #+#             */
+/*   Updated: 2022/01/11 09:02:07 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EVENTS_H
-# define EVENTS_H
+#include "minirt.h"
 
-int		destroy_window(t_data *data);
-int		exit_window(int keycode, t_data *data);
-void	init_mlx_events(t_data *data);
-
-#endif
+void	init_mlx_events(t_data *data)
+{
+	mlx_hook(data->win, 33, 0, &destroy_window, data);
+	mlx_key_hook(data->win, &exit_window, data);
+}
