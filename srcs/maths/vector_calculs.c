@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:36:04 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/09 19:27:22 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/11 17:49:07 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ double	v_dot(t_p3 v, t_p3 u)
 double	get_norm2(t_p3 v)
 {
 	return (v.x * v.x + v.y * v.y + v.z * v.z);
+}
+
+double	get_norm(t_p3 v)
+{
+	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
 }
 
 void	normalize(t_p3 *v)
