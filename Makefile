@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/11 17:03:59 by spoliart         ###   ########.fr        #
+#    Updated: 2022/01/11 22:42:05 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,7 @@ I		=	-Iincludes -Ilib/minilibx -I/usr/include
 
 # [ SOURCES ] #
 
-OBJECTS	=	inter_sphere.c \
-			inter_plane.c
+OBJECTS	=	inter_sphere.c
 
 RAYTRACING	=	$(OBJECTS) \
 				light.c \
