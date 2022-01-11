@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/08 21:59:13 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/11 09:44:49 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ t_scene	parsing(char *file)
 	while (true)
 	{
 		ret = get_next_line(fd, &line);
+		printf("line: %s\n", line);
+		fflush(stdout);
 		if (ret == -1)
 			internal_error("get_next_line error");
 		if (parse_line(&scene, line) == EXIT_FAILURE)
@@ -87,5 +89,7 @@ t_scene	parsing(char *file)
 			break ;
 	}
 	close(fd);
+	printf("fini\n");
+	fflush(stdout);
 	return (scene);
 }

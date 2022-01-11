@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/09 19:35:29 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/11 09:25:39 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	create_img(t_data *data, t_scene scene)
 		x = 0;
 		while (x < scene.res.x)
 		{
-			ray = new_ray(scene.cam->content, scene, x, y);
+			ray = new_ray(scene.cam, scene, x, y);
 			color = get_color(scene, ray);
 			put_color(data, x, y, color);
 			x++;
