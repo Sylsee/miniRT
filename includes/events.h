@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.h                                              :+:      :+:    :+:   */
+/*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/29 17:10:27 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 08:57:58 by arguilla         ###   ########.fr       */
+/*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
+/*   Updated: 2022/01/11 08:57:14 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_H
-# define KEY_H
+#ifndef EVENTS_H
+# define EVENTS_H
 
-# define ESC	65307
+int	destroy_window(t_data *data);
+int	exit_window(int keycode, t_data *data);
 
 #endif
