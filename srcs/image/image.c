@@ -6,13 +6,13 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/09 19:35:29 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/11 22:30:50 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static t_hit	intersection(t_scene scene, t_vector ray)
+t_hit	intersection(t_scene scene, t_vector ray)
 {
 	bool	has_inter;
 	t_hit	t;
@@ -37,14 +37,22 @@ static t_hit	intersection(t_scene scene, t_vector ray)
 	return (t_min);
 }
 
-static int	get_color(t_scene scene, t_vector ray)
-{
-	t_color		color;
-	t_hit	hit;
+#ifndef REBOUND_MAX
+# define REBOUND_MAX 100
+#endif
 
+int	get_color(t_scene scene, t_vector ray, int nb_rebound)
+{
+	t_hit	hit;
+	t_color	color;
+
+	if (nb_rebound == 0)
+		return (BACKGROUND_COLOR);
 	hit = intersection(scene, ray);
 	if (hit.dist == -1)
 		return (BACKGROUND_COLOR);
+	else if (hit.mirror == true)
+		return (mirror(scene, ray, hit, nb_rebound));
 	color = light(scene, hit);
 	return (create_rgb(color.r, color.g, color.b));
 }
@@ -63,7 +71,7 @@ void	create_img(t_data *data, t_scene scene)
 		while (x < scene.res.x)
 		{
 			ray = new_ray(scene.cam->content, scene, x, y);
-			color = get_color(scene, ray);
+			color = get_color(scene, ray, REBOUND_MAX);
 			put_color(data, x, y, color);
 			x++;
 		}

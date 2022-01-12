@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst.h                                              :+:      :+:    :+:   */
+/*   mirror.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:50:12 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 22:34:34 by spoliart         ###   ########.fr       */
+/*   Created: 2022/01/11 16:23:23 by spoliart          #+#    #+#             */
+/*   Updated: 2022/01/11 16:23:33 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LST_H
-# define LST_H
+#include "minirt.h"
 
-typedef struct s_lst
+int	mirror(t_scene scene, t_vector ray, t_hit hit, int nb_rebound)
 {
-	int				id;
-	void			*object;
-	struct s_list	*next;
-}				t_lst;
+	t_vector	reflect;
 
-t_lst	*lstnew(void *object, int id);
-void	lst_addfront(t_lst **alst, t_lst *new);
-void	lstclear(t_lst **alst, void (*del)(void *));
-void	lstdelone(t_lst *lst, void (*del)(void *));
-
-#endif
+	reflect.dir = v_sub(ray.dir, v_scale(hit.normal.dir,
+				2 * v_dot(hit.normal.dir, ray.dir)));
+	reflect.origin = v_add(hit.normal.origin, v_scale(hit.normal.dir, 0.00001));
+	return (get_color(scene, reflect, nb_rebound - 1));
+}

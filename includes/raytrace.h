@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst.h                                              :+:      :+:    :+:   */
+/*   raytrace.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:50:12 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 22:34:34 by spoliart         ###   ########.fr       */
+/*   Created: 2022/01/11 16:24:07 by spoliart          #+#    #+#             */
+/*   Updated: 2022/01/11 16:25:48 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LST_H
-# define LST_H
+#ifndef RAYTRACE_H
+# define RAYTRACE_H
 
-typedef struct s_lst
-{
-	int				id;
-	void			*object;
-	struct s_list	*next;
-}				t_lst;
+/*	LIGHT	*/
+t_color	light(t_scene scene, t_hit hit);
+int		is_shaded(t_scene scene, t_hit hit, t_light *light);
 
-t_lst	*lstnew(void *object, int id);
-void	lst_addfront(t_lst **alst, t_lst *new);
-void	lstclear(t_lst **alst, void (*del)(void *));
-void	lstdelone(t_lst *lst, void (*del)(void *));
+/*	MIRROR	*/
+int	mirror(t_scene scene, t_vector ray, t_hit hit, int nb_rebound);
 
 #endif

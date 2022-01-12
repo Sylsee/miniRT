@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light.h                                           :+:      :+:    :+:   */
+/*   maths.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 19:27:50 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/09 19:35:00 by spoliart         ###   ########.fr       */
+/*   Created: 2022/01/10 16:24:33 by spoliart          #+#    #+#             */
+/*   Updated: 2022/01/10 16:24:42 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHADOW_H
-# define SHADOW_H
+#include "minirt.h"
 
-t_color	light(t_scene scene, t_hit hit);
+double	min(double a, double b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}
 
-#endif
+double	max(double a, double b)
+{
+	if (a < b)
+		return (b);
+	return (a);
+}

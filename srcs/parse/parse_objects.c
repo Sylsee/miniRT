@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:53:58 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/06 15:55:44 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/11 17:04:51 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	parse_sphere(t_scene *scene, char **line)
 	sphere->pos = parse_point(line[1], line[2], line[3]);
 	sphere->diameter = ft_atof(line[4]);
 	sphere->color = parse_color(line[5], line[6], line[7]);
+	sphere->mirror = ft_atoi(line[8]);
 	lst_addfront(&(scene->obj), lstnew(sphere, SPHERE));
 }
 
@@ -37,6 +38,7 @@ void	parse_plane(t_scene *scene, char **line)
 	if (check_orientation(plane->dir))
 		internal_error("Orientation must be a number beetween -1 and 1");
 	plane->color = parse_color(line[7], line[8], line[9]);
+	plane->mirror = ft_atoi(line[10]);
 	lst_addfront(&(scene->obj), lstnew(plane, PLANE));
 }
 

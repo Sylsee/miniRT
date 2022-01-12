@@ -44,10 +44,13 @@ I		=	-Iincludes -Ilib/minilibx -I/usr/include
 
 # [ SOURCES ] #
 
-OBJECTS	=	inter_sphere.c
+OBJECTS	=	inter_sphere.c \
+			inter_plane.c
 
 RAYTRACING	=	$(OBJECTS) \
-				light.c
+				light.c \
+				shadow.c \
+				mirror.c
 
 IMAGE	=	image.c \
 			color.c \
@@ -62,7 +65,8 @@ UTILS	=	lst.c \
 			error.c
 
 MATH	=	vector_calculs.c \
-			points.c
+			points.c \
+			maths.c
 
 EVENT	=	init_mlx_events.c \
 			mlx_exit.c \

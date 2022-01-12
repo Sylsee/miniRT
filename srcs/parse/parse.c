@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/08 21:59:13 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/10 16:57:52 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static int	parse_line(t_scene *scene, char *line)
 {
 	int			i;
 	char		**data;
-	const char	*obj_name[] = {"sp", "pl", "sq", "cy", "tr", "R", "A", "c",
-		"l", NULL};
+	const char	*obj_name[] = {"sp", "pl", "sq", "cy", "tr", "R", "A", "C",
+		"L", NULL};
 	void		(*obj_func[])(t_scene *, char **) = {&parse_sphere,
 		&parse_plane, &parse_square, &parse_cylinder, &parse_triangle,
 		&parse_resolution, &parse_ambient, &parse_camera, &parse_light};
