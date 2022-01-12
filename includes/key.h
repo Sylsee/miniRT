@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 17:10:27 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 08:57:58 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/11 18:02:31 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define KEY_H
 
 # define ESC	65307
+# define Q_KEY	113
+# define E_KEY	101
 
 #endif
