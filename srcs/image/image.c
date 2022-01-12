@@ -6,13 +6,13 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 22:30:50 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/12 17:04:54 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_hit	intersection(t_scene scene, t_vector ray)
+t_hit	intersection(t_scene scene, t_vector ray, int mode)
 {
 	bool	has_inter;
 	t_hit	t;
@@ -25,11 +25,11 @@ t_hit	intersection(t_scene scene, t_vector ray)
 	{
 		has_inter = false;
 		if (tmp->id == SPHERE)
-			has_inter = inter_sphere(tmp->object, ray, &t);
-/*		else if (tmp->id == PLANE)
-			has_inter = inter_plane(tmp->object, ray, &t);
-		else if (tmp->id == CYLINDER)
-			has_inter = inter_cylinder(tmp->object, ray, &t);
+			has_inter = inter_sphere(tmp->object, ray, &t, mode);
+		else if (tmp->id == PLANE)
+			has_inter = inter_plane(tmp->object, ray, &t, mode);
+/*		else if (tmp->id == CYLINDER)
+			has_inter = inter_cylinder(tmp->object, ray, &t, mode);
 */		if (has_inter == true && (t_min.dist == -1 || t.dist < t_min.dist))
 			t_min = t;
 		tmp = tmp->next;
@@ -48,7 +48,7 @@ int	get_color(t_scene scene, t_vector ray, int nb_rebound)
 
 	if (nb_rebound == 0)
 		return (BACKGROUND_COLOR);
-	hit = intersection(scene, ray);
+	hit = intersection(scene, ray, 1);
 	if (hit.dist == -1)
 		return (BACKGROUND_COLOR);
 	else if (hit.mirror == true)

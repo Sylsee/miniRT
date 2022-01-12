@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shadow.c                                           :+:      :+:    :+:   */
+/*   select_object.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 14:24:11 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/12 17:25:27 by spoliart         ###   ########.fr       */
+/*   Created: 2022/01/12 16:55:28 by spoliart          #+#    #+#             */
+/*   Updated: 2022/01/12 21:51:48 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	is_shaded(t_scene scene, t_hit hit, t_light *light)
+void	select_object(int x, int y, t_scene *scene)
 {
 	t_vector	ray;
-	t_hit		obj_hit;
-	double		light_dist;
+	t_hit		hit;
 
-	ray.dir = get_normalize(v_sub(light->pos, hit.normal.origin));
-	ray.origin = v_add(hit.normal.origin, v_scale(ray.dir, 0.000000001));
-	light_dist = sqrt(get_norm2(v_sub(light->pos, hit.normal.origin)));
-	obj_hit = intersection(scene, ray, 3);
-	if (obj_hit.dist == -1 || obj_hit.dist > light_dist)
-		return (1);
-	return (0);
+	ray = new_ray(scene.cam->content, scene, x, y);
+	hit = intersection(scene, ray, 2);
+	if (hit.dist == -1)
+		return ;
+	scene->id_current_obj = hit->type;
+	scene->current_obj = hit->object;
 }

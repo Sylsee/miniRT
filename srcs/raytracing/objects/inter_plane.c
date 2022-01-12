@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:26:32 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 18:52:25 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/12 21:46:55 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static double	f_abs(double n)
 	return (n);
 }
 
-static bool	get_hit_infos(t_plane *p, t_vector ray, t_hit *hit)
+static void	get_hit_infos(t_plane *p, t_vector ray, t_hit *hit)
 {
 	t_p3	s1;
 	t_p3	s2;
@@ -33,10 +33,9 @@ static bool	get_hit_infos(t_plane *p, t_vector ray, t_hit *hit)
 		hit->normal.dir = p->dir;
 	else
 		hit->normal.dir = v_scale(p->dir, -1);
-	return (true);
 }
 
-bool	inter_plane(t_plane *p, t_vector ray, t_hit *hit)
+bool	inter_plane(t_plane *p, t_vector ray, t_hit *hit, int mode)
 {
 	double	denom;
 
@@ -45,7 +44,16 @@ bool	inter_plane(t_plane *p, t_vector ray, t_hit *hit)
 	{
 		hit->dist = v_dot(v_sub(p->pos, ray.origin), p->dir) / denom;
 		if (hit->dist >= 0)
-			return (get_hit_infos(p, ray, hit));
+		{
+			if (mode == 1)
+				get_hit_infos(p, ray, hit);
+			else if (mode == 2)
+			{
+				hit->type = PLANE;
+				hit->object = p;
+			}
+			return (true);
+		}
 	}
 	return (false);
 }
