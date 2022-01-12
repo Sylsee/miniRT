@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/11 22:50:38 by spoliart         ###   ########.fr        #
+#    Updated: 2022/01/11 09:01:53 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,12 +68,17 @@ MATH	=	vector_calculs.c \
 			points.c \
 			maths.c
 
+EVENT	=	init_mlx_events.c \
+			mlx_exit.c \
+
+
 SRCS	=	main.c \
 			$(UTILS) \
 			$(PARSING) \
 			$(IMAGE) \
 			$(RAYTRACING) \
-			$(MATH)
+			$(MATH)\
+			$(EVENT) \
 
 # [ OBJECTS ] #
 
@@ -81,7 +86,7 @@ OBJS	=	$(SRCS:%=$O%.o)
 
 # [ PATH ] #
 
-VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths
+VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths:srcs/events
 
 # [ RULES ] #
 

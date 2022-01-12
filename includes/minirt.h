@@ -6,7 +6,6 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 17:02:36 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +32,16 @@ typedef struct s_data
 # include "scene.h"
 # include "image.h"
 # include "maths.h"
-# include <math.h>
+# include "events.h"
 # include "parsing.h"
 # include "error.h"
 # include "objects.h"
+# include "key.h"
 # include "raytrace.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <math.h>
 
 void	minirt(int argc, char **argv);
 
