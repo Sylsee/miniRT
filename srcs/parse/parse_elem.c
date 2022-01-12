@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/10 17:29:51 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/12 22:23:30 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	parse_resolution(t_scene *scene, char **line)
 {
+	if (ft_tablen(line) != 3)
+		internal_error("File format error");
 	scene->res.x = ft_atoi(line[1]);
 	if (scene->res.x > 2560)
 		scene->res.x = 2560;
@@ -28,6 +30,8 @@ void	parse_resolution(t_scene *scene, char **line)
 
 void	parse_ambient(t_scene *scene, char **line)
 {
+	if (ft_tablen(line) != 5)
+		internal_error("File format error");
 	scene->ambient.ratio = ft_atof(line[1]);
 	if (scene->ambient.ratio < 0 || scene->ambient.ratio > 1)
 		internal_error("Ratio must be a number beetween 0 and 1");
@@ -38,6 +42,8 @@ void	parse_camera(t_scene *scene, char **line)
 {
 	t_cam	*cam;
 
+	if (ft_tablen(line) != 8)
+		internal_error("File format error");
 	cam = alloc(sizeof(t_cam), NULL);
 	if (!cam)
 		internal_error("unable to allocate memory");
@@ -55,6 +61,8 @@ void	parse_light(t_scene *scene, char **line)
 {
 	t_light	*light;
 
+	if (ft_tablen(line) != 8)
+		internal_error("File format error");
 	light = alloc(sizeof(t_light), NULL);
 	if (!light)
 		internal_error("unable to allocate memory");
