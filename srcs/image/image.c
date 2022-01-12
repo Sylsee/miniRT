@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 22:30:50 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/12 22:50:37 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ t_hit	intersection(t_scene scene, t_vector ray)
 		has_inter = false;
 		if (tmp->id == SPHERE)
 			has_inter = inter_sphere(tmp->object, ray, &t);
-/*		else if (tmp->id == PLANE)
+		else if (tmp->id == PLANE)
 			has_inter = inter_plane(tmp->object, ray, &t);
-		else if (tmp->id == CYLINDER)
+/*		else if (tmp->id == CYLINDER)
 			has_inter = inter_cylinder(tmp->object, ray, &t);
 */		if (has_inter == true && (t_min.dist == -1 || t.dist < t_min.dist))
 			t_min = t;
