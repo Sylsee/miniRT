@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.h                                              :+:      :+:    :+:   */
+/*   init_mlx_events.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/29 17:10:27 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 08:57:58 by arguilla         ###   ########.fr       */
+/*   Created: 2022/01/11 09:00:59 by arguilla          #+#    #+#             */
+/*   Updated: 2022/01/11 09:02:07 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_H
-# define KEY_H
+#include "minirt.h"
 
-# define ESC	65307
-
-#endif
+void	init_mlx_events(t_data *data)
+{
+	mlx_hook(data->win, 33, 0, &destroy_window, data);
+	mlx_key_hook(data->win, &exit_window, data);
+}
