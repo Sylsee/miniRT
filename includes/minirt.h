@@ -37,7 +37,6 @@ typedef struct s_data
 # include "error.h"
 # include "objects.h"
 # include "key.h"
-# include "light.h"
 # include "raytrace.h"
 # include <sys/types.h>
 # include <sys/stat.h>
