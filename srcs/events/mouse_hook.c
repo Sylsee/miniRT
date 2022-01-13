@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:14:53 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/13 21:39:04 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/14 00:44:08 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static int	select_object(int x, int y, t_scene *scene)
 	t_vector	ray;
 	t_hit		hit;
 
-	printf("scene: [%p]\n", scene);
 	ray = new_ray(scene->cam->content, *scene, x, y);
 	hit = intersection(*scene, ray, 2);
 	if (hit.dist == -1)
@@ -54,7 +53,6 @@ static int	select_object(int x, int y, t_scene *scene)
 
 int	mouse_hook(int mouse_code, int x, int y, t_minirt *minirt)
 {
-	printf("scene: [%p]\n", minirt->scene);
 	if (mouse_code == RIGHT_CLICK || mouse_code == LEFT_CLICK)
 	{
 		if (select_object(x, y, minirt->scene) != 0
@@ -66,7 +64,8 @@ int	mouse_hook(int mouse_code, int x, int y, t_minirt *minirt)
 				manage_cylinder(minirt->scene->current_obj, mouse_code);
 			create_img(minirt->data, *(minirt->scene));
 			mlx_clear_window(minirt->data->mlx, minirt->data->win);
-			mlx_put_image_to_window(minirt->data->mlx, minirt->data->win, minirt->data->img, 0, 0);
+			mlx_put_image_to_window(minirt->data->mlx, minirt->data->win,
+				minirt->data->img, 0, 0);
 		}
 	}
 	return (0);
