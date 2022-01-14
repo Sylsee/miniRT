@@ -6,13 +6,12 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 20:27:38 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/11 20:43:51 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/14 16:12:56 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_H
 # define DATA_H
-
 
 typedef struct s_lst
 {

@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 17:33:54 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/14 15:48:31 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static int	parse_line(t_scene *scene, char *line)
 
 static void	init_scene(t_scene *scene)
 {
+	scene->camera_mode = TRANSLATION;
 	scene->res.x = 0;
 	scene->res.y = 0;
 	scene->ambient.ratio = 0;
