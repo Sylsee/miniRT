@@ -33,15 +33,17 @@ typedef struct s_data
 # include "scene.h"
 # include "image.h"
 # include "maths.h"
-# include <math.h>
+# include "events.h"
 # include "parsing.h"
 # include "error.h"
 # include "objects.h"
+# include "key.h"
 # include "raytrace.h"
 # include "event.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <math.h>
 
 void	minirt(int argc, char **argv);
 

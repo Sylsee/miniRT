@@ -41,6 +41,7 @@ typedef struct	s_square
 	t_p3		pos;
 	t_p3		dir;
 	t_color		color;
+	bool		mirror;
 }				t_square;
 
 typedef struct	s_cylinder
@@ -50,6 +51,7 @@ typedef struct	s_cylinder
 	t_p3		pos;
 	t_p3		dir;
 	t_color		color;
+	bool		mirror;
 }				t_cylinder;
 
 typedef struct	s_triangle
@@ -58,6 +60,7 @@ typedef struct	s_triangle
 	t_p3		second;
 	t_p3		third;
 	t_color		color;
+	bool		mirror;
 }				t_triangle;
 
 bool	inter_sphere(t_sphere *s, t_vector ray, t_hit *hit, int mode);

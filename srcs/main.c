@@ -40,6 +40,7 @@ void	init_mlx(t_data *data, t_scene scene)
 		internal_error("unable to create minilibx image");
 	data->data = mlx_get_data_addr(data->img, &data->pixel_bits,
 			&data->line_bytes, &data->endian);
+	init_mlx_events(data);
 }
 
 void	set_img(t_data *data, t_scene *scene)
@@ -52,6 +53,7 @@ void	set_img(t_data *data, t_scene *scene)
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	mlx_loop(data->mlx);
 }
+
 
 void	minirt(int argc, char **argv)
 {
