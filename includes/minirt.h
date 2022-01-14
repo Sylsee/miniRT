@@ -6,6 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
+/*   Updated: 2022/01/13 16:24:12 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +39,7 @@ typedef struct s_data
 # include "objects.h"
 # include "key.h"
 # include "raytrace.h"
+# include "event.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>

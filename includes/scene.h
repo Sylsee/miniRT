@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 22:33:27 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/13 14:56:07 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct s_scene
 	t_list		*light;
 	t_list		*cam;
 	t_lst		*obj;
+	int			id_current_obj;
+	void		*current_obj;
 }				t_scene;
 
 #endif

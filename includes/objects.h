@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 21:54:18 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/12 22:50:55 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/13 14:19:33 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct	s_triangle
 	bool		mirror;
 }				t_triangle;
 
-bool	inter_sphere(t_sphere *s, t_vector ray, t_hit *hit);
-bool	inter_plane(t_plane *p, t_vector ray, t_hit *hit);
+bool	inter_sphere(t_sphere *s, t_vector ray, t_hit *hit, int mode);
+bool	inter_plane(t_plane *p, t_vector ray, t_hit *hit, int mode);
 
 #endif

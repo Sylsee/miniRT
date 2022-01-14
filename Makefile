@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/11 09:01:53 by arguilla         ###   ########.fr        #
+#    Updated: 2022/01/13 16:54:46 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,15 +70,15 @@ MATH	=	vector_calculs.c \
 
 EVENT	=	init_mlx_events.c \
 			mlx_exit.c \
-
+			mouse_hook.c
 
 SRCS	=	main.c \
 			$(UTILS) \
 			$(PARSING) \
 			$(IMAGE) \
 			$(RAYTRACING) \
-			$(MATH)\
-			$(EVENT) \
+			$(MATH) \
+			$(EVENT)
 
 # [ OBJECTS ] #
 
@@ -108,11 +108,13 @@ $O%.o:		%	| $O
 
 clean:
 			@make -s clean -C $(LIBFT)
+			@make -s clean -C $(LIBX)
 			@$(RM) $O
 			@printf "$(_RED) '$O' has been deleted. $(_END)🗑️\n"
 
 fclean:		clean
 			@make -s fclean -C $(LIBFT)
+			@make -s clean -C $(LIBX)
 			@$(RM) $(NAME)
 			@printf "$(_RED) '$(NAME)' has been deleted. $(_END)🗑️\n"
 
