@@ -7,5 +7,5 @@
 ## spoliart part :
 - Refaire le parsing
 - ~~Gestion lumiere ambiante~~, ~~spot~~, ~~ombres~~
-- Intersection objets
+- Intersection objets (~~sphere, plan~~, cylindre)
 - BONUS: Mirroir, lumiere phong, ~~multi spots~~, ~~lumiere coloree~~
