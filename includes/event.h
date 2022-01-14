@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/13 23:33:48 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/14 01:12:19 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_minirt
 
 int		destroy_window(t_data *data);
 int		exit_window(int keycode, t_data *data);
-void	init_mlx_events(t_minirt *minirt);
+void	init_mlx_events(t_data *data, t_scene *scene);
 int		mouse_hook(int mouse_code, int x, int y, t_minirt *minirt);
 
 #endif

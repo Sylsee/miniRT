@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/13 16:24:12 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/14 01:09:54 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct s_data
 # include "scene.h"
 # include "image.h"
 # include "maths.h"
-# include "events.h"
 # include "parsing.h"
 # include "error.h"
 # include "objects.h"
