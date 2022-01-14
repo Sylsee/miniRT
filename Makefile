@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/11 17:52:55 by arguilla         ###   ########.fr        #
+#    Updated: 2022/01/14 13:02:11 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ MATH	=	vector_calculs.c \
 EVENT	=	init_mlx_events.c \
 			mlx_exit.c \
 			cameras_event.c \
+			update_window.c \
 
 LST		=	lst.c \
 			cam_lst.c \
