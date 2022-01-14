@@ -2,7 +2,7 @@
 - ~~Gestion de fenetre~~
 - ~~Selection objets~~ et appliquer changement souhaite
 - ~~Gestion des objets en cliquant dessus (voir fonction intersection)~~
-- Gestion multicam
+- ~~Gestion multicam~~
 
 ## spoliart part :
 - ~~Refaire le parsing~~
