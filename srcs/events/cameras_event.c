@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:52:24 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/14 16:11:14 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/14 16:49:50 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,52 @@ static bool	is_movement_keycode(int keycode)
 
 # define MOVE_SIZE 1
 
-# define X_MOVE_SIZE MOVE_SIZE
-# define Y_MOVE_SIZE MOVE_SIZE
-# define Z_MOVE_SIZE MOVE_SIZE
+# define X_TRANSLATION_SIZE MOVE_SIZE
+# define Y_TRANSLATION_SIZE MOVE_SIZE
+# define Z_TRANSLATION_SIZE MOVE_SIZE
+# define X_ROTATION_SIZE 0.1
+# define Y_ROTATION_SIZE 0.1
+# define Z_ROTATION_SIZE 0.1
+
+static void	init_coord(t_p3 **coord, t_p3 *size, t_scene *scene)
+{
+	if (scene->camera_mode == TRANSLATION)
+	{
+		*coord = &scene->cam->origin;
+		size->x = X_TRANSLATION_SIZE;
+		size->y = Y_TRANSLATION_SIZE;
+		size->z = Z_TRANSLATION_SIZE;
+	}
+	else
+	{
+		*coord = &scene->cam->dir;
+		size->x = X_ROTATION_SIZE;
+		size->y = Y_ROTATION_SIZE;
+		size->z = Z_ROTATION_SIZE;
+	}
+}
+
 static void	move_camera(int keycode, t_minirt *minirt)
 {
 	t_p3	*coord;
+	t_p3	size;
 
-	if (minirt->scene->camera_mode == TRANSLATION )
-		coord = &minirt->scene->cam->origin;
-	else
-		coord = &minirt->scene->cam->dir;
+	init_coord(&coord, &size, minirt->scene);
 	if (keycode == D_KEY)
-		coord->x += X_MOVE_SIZE;
+		coord->x += size.x;
 	else if (keycode == A_KEY)
-		coord->x -= X_MOVE_SIZE;
+		coord->x -= size.x;
 	else if (keycode == W_KEY)
-		coord->y += Y_MOVE_SIZE;
+		coord->y += size.y;
 	else if (keycode == S_KEY)
-		coord->y -= Y_MOVE_SIZE;
+		coord->y -= size.y;
 	else if (keycode == R_KEY)
-		coord->z += Z_MOVE_SIZE;
+		coord->z += size.z;
 	else if (keycode == T_KEY)
-		coord->z -= Z_MOVE_SIZE;
+		coord->z -= size.z;
+	if (minirt->scene->cam->dir.x == 0
+		&& minirt->scene->cam->dir.y != 0 && minirt->scene->cam->dir.z == 0)
+		minirt->scene->cam->dir.x = 0.000000001;
 	update_window(minirt);
 }
 
