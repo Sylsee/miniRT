@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 17:10:27 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/14 17:20:21 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 22:35:14 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@
 # define LEFT_KEY	65361
 # define DOWN_KEY	65364
 # define RIGHT_KEY	65363
-# define TAB_KEY	65289
+# define O_KEY	111
+# define P_KEY 112
+# define TAB_KEY 65289
+# define SHIFT_KEY 65505
 #endif

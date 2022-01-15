@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:00:59 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 17:10:09 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 22:10:01 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ static void	switch_object_type(int keycode, t_scene *scene)
 
 static int	key_events(int keycode, t_minirt *minirt)
 {
+//	printf("%d\n", keycode);
 	exit_window(keycode, minirt->data);
 	switch_object_type(keycode, minirt->scene);
+	if (minirt->scene->obj && minirt->scene->obj->object)
+		objects_event(keycode, minirt);
 	if (minirt->scene->object_type == CAMERA)
 		cameras_event(keycode, minirt);
 	else if (minirt->scene->object_type == LIGHT)
 		lights_event(keycode, minirt);
-	printf("%d\n", keycode);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:52:24 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 20:26:48 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 22:37:23 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	cameras_event(int keycode, t_minirt *minirt)
 {
 	if ((keycode == Q_KEY || keycode == E_KEY) && minirt->scene->cam->next)
 		switch_camera(keycode, minirt);
-	if (keycode == CAPS_KEY)
+	else if (keycode == CAPS_KEY)
 		minirt->scene->camera_mode = !minirt->scene->camera_mode;
-	if (is_movement_keycode(keycode))
+	else if (is_movement_keycode(keycode))
 		move_camera(keycode, minirt);
 }

@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/15 18:50:39 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 21:01:00 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_scene
 {
 	bool		camera_mode;
 	bool		object_type;
+	bool		object_mode;
 	t_couple	res;
 	t_light		ambient;
 	t_list		*current_light;

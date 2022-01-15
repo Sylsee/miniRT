@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:56:59 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 20:27:48 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 22:37:38 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	lights_event(int keycode, t_minirt *minirt)
 	if ((keycode == Q_KEY || keycode == E_KEY)
 		&& minirt->scene->current_light)
 		switch_light(minirt->scene);
-	if (is_movement_keycode(keycode))
+	else if (is_movement_keycode(keycode))
 		move_light(keycode, minirt);
 }
