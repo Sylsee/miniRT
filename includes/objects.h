@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 21:54:18 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/23 17:57:29 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/15 23:09:04 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # define SQUARE 3
 # define CYLINDER 4
 # define TRIANGLE 5
+
+# define SPHERE_DIAMETER_SIZE 1
+# define CYLINDER_WIDTH_SIZE 1
+# define CYLINDER_HEIGHT_SIZE 1
 
 typedef struct	s_sphere
 {
