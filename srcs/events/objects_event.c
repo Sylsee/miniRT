@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 20:42:14 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 23:24:10 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 23:34:25 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	get_object_dir(t_p3 **coord, t_lst *obj)
 
 static void	get_object_pos(t_p3 **coord, t_lst *obj)
 {
-	
 	if (obj->id == SPHERE)
 		*coord = &((t_sphere *)obj->object)->pos;
 	else if (obj->id == PLANE)
@@ -38,7 +37,6 @@ static void	get_object_pos(t_p3 **coord, t_lst *obj)
 	else
 		*coord = NULL;
 }
-
 
 static void	init_coord(t_p3 **coord, t_p3 *size, t_scene *scene)
 {
@@ -84,60 +82,12 @@ static void	move_object(int keycode, t_minirt *minirt)
 	update_window(minirt);
 }
 
-static void	update_sphere_property(int keycode, t_minirt *minirt)
-{
-	t_lst *obj;
-
-	obj = minirt->scene->obj;
-	if (keycode == K_KEY)
-		((t_sphere *)obj->object)->diameter += SPHERE_DIAMETER_SIZE;
-	else if (keycode == J_KEY)
-		((t_sphere *)obj->object)->diameter -= SPHERE_DIAMETER_SIZE;
-	update_window(minirt);
-}
-
-static void	update_cylinder_property(int keycode, t_minirt *minirt)
-{
-	t_lst *obj;
-
-	obj = minirt->scene->obj;
-	if (keycode == K_KEY)
-		((t_cylinder *)obj->object)->diameter += CYLINDER_WIDTH_SIZE;
-	else if (keycode == J_KEY)
-		((t_cylinder *)obj->object)->diameter -= CYLINDER_WIDTH_SIZE;
-	else if (keycode == L_KEY)
-		((t_cylinder *)obj->object)->height += CYLINDER_HEIGHT_SIZE;
-	else if (keycode == H_KEY)
-		((t_cylinder *)obj->object)->height -= CYLINDER_HEIGHT_SIZE;
-	update_window(minirt);
-}
-
-static void	update_object_property(int keycode, t_minirt *minirt)
-{
-	t_lst	*obj;
-
-	obj = minirt->scene->obj;
-	if (obj->id == SPHERE)
-		update_sphere_property(keycode, minirt);
-	else if (obj->id == CYLINDER)
-		update_cylinder_property(keycode, minirt);
-}
-
-static bool	is_object_property_keycode(int keycode)
-{
-	return (keycode == H_KEY || keycode == J_KEY || keycode == K_KEY
-			|| keycode == L_KEY);
-}
-
 void	objects_event(int keycode, t_minirt *minirt)
 {
-	printf("%d\n", keycode);
 	if (keycode == SHIFT_KEY)
 		minirt->scene->object_mode = !minirt->scene->object_mode;
 	else if (is_object_movement_keycode(keycode))
 		move_object(keycode, minirt);
-	else if (is_object_property_keycode(keycode))
-	{printf("increase_");
-	fflush(stdout);
-		update_object_property(keycode, minirt);}
+	else if (is_object_properties_keycode(keycode))
+		update_object_properties(keycode, minirt);
 }

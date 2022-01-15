@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/15 20:46:38 by arguilla         ###   ########.fr        #
+#    Updated: 2022/01/15 23:26:32 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ EVENT	=	init_mlx_events.c \
 			lights_event.c \
 			objects_event.c \
 			update_window.c \
+			object_properties.c \
 			is_movement_keycode.c \
 
 LST		=	lst.c \
