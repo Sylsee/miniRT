@@ -6,13 +6,13 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:52:24 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/14 16:49:50 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 20:26:48 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void switch_camera(int keycode, t_minirt *minirt)
+static void	switch_camera(int keycode, t_minirt *minirt)
 {
 	if (keycode == Q_KEY)
 		minirt->scene->cam = minirt->scene->cam->next;
@@ -20,21 +20,6 @@ static void switch_camera(int keycode, t_minirt *minirt)
 		minirt->scene->cam = minirt->scene->cam->prev;
 	update_window(minirt);
 }
-
-static bool	is_movement_keycode(int keycode)
-{
-	return (keycode == W_KEY || keycode == A_KEY || keycode == S_KEY
-			|| keycode == D_KEY || keycode == R_KEY || keycode == T_KEY);
-}
-
-# define MOVE_SIZE 1
-
-# define X_TRANSLATION_SIZE MOVE_SIZE
-# define Y_TRANSLATION_SIZE MOVE_SIZE
-# define Z_TRANSLATION_SIZE MOVE_SIZE
-# define X_ROTATION_SIZE 0.1
-# define Y_ROTATION_SIZE 0.1
-# define Z_ROTATION_SIZE 0.1
 
 static void	init_coord(t_p3 **coord, t_p3 *size, t_scene *scene)
 {
@@ -78,7 +63,7 @@ static void	move_camera(int keycode, t_minirt *minirt)
 	update_window(minirt);
 }
 
-int	cameras_event(int keycode, t_minirt *minirt)
+void	cameras_event(int keycode, t_minirt *minirt)
 {
 	if ((keycode == Q_KEY || keycode == E_KEY) && minirt->scene->cam->next)
 		switch_camera(keycode, minirt);
@@ -86,5 +71,4 @@ int	cameras_event(int keycode, t_minirt *minirt)
 		minirt->scene->camera_mode = !minirt->scene->camera_mode;
 	if (is_movement_keycode(keycode))
 		move_camera(keycode, minirt);
-	return (1);
 }

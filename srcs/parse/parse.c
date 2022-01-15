@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/14 15:48:31 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 20:30:29 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static int	parse_line(t_scene *scene, char *line)
 static void	init_scene(t_scene *scene)
 {
 	scene->camera_mode = TRANSLATION;
+	scene->object_type = CAMERA;
 	scene->res.x = 0;
 	scene->res.y = 0;
 	scene->ambient.ratio = 0;
@@ -61,6 +62,7 @@ static void	init_scene(t_scene *scene)
 	scene->ambient.color.g = 0;
 	scene->ambient.color.b = 0;
 	scene->light = NULL;
+	scene->current_light = NULL;
 	scene->cam = NULL;
 	scene->obj = NULL;
 }
@@ -90,5 +92,7 @@ t_scene	parsing(char *file)
 	}
 	close(fd);
 	link_cam_lst(scene.cam);
+	if (scene.light && scene.light->content)
+		scene.current_light = scene.light;
 	return (scene);
 }

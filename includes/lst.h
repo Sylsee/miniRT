@@ -6,13 +6,12 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:50:12 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 20:32:18 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/14 17:29:06 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LST_H
 # define LST_H
-
 
 t_lst	*lstnew(void *object, int id);
 void	lst_addfront(t_lst **alst, t_lst *new);

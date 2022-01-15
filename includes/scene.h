@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/14 16:12:42 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 18:50:39 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # define TRANSLATION true
 # define ROTATION false
+# define CAMERA true
+# define LIGHT	false
 
 typedef struct s_color
 {
@@ -62,8 +64,10 @@ typedef struct s_cam
 typedef struct s_scene
 {
 	bool		camera_mode;
+	bool		object_type;
 	t_couple	res;
 	t_light		ambient;
+	t_list		*current_light;
 	t_list		*light;
 	t_cam		*cam;
 	t_lst		*obj;

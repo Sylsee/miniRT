@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/14 15:28:42 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/14 22:12:33 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ void	set_img(t_data data)
 //	mlx_hook(data->win, 33, 0, close_window, &data);
 //	mlx_key_hook(data->win, key_hook, &data);
 	mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
+	int color = 0xFFFFFF;
+	mlx_string_put(data.mlx, data.win, 5, 5, color, "BONJOUR");
+
 	mlx_loop(data.mlx);
 }
 

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/14 13:02:21 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/15 16:37:25 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 int		destroy_window(t_data *data);
 int		exit_window(int keycode, t_data *data);
-int		cameras_event(int keycode, t_minirt *minirt);
+void	cameras_event(int keycode, t_minirt *minirt);
 void	init_mlx_events(t_minirt *minirt);
 void	update_window(t_minirt *minirt);
+bool	is_movement_keycode(int keycode);
+void	lights_event(int keycode, t_minirt *minirt);
 
 #endif

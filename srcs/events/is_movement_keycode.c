@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   update_window.c                                    :+:      :+:    :+:   */
+/*   is_movement_keycode.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 13:00:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 20:26:15 by arguilla         ###   ########.fr       */
+/*   Created: 2022/01/14 17:12:01 by arguilla          #+#    #+#             */
+/*   Updated: 2022/01/15 20:25:11 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	update_window(t_minirt *minirt)
+bool	is_movement_keycode(int keycode)
 {
-	mlx_clear_window(minirt->data->mlx, minirt->data->win);
-	create_img(minirt->data, *(minirt->scene));
-	mlx_put_image_to_window(minirt->data->mlx,
-		minirt->data->win, minirt->data->img, 0, 0);
+	return (keycode == W_KEY || keycode == A_KEY || keycode == S_KEY
+		|| keycode == D_KEY || keycode == R_KEY || keycode == T_KEY);
 }
