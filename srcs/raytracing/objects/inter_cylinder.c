@@ -6,46 +6,49 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 12:04:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/16 01:59:29 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/16 15:47:18 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static bool	get_hit_infos(t_cylinder *cy, t_vector ray, t_hit *hit, double *t)
+static bool	get_hit_infos(t_cylinder *cy, t_hit *hit)
 {
-	double		t_;
-	double		max;
-	t_vector	p;
-
-	if (t[0] > 0)
-		t_ = t[0];
-	else
-		t_ = t[1];
-	max = sqrt(pow(cy->height / 2, 2) + pow(cy->diameter, 2));
-	p.origin = v_add(ray.origin, v_scale(ray.dir, t_));
-	p.dir = v_sub(p.origin, cy->pos);
-	if (get_norm(p.dir) > max)
-	{
-		t_ = t[1];
-		p.origin = v_add(ray.origin, v_scale(ray.dir, t_));
-		p.dir = v_sub(p.origin, cy->pos);
-		if (get_norm(p.dir) > max)
-			return (false);
-	}
 	hit->color = cy->color;
 	hit->mirror = cy->mirror;
-	hit->normal.origin = p.origin;
 	normalize(&hit->normal.dir);
 	return (true);
 }
 
-static double	*solve_determinant(t_cylinder *cy, t_vector ray, double *t)
+static bool	get_dist(t_cylinder *cy, t_vector ray, t_hit *hit, double *t)
+{
+	double		max;
+
+	if (t[0] > 0)
+		hit->dist = t[0];
+	else
+		hit->dist = t[1];
+	max = sqrt(pow(cy->height / 2, 2) + pow(cy->diameter, 2));
+	hit->normal.origin = v_add(ray.origin, v_scale(ray.dir, hit->dist));
+	hit->normal.dir = v_sub(hit->normal.origin, cy->pos);
+	if (get_norm(hit->normal.dir) > max)
+	{
+		hit->dist = t[1];
+		hit->normal.origin = v_add(ray.origin, v_scale(ray.dir, hit->dist));
+		hit->normal.dir = v_sub(hit->normal.origin, cy->pos);
+		if (get_norm(hit->normal.dir) > max)
+			return (false);
+	}
+	return (true);
+}
+
+static bool	solve_determinant(t_cylinder *cy, t_vector ray, t_hit *hit)
 {
 	double	a;
 	double	b;
 	double	c;
 	double	delta;
+	double	t[2];
 
 	a = get_norm2(v_cross(ray.dir, cy->dir));
 	b = 2 * v_dot(v_cross(ray.dir, cy->dir),
@@ -54,22 +57,21 @@ static double	*solve_determinant(t_cylinder *cy, t_vector ray, double *t)
 		- (cy->diameter / 2) * (cy->diameter / 2);
 	delta = b * b - 4 * a * c;
 	if (delta < 0)
-		return (NULL);
+		return (false);
 	t[0] = (-b - sqrt(delta)) / (2 * a);
 	t[1] = (-b + sqrt(delta)) / (2 * a);
-	return (t);
+	return (get_dist(cy, ray, hit, t));
 }
 
 bool	inter_cylinder(t_cylinder *cy, t_vector ray, t_hit *hit, int mode)
 {
-	double	thief[2];
-	double	*t;
+	bool	has_inter;
 
-	t = solve_determinant(cy, ray, thief);
-	if (t != NULL && t[1] > 0)
+	has_inter = solve_determinant(cy, ray, hit);
+	if (has_inter == true)
 	{
 		if (mode == 1)
-			return (get_hit_infos(cy, ray, hit, t));
+			return (get_hit_infos(cy, hit));
 		else if (mode == 2)
 		{
 			hit->type = CYLINDER;

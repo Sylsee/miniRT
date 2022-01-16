@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/15 12:34:21 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/16 15:48:01 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,17 @@ t_hit	intersection(t_scene scene, t_vector ray, int mode)
 int	get_color(t_scene scene, t_vector ray, int nb_rebound)
 {
 	t_hit	hit;
-//	t_color	color;
+	t_color	color;
 
 	if (nb_rebound == 0)
 		return (BACKGROUND_COLOR);
 	hit = intersection(scene, ray, 1);
 	if (hit.dist == -1)
 		return (BACKGROUND_COLOR);
-/*	else if (hit.mirror == true)
+	else if (hit.mirror == true)
 		return (mirror(scene, ray, hit, nb_rebound));
 	color = light(scene, hit);
-*/	return (create_rgb(hit.color.r, hit.color.g, hit.color.b));
+	return (create_rgb(color.r, color.g, color.b));
 }
 
 void	create_img(t_data *data, t_scene scene)
