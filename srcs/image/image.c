@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/12 22:57:10 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/15 12:34:21 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ t_hit	intersection(t_scene scene, t_vector ray, int mode)
 			has_inter = inter_sphere(tmp->object, ray, &t, mode);
 		else if (tmp->id == PLANE)
 			has_inter = inter_plane(tmp->object, ray, &t, mode);
-/*		else if (tmp->id == CYLINDER)
+		else if (tmp->id == CYLINDER)
 			has_inter = inter_cylinder(tmp->object, ray, &t, mode);
-*/		if (has_inter == true && (t_min.dist == -1 || t.dist < t_min.dist))
+		if (has_inter == true && (t_min.dist == -1 || t.dist < t_min.dist))
 			t_min = t;
 		tmp = tmp->next;
 	}
@@ -44,17 +44,17 @@ t_hit	intersection(t_scene scene, t_vector ray, int mode)
 int	get_color(t_scene scene, t_vector ray, int nb_rebound)
 {
 	t_hit	hit;
-	t_color	color;
+//	t_color	color;
 
 	if (nb_rebound == 0)
 		return (BACKGROUND_COLOR);
 	hit = intersection(scene, ray, 1);
 	if (hit.dist == -1)
 		return (BACKGROUND_COLOR);
-	else if (hit.mirror == true)
+/*	else if (hit.mirror == true)
 		return (mirror(scene, ray, hit, nb_rebound));
 	color = light(scene, hit);
-	return (create_rgb(color.r, color.g, color.b));
+*/	return (create_rgb(hit.color.r, hit.color.g, hit.color.b));
 }
 
 void	create_img(t_data *data, t_scene scene)

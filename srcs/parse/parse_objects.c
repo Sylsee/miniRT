@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:53:58 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/12 22:29:04 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/15 12:32:39 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	parse_cylinder(t_scene *scene, char **line)
 {
 	t_cylinder	*cylinder;
 
-	if (ft_tablen(line) != 11 && ft_tablen(line) != 12)
+	if (ft_tablen(line) != 12 && ft_tablen(line) != 13)
 		internal_error("File format error");
 	cylinder = alloc(sizeof(t_cylinder), NULL);
 	if (!cylinder)
