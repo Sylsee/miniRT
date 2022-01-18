@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/15 23:44:08 by arguilla         ###   ########.fr        #
+#    Updated: 2022/01/18 22:07:09 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,8 @@ EVENT	=	init_mlx_events.c \
 			object_properties.c \
 			is_movement_keycode.c \
 			print_status.c \
+			print_objects.c \
+			print_utils.c \
 
 LST		=	lst.c \
 			cam_lst.c \

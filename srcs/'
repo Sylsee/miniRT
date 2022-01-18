@@ -1,0 +1,132 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_status.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/15 23:42:46 by arguilla          #+#    #+#             */
+/*   Updated: 2022/01/18 21:28:22 by arguilla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minirt.h"
+
+#define RESET		"\033[0m"
+#define BLACK		"\033[30m"      /* Black */
+#define RED			"\033[31m"      /* Red */
+#define GREEN		"\033[32m"      /* Green */
+#define YELLOW		"\033[33m"      /* Yellow */
+#define BLUE		"\033[34m"      /* Blue */
+#define MAGENTA		"\033[35m"      /* Magenta */
+#define CYAN		"\033[36m"      /* Cyan */
+#define WHITE		"\033[37m"      /* White */
+#define BOLDBLACK   "\033[1m\033[30m"      /* Bold Black */
+#define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
+#define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
+#define BOLDYELLOW  "\033[1m\033[33m"      /* Bold Yellow */
+#define BOLDBLUE    "\033[1m\033[34m"      /* Bold Blue */
+#define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
+#define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
+#define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
+
+static char	*return_string(bool value, char *s1, char *s2)
+{
+	if (value)
+		return (s1);
+	return (s2);
+}
+
+static void	print_infos(t_scene scene)
+{
+	printf(BOLDCYAN"%s\n", "MINIRT STATUS ");
+	printf(YELLOW"%s"RESET"%s\n", "Camera mode: ",
+		return_string(scene.camera_mode, "translation", "rotation"));
+	printf(YELLOW"%s"RESET"%s\n", "Object type: ",
+		return_string(scene.object_type, "camera", "light"));
+	printf(YELLOW"%s"RESET"%s\n", "Object mode: ",
+		return_string(scene.object_mode, "translation", "rotation"));
+}
+
+static void	print_p3(t_p3 coord, char *title)
+{
+	if (title)
+		printf(GREEN"\t%s\n"RESET, title);
+	printf("\t\t%s%f\n", "x: ", coord.x);
+	printf("\t\t%s%f\n", "y: ", coord.y);
+	printf("\t\t%s%f\n", "z: ", coord.z);
+}
+
+static void	print_camera_infos(t_cam cam)
+{
+	printf(YELLOW"%s\n"RESET, "Camera property:");
+	printf(GREEN"\t%s"RESET"%d\n", "Id: ", cam.id);
+	print_p3(cam.origin, "Origin:");
+	print_p3(cam.dir, "Direction:");
+}
+
+static void	print_light_infos(t_list light)
+{
+	if (light.content.ratio)
+		return ;
+	//t_light	content;
+
+/*	content = *((t_light *)((t_list *)light)->content);
+	printf(YELLOW"%s\n"RESET, "Light property:");
+	printf(GREEN"\t%s"RESET"%f\n", "Ratio: ", content.ratio);
+	print_p3(content.pos, "Origin:");*/
+}
+
+static void	print_object_infos(t_lst obj)
+{
+	printf(YELLOW"%s\n"RESET, "Object property:");
+	if (obj.id == SPHERE)
+	{
+		printf(GREEN"\t%s"RESET"%s\n", "type: ", "sphere");
+		printf(GREEN"\t%s"RESET"%f\n", "Diameter: ",
+			((t_sphere *)obj.object)->diameter);
+		print_p3(((t_sphere *)obj.object)->pos, "Origin:");
+	}
+	else if (obj.id == PLANE)
+	{
+		printf(GREEN"\t%s"RESET"%s\n", "type: ", "plane");
+		print_p3(((t_plane *)obj.object)->pos, "Origin:");
+		print_p3(((t_plane *)obj.object)->dir, "Direction:");
+	}
+	else if (obj.id == SQUARE)
+	{
+		printf(GREEN"\t%s"RESET"%s\n", "type: ", "square");
+		printf(GREEN"\t%s"RESET"%f\n", "Size: ",
+			((t_square *)obj.object)->size);
+		print_p3(((t_square *)obj.object)->pos, "Origin:");
+		print_p3(((t_square *)obj.object)->dir, "Direction:");
+	}
+	else if (obj.id == CYLINDER)
+	{
+		printf(GREEN"\t%s"RESET"%s\n", "type: ", "cylinder");
+		printf(GREEN"\t%s"RESET"%f\n", "Diameter: ",
+			((t_cylinder *)obj.object)->diameter);
+		printf(GREEN"\t%s"RESET"%f\n", "Height: ",
+			((t_cylinder *)obj.object)->height);
+		print_p3(((t_cylinder *)obj.object)->pos, "Origin:");
+		print_p3(((t_cylinder *)obj.object)->dir, "Direction:");
+	}
+	else if (obj.id == TRIANGLE)
+	{
+		printf(GREEN"\t%s"RESET"%s\n", "type: ", "triangle");
+		print_p3(((t_triangle *)obj.object)->first, "First:");
+		print_p3(((t_triangle *)obj.object)->second, "Second:");
+		print_p3(((t_triangle *)obj.object)->third, "Third:");
+	}
+}
+
+void	print_status(t_minirt *minirt)
+{
+	print_infos(*minirt->scene);
+	if (minirt->scene->cam)
+		print_camera_infos(*minirt->scene->cam);	
+	if (minirt->scene->current_light)
+		print_light_infos(*((t_list *)minirt->scene->current_light));
+	if (minirt->scene->obj)
+		print_object_infos(*minirt->scene->obj);
+}

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:52:24 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 22:37:23 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/18 22:16:35 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,17 @@ static void	move_camera(int keycode, t_minirt *minirt)
 	t_p3	size;
 
 	init_coord(&coord, &size, minirt->scene);
+// TODO si coord entre -1 et 1, si coord -1 < x > 0, bug, set a 0 par defaut	
+	// si x et z = 1, decremente x a -1
+	// une fois x a -1, decremente z a -1
+	// donc x et z sont tout deux a -1, le dernier a avoir ete decremente est z donc on switch sur x pour l'incrementer
+	// donc x deviendra 1 et z toujours -1
+	// ensuite z on le decremente pour go a 1, une fois les deux a 1, z etant le dernier modif, on decremente x
+	// on switch entre les deux
+// SI z = -1.0 OU 1, ALORS decremente x  jusqu'a -1.0
+    // SI x = -1, ALORS decremente z jusqu'a -1
+	// SI x = 1, ALORS
+
 	if (keycode == D_KEY)
 		coord->x += size.x;
 	else if (keycode == A_KEY)
@@ -57,6 +68,7 @@ static void	move_camera(int keycode, t_minirt *minirt)
 		coord->z += size.z;
 	else if (keycode == T_KEY)
 		coord->z -= size.z;
+//	normalize(coord);
 	if (minirt->scene->cam->dir.x == 0
 		&& minirt->scene->cam->dir.y != 0 && minirt->scene->cam->dir.z == 0)
 		minirt->scene->cam->dir.x = 0.000000001;
@@ -68,7 +80,10 @@ void	cameras_event(int keycode, t_minirt *minirt)
 	if ((keycode == Q_KEY || keycode == E_KEY) && minirt->scene->cam->next)
 		switch_camera(keycode, minirt);
 	else if (keycode == CAPS_KEY)
+	{
 		minirt->scene->camera_mode = !minirt->scene->camera_mode;
+		print_status(minirt);
+	}
 	else if (is_movement_keycode(keycode))
 		move_camera(keycode, minirt);
 }

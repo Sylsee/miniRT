@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 23:44:22 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/18 22:08:02 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,12 @@ void	update_cylinder_properties(int keycode, t_minirt *minirt);
 void	update_object_properties(int keycode, t_minirt *minirt);
 bool	is_object_properties_keycode(int keycode);
 void	print_status(t_minirt *minirt);
+void	print_sphere(t_sphere *sphere);
+void	print_plane(t_plane *plane);
+void	print_p3(t_p3 coord, char *title);
+void	print_square(t_square *square);
+void	print_cylinder(t_cylinder *cylinder);
+void	print_triangle(t_triangle *triangle);
+char	*return_string(bool value, char *s1, char *s2);
 
 #endif

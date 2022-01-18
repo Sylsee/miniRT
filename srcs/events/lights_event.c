@@ -6,21 +6,22 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:56:59 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 22:37:38 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/18 22:13:34 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void	switch_light(t_scene *scene)
+static void	switch_light(t_minirt *minirt)
 {
-	if (scene->current_light->next == NULL
-		&& scene->current_light == scene->light)
+	if (minirt->scene->current_light->next == NULL
+		&& minirt->scene->current_light == minirt->scene->light)
 		return ;
-	if (scene->current_light->next == NULL)
-		scene->current_light = scene->light;
+	if (minirt->scene->current_light->next == NULL)
+		minirt->scene->current_light = minirt->scene->light;
 	else
-		scene->current_light = scene->current_light->next;
+		minirt->scene->current_light = minirt->scene->current_light->next;
+	print_status(minirt);
 }
 
 static void	move_light(int keycode, t_minirt *minirt)
@@ -49,7 +50,7 @@ void	lights_event(int keycode, t_minirt *minirt)
 {
 	if ((keycode == Q_KEY || keycode == E_KEY)
 		&& minirt->scene->current_light)
-		switch_light(minirt->scene);
+		switch_light(minirt);
 	else if (is_movement_keycode(keycode))
 		move_light(keycode, minirt);
 }

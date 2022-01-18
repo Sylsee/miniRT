@@ -6,93 +6,64 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:42:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/16 00:22:57 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/18 22:31:07 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-#define RESET		"\033[0m"
-#define BLACK		"\033[30m"      /* Black */
-#define RED			"\033[31m"      /* Red */
-#define GREEN		"\033[32m"      /* Green */
-#define YELLOW		"\033[33m"      /* Yellow */
-#define BLUE		"\033[34m"      /* Blue */
-#define MAGENTA		"\033[35m"      /* Magenta */
-#define CYAN		"\033[36m"      /* Cyan */
-#define WHITE		"\033[37m"      /* White */
-#define BOLDBLACK   "\033[1m\033[30m"      /* Bold Black */
-#define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
-#define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
-#define BOLDYELLOW  "\033[1m\033[33m"      /* Bold Yellow */
-#define BOLDBLUE    "\033[1m\033[34m"      /* Bold Blue */
-#define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
-#define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
-#define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
-
-static char	*return_string(bool value, char *s1, char *s2)
+static void	print_infos(t_scene scene)
 {
-	if (value)
-		return (s1);
-	return (s2);
+	printf(BOLDCYAN"\t\t\t%s\n", "MINIRT STATUS ");
+	printf(YELLOW"%s"RESET"%s\n", "Camera mode: ",
+		return_string(scene.camera_mode, "translation", "rotation"));
+	printf(YELLOW"%s"RESET"%s\n", "Object type: ",
+		return_string(scene.object_type, "camera", "light"));
+	printf(YELLOW"%s"RESET"%s\n", "Object mode: ",
+		return_string(scene.object_mode, "translation", "rotation"));
+}
+
+static void	print_camera_infos(t_cam cam)
+{
+	printf(YELLOW"%s\n"RESET, "Camera property:");
+	printf(GREEN"\t%s"RESET"%d\n", "Id: ", cam.id);
+	print_p3(cam.origin, "Origin:");
+	print_p3(cam.dir, "Direction:");
+}
+
+static void	print_light_infos(t_list light)
+{
+	t_light	*content;
+
+	content = ((t_light *)light.content);
+	printf(YELLOW"%s\n"RESET, "Light property:");
+	printf(GREEN"\t%s"RESET"%f\n", "Ratio: ", content->ratio);
+	print_p3(content->pos, "Origin:");
+}
+
+static void	print_object_infos(t_lst obj)
+{
+	printf(YELLOW"%s\n"RESET, "Object property:");
+	if (obj.id == SPHERE)
+		print_sphere(obj.object);
+	else if (obj.id == PLANE)
+		print_plane(obj.object);
+	else if (obj.id == SQUARE)
+		print_square(obj.object);
+	else if (obj.id == CYLINDER)
+		print_cylinder(obj.object);
+	else if (obj.id == TRIANGLE)
+		print_triangle(obj.object);
 }
 
 void	print_status(t_minirt *minirt)
 {
-	static int	i = 1;
-	
-	printf(RED"|-------| "RESET);
-	printf(BOLDCYAN"%s"RESET GREEN"%d ", "MINIRT STATUS ", i);
-	printf(RED"|-------| "RESET"\n");
-	
-	printf(RED"|"RESET);
-	printf(YELLOW "%s", "Camera mode: "RESET);
-	printf("%s\n", return_string(minirt->scene->camera_mode, "translation", "rotation"));		
-	
-	printf(RED"|"RESET);
-	printf(YELLOW "%s", "Object type: "RESET);
-	printf("%s\n", return_string(minirt->scene->object_type, "camera", "light"));		
-
-	printf(RED"|"RESET);
-	printf(YELLOW "%s", "Object mode: "RESET);
-	printf("%s\n", return_string(minirt->scene->object_mode, "translation", "rotation"));		
-	
-	printf(RED"|"RESET);
-	printf(YELLOW "%s"RESET, "Camera property: \n");
-
+	print_infos(*minirt->scene);
 	if (minirt->scene->cam)
-	{
-		printf(RED"|"RESET);
-		printf(GREEN"%s"RESET, "\tOrigin: \n");
-		
-		printf(RED"|"RESET);
-		printf("\t\t%s%f\n", "x: ", minirt->scene->cam->origin.x);
-		
-		printf(RED"|"RESET);
-		printf("\t\t%s%f\n", "y: ", minirt->scene->cam->origin.y);
-		
-		printf(RED"|"RESET);
-		printf("\t\t%s%f\n", "z: ", minirt->scene->cam->origin.z);
-		
-		printf(RED"|"RESET);
-		printf(GREEN"%s"RESET, "\tDirection: \n");
-		
-		printf(RED"|"RESET);
-		printf("\t\t%s%f\n", "x: ", minirt->scene->cam->dir.x);
-		
-		printf(RED"|"RESET);
-		printf("\t\t%s%f\n", "y: ", minirt->scene->cam->dir.y);
-		
-		printf(RED"|"RESET);
-		printf("\t\t%s%f\n", "z: ", minirt->scene->cam->dir.z);
-	}
-	else
-	{
-		printf(RED"|"RESET);
-		printf(RED"%s"RESET, "\tNone\n");
-	}
-	printf(RED"|---------------------------------|"RESET"\n");
-
-	// TODO SEGFAULT QUAND PAS DE CAMS DANS SCENES>RT
-	i++;
+		print_camera_infos(*minirt->scene->cam);
+	if (minirt->scene->current_light)
+		print_light_infos(*((t_list *)minirt->scene->current_light));
+	if (minirt->scene->obj)
+		print_object_infos(*minirt->scene->obj);
+	printf("\n\n");
 }

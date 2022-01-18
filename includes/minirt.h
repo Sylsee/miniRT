@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 20:38:23 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/18 21:39:59 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 # include "scene.h"
 # include "image.h"
 # include "maths.h"
+# include "objects.h"
 # include "events.h"
 # include "parsing.h"
 # include "error.h"
-# include "objects.h"
 # include "key.h"
 # include "light.h"
 
