@@ -53,6 +53,10 @@ static int	parse_line(t_scene *scene, char *line)
 
 static void	init_scene(t_scene *scene)
 {
+	scene->camera_mode = TRANSLATION;
+	scene->object_mode = TRANSLATION;
+	scene->object_type = CAMERA;
+	scene->current_light = NULL;
 	scene->res.x = 0;
 	scene->res.y = 0;
 	scene->ambient.ratio = 0;
@@ -87,5 +91,18 @@ t_scene	parsing(char *file)
 			break ;
 	}
 	close(fd);
+	link_cam_lst(scene.cam);
+	if (scene.light && scene.light->content)
+		scene.current_light = scene.light;
+	if (scene.obj)
+	{
+		scene.id_current_obj = ((t_lst *)scene.obj)->id;
+		scene.current_obj = ((t_lst *)scene.obj)->object;
+	}
+	else
+	{
+		scene.id_current_obj = -1;
+	}
+	
 	return (scene);
 }

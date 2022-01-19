@@ -1,0 +1,16 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/arnaud/42/rendus/minirt_merge'
+printf "\033[2K\r \e[33mCompiling srcs/events/mouse_hook.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/mouse_hook.c -o objs/mouse_hook.c.o
+printf "\033[2K\r\e[32m All files compiled into 'objs/'. \e[0m✅\n"
+make -s -C lib/libft
+ 
+make -s -C lib/minilibx
+ 
+make[1]: Entering directory '/home/arnaud/42/rendus/minirt_merge/lib/minilibx'
+./configure
+make[1]: Leaving directory '/home/arnaud/42/rendus/minirt_merge/lib/minilibx'
+gcc -Wall -Wextra -Werror objs/main.c.o objs/lst.c.o objs/error.c.o objs/parse.c.o objs/parse_elem.c.o objs/parse_objects.c.o objs/parse_utils.c.o objs/image.c.o objs/color.c.o objs/ray.c.o objs/inter_sphere.c.o objs/inter_plane.c.o objs/light.c.o objs/shadow.c.o objs/mirror.c.o objs/vector_calculs.c.o objs/points.c.o objs/maths.c.o objs/init_mlx_events.c.o objs/mlx_exit.c.o objs/cameras_event.c.o objs/lights_event.c.o objs/objects_event.c.o objs/update_window.c.o objs/object_properties.c.o objs/is_movement_keycode.c.o objs/print_status.c.o objs/print_objects.c.o objs/print_utils.c.o objs/mouse_hook.c.o objs/cam_lst.c.o -o minirt -Llib/libft -lft -Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lz
+printf "\e[32m Binary 'minirt' created. \e[0m✅\n"
+make: Leaving directory '/home/arnaud/42/rendus/minirt_merge'
+ 

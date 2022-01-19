@@ -16,6 +16,14 @@
 # include "../lib/libft/includes/libft.h"
 # include "../lib/minilibx/mlx.h"
 
+typedef struct s_lst
+{
+	int				id;
+	void			*object;
+	struct s_lst	*next;
+}				t_lst;
+
+
 typedef struct s_data
 {
 	bool		save;
@@ -28,8 +36,17 @@ typedef struct s_data
 	int			endian;
 }				t_data;
 
+#include "scene.h"
+
+typedef struct s_minirt
+{
+	t_data	*data;
+	t_scene	*scene;
+}				t_minirt;
+
 # include "define.h"
 # include "utils.h"
+# include "lst.h"
 # include "scene.h"
 # include "image.h"
 # include "maths.h"
@@ -38,7 +55,8 @@ typedef struct s_data
 # include "objects.h"
 # include "key.h"
 # include "raytrace.h"
-# include "event.h"
+# include "events.h"
+
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>

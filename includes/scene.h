@@ -51,14 +51,21 @@ typedef struct s_cam
 	t_p3			origin;
 	t_p3			dir;
 	double			fov;
+	int				id;
+	struct s_cam	*next;
+	struct s_cam	*prev;
 }				t_cam;
 
 typedef struct s_scene
 {
+	bool		camera_mode;
+	bool		object_type;
+	bool		object_mode;
 	t_couple	res;
 	t_light		ambient;
 	t_list		*light;
-	t_list		*cam;
+	t_list		*current_light;
+	t_cam		*cam;
 	t_lst		*obj;
 	int			id_current_obj;
 	void		*current_obj;

@@ -12,6 +12,27 @@
 
 #include "minirt.h"
 
+static void	switch_object_type(int keycode, t_minirt *minirt)
+{
+	if (keycode != TAB_KEY)
+		return ;
+	minirt->scene->object_type = !minirt->scene->object_type;
+	print_status(minirt);
+}
+
+static int	key_events(int keycode, t_minirt *minirt)
+{
+	exit_window(keycode, minirt->data);
+	switch_object_type(keycode, minirt);
+	if (minirt->scene->obj && minirt->scene->obj->object)
+		objects_event(keycode, minirt);
+	if (minirt->scene->object_type == CAMERA)
+		cameras_event(keycode, minirt);
+	else if (minirt->scene->object_type == LIGHT)
+		lights_event(keycode, minirt);
+	return (1);
+}
+
 void	init_mlx_events(t_data *data, t_scene *scene)
 {
 	t_minirt	*minirt;
@@ -21,7 +42,8 @@ void	init_mlx_events(t_data *data, t_scene *scene)
 		internal_error("unable to allocate memory");
 	minirt->data = data;
 	minirt->scene = scene;
+	print_status(minirt);
 	mlx_mouse_hook(data->win, &mouse_hook, minirt);
 	mlx_hook(data->win, 33, 0, &destroy_window, data);
-	mlx_key_hook(data->win, &exit_window, data);
+	mlx_key_hook(minirt->data->win, &key_events, minirt);
 }

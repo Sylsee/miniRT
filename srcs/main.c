@@ -59,10 +59,15 @@ void	minirt(int argc, char **argv)
 	if (argc == 3)
 		data.save = true;
 	scene = parsing(argv[1]);
+	
+	(void)data;
+	(void)scene;
+	
 	init_mlx(&data, scene);
 	create_img(&data, scene);
 	if (data.save == false)
 		set_img(&data, &scene);
+	
 }
 
 int	main(int argc, char **argv)
