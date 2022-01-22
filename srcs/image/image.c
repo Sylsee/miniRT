@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/16 15:48:01 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/22 14:37:51 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ t_hit	intersection(t_scene scene, t_vector ray, int mode)
 	return (t_min);
 }
 
-#ifndef REBOUND_MAX
-# define REBOUND_MAX 100
+#ifndef MAX_REFLECT
+ # define MAX_REFLECT 100
 #endif
 
 int	get_color(t_scene scene, t_vector ray, int nb_rebound)
@@ -71,7 +71,7 @@ void	create_img(t_data *data, t_scene scene)
 		while (x < scene.res.x)
 		{
 			ray = new_ray(scene.cam->content, scene, x, y);
-			color = get_color(scene, ray, REBOUND_MAX);
+			color = get_color(scene, ray, MAX_REFLECT);
 			put_color(data, x, y, color);
 			x++;
 		}
