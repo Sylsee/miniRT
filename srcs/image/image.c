@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/12 22:57:10 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/22 18:38:30 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ t_hit	intersection(t_scene scene, t_vector ray, int mode)
 			has_inter = inter_sphere(tmp->object, ray, &t, mode);
 		else if (tmp->id == PLANE)
 			has_inter = inter_plane(tmp->object, ray, &t, mode);
-/*		else if (tmp->id == CYLINDER)
+		else if (tmp->id == CYLINDER)
 			has_inter = inter_cylinder(tmp->object, ray, &t, mode);
-*/		if (has_inter == true && (t_min.dist == -1 || t.dist < t_min.dist))
+		if (has_inter == true && (t_min.dist == -1 || t.dist < t_min.dist))
 			t_min = t;
 		tmp = tmp->next;
 	}
 	return (t_min);
 }
 
-#ifndef REBOUND_MAX
-# define REBOUND_MAX 100
+#ifndef MAX_REFLECT
+ # define MAX_REFLECT 100
 #endif
 
 int	get_color(t_scene scene, t_vector ray, int nb_rebound)

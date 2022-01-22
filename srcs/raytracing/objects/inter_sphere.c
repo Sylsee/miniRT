@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:56:45 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/12 22:30:26 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/22 17:12:03 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,32 @@ static void	get_hit_infos(t_sphere *s, t_vector ray, t_hit *hit)
 	hit->normal.origin = v_add(ray.origin, v_scale(ray.dir, hit->dist));
 	hit->normal.dir = v_sub(hit->normal.origin, s->pos);
 	normalize(&hit->normal.dir);
+	if (v_dot(ray.dir, hit->normal.dir) > 0)
+		hit->normal.dir = v_scale(hit->normal.dir, -1);
 }
 
-static double	*solve_determinant(t_sphere *s, t_vector ray, double *t)
+static bool	has_inter(t_sphere *s, t_vector ray, t_hit *hit)
 {
 	double	b;
 	double	c;
 	double	delta;
+	double	t[2];
 
 	b = 2 * v_dot(ray.dir, v_sub(ray.origin, s->pos));
 	c = get_norm2(v_sub(ray.origin, s->pos))
 		- (s->diameter / 2) * (s->diameter / 2);
 	delta = b * b - 4 * c;
 	if (delta < 0)
-		return (NULL);
+		return (false);
 	t[0] = (-b - sqrt(delta)) / 2;
 	t[1] = (-b + sqrt(delta)) / 2;
-	return (t);
+	if (t[0] > 0)
+		hit->dist = t[0];
+	else
+		hit->dist = t[1];
+	if (hit->dist < 0)
+		return (false);
+	return (true);
 }
 
 /*
@@ -50,24 +59,14 @@ static double	*solve_determinant(t_sphere *s, t_vector ray, double *t)
 
 bool	inter_sphere(t_sphere *s, t_vector ray, t_hit *hit, int mode)
 {
-	double	thief[2];
-	double	*t;
-
-	t = solve_determinant(s, ray, thief);
-	if (t != NULL && t[1] > 0)
+	if (has_inter(s, ray, hit) == false)
+		return (false);
+	if (mode == 1)
+		get_hit_infos(s, ray, hit);
+	else if (mode == 2)
 	{
-		if (t[0] > 0)
-			hit->dist = t[0];
-		else
-			hit->dist = t[1];
-		if (mode == 1)
-			get_hit_infos(s, ray, hit);
-		else if (mode == 2)
-		{
-			hit->type = SPHERE;
-			hit->object = s;
-		}
-		return (true);
+		hit->type = SPHERE;
+		hit->object = s;
 	}
-	return (false);
+	return (true);
 }
