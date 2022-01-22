@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event.h                                            :+:      :+:    :+:   */
+/*   update_window.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/14 01:12:19 by spoliart         ###   ########.fr       */
+/*   Created: 2022/01/14 13:00:46 by arguilla          #+#    #+#             */
+/*   Updated: 2022/01/15 23:48:20 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EVENT_H
-# define EVENT_H
+#include "minirt.h"
 
-typedef struct s_minirt
+void	update_window(t_minirt *minirt)
 {
-	t_data	*data;
-	t_scene	*scene;
-}				t_minirt;
-
-int		destroy_window(t_data *data);
-int		exit_window(int keycode, t_data *data);
-void	init_mlx_events(t_data *data, t_scene *scene);
-int		mouse_hook(int mouse_code, int x, int y, t_minirt *minirt);
-
-#endif
+	mlx_clear_window(minirt->data->mlx, minirt->data->win);
+	create_img(minirt->data, *(minirt->scene));
+	mlx_put_image_to_window(minirt->data->mlx,
+		minirt->data->win, minirt->data->img, 0, 0);
+	print_status(minirt);
+}

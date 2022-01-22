@@ -70,8 +70,8 @@ void	create_img(t_data *data, t_scene scene)
 		x = 0;
 		while (x < scene.res.x)
 		{
-			ray = new_ray(scene.cam->content, scene, x, y);
-			color = get_color(scene, ray, MAX_REFLECT);
+			ray = new_ray(scene.cam, scene, x, y);
+			color = get_color(scene, ray, REBOUND_MAX);
 			put_color(data, x, y, color);
 			x++;
 		}

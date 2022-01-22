@@ -54,7 +54,7 @@ void	parse_camera(t_scene *scene, char **line)
 	if (cam->dir.x == 0 && cam->dir.y != 0 && cam->dir.z == 0)
 		cam->dir.x = 0.000000001;
 	cam->fov = ft_atof(line[7]);
-	ft_lstadd_front(&(scene->cam), ft_lstnew(cam));
+	cam_lstadd_back(&(scene->cam), cam);
 }
 
 void	parse_light(t_scene *scene, char **line)

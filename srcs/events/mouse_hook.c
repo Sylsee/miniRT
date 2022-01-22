@@ -42,7 +42,7 @@ static int	select_object(int x, int y, t_scene *scene)
 	t_vector	ray;
 	t_hit		hit;
 
-	ray = new_ray(scene->cam->content, *scene, x, y);
+	ray = new_ray(scene->cam, *scene, x, y);
 	hit = intersection(*scene, ray, 2);
 	if (hit.dist == -1)
 		return (0);
@@ -62,10 +62,7 @@ int	mouse_hook(int mouse_code, int x, int y, t_minirt *minirt)
 				manage_sphere(minirt->scene->current_obj, mouse_code);
 			else if (minirt->scene->id_current_obj == CYLINDER)
 				manage_cylinder(minirt->scene->current_obj, mouse_code);
-			create_img(minirt->data, *(minirt->scene));
-			mlx_clear_window(minirt->data->mlx, minirt->data->win);
-			mlx_put_image_to_window(minirt->data->mlx, minirt->data->win,
-				minirt->data->img, 0, 0);
+			update_window(minirt);
 		}
 	}
 	return (0);

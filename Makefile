@@ -71,7 +71,19 @@ MATH	=	vector_calculs.c \
 
 EVENT	=	init_mlx_events.c \
 			mlx_exit.c \
-			mouse_hook.c
+			cameras_event.c \
+			lights_event.c \
+			objects_event.c \
+			update_window.c \
+			object_properties.c \
+			is_movement_keycode.c \
+			print_status.c \
+			print_objects.c \
+			print_utils.c \
+			mouse_hook.c \
+
+LST		=	lst.c \
+			cam_lst.c \
 
 SRCS	=	main.c \
 			$(UTILS) \
@@ -79,7 +91,8 @@ SRCS	=	main.c \
 			$(IMAGE) \
 			$(RAYTRACING) \
 			$(MATH) \
-			$(EVENT)
+			$(EVENT) \
+			$(LST) \
 
 # [ OBJECTS ] #
 
@@ -87,7 +100,7 @@ OBJS	=	$(SRCS:%=$O%.o)
 
 # [ PATH ] #
 
-VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths:srcs/events
+VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths:srcs/events:srcs/lst
 
 # [ RULES ] #
 
