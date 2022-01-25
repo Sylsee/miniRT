@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jan 19 00:40:22 2022
+# Make data base, printed on Tue Jan 25 14:03:58 2022
 
 # Variables
 
@@ -26,7 +26,6 @@ DESKTOP_SESSION = ubuntu
 .SHELLFLAGS := -c
 # environment
 XDG_SESSION_CLASS = user
- 
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -42,7 +41,7 @@ XMODIFIERS = @im=ibus
 # makefile (from 'Makefile', line 43)
 I = -Iincludes -Ilib/minilibx -I/usr/include
 # makefile
-CURDIR := /home/arnaud/42/rendus/minirt_merge
+CURDIR := /home/arnaud/42/rendus/testminirt
 # makefile
 SHELL = /bin/sh
 # makefile (from 'Makefile', line 16)
@@ -58,7 +57,7 @@ S = srcs/
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 9:60541
+JOURNAL_STREAM = 9:105025
 # makefile (from 'Makefile', line 31)
 CFLAGS = -Wall -Wextra -Werror
 # environment
@@ -82,13 +81,13 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/share/code/bin/../code
 # environment
-VSCODE_LOGS = /home/arnaud/.config/Code/logs/20220118T234531
+VSCODE_LOGS = /home/arnaud/.config/Code/logs/20220125T140353
 # makefile (from 'Makefile', line 98)
 OBJS = $(SRCS:%=$O%.o)
 # environment
-MANAGERPID = 3860
+MANAGERPID = 3337
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /tmp/vscode-ipc-f825d4e9-5f28-4d97-9a51-4b18c3b84d24.sock
+VSCODE_IPC_HOOK_EXTHOST = /tmp/vscode-ipc-0e61f8e4-d298-4929-8d37-037a380bc639.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # makefile (from 'Makefile', line 36)
@@ -108,7 +107,7 @@ _END = \e[0m
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/arnaud-MS-7B46:@/tmp/.ICE-unix/4562,unix/arnaud-MS-7B46:/tmp/.ICE-unix/4562
+SESSION_MANAGER = local/arnaud-MS-7B46:@/tmp/.ICE-unix/3938,unix/arnaud-MS-7B46:/tmp/.ICE-unix/3938
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # makefile (from 'Makefile', line 37)
@@ -124,7 +123,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = a0176a1ab6214b4f9a1947bcfff409cd
+INVOCATION_ID = c667a0b6690c4b2ca2b98e7d846616aa
 # makefile (from 'Makefile', line 32)
 LDFLAGS = -Llib/libft -lft -Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lz
 # default
@@ -138,7 +137,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 48443
+GIO_LAUNCHED_DESKTOP_FILE_PID = 169115
 # automatic
 %F = $(notdir $%)
 # environment
@@ -146,11 +145,11 @@ DISPLAY = :1
 # environment
 VISUAL = vim
 # environment
-PWD = /home/arnaud/42/rendus/minirt_merge
+PWD = /home/arnaud/42/rendus/testminirt
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 4364
+SSH_AGENT_PID = 3912
 # environment
 GTK_MODULES = gail:atk-bridge
 # environment
@@ -164,6 +163,7 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 +F = $(notdir $+)
 # environment
+ 
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
@@ -286,11 +286,11 @@ LST = lst.c cam_lst.c
 # environment
 TERMINATOR_DBUS_NAME = net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f
 # environment
-VSCODE_PID = 101822
+VSCODE_PID = 307833
 # environment
-TERMINATOR_UUID = urn:uuid:c257cb7a-0cb5-461f-abce-ba475ff14c4d
+TERMINATOR_UUID = urn:uuid:bf7589e3-93ba-4db4-bb63-761faddda961
 # variable set hash-table stats:
-# Load=139/1024=14%, Rehash=0, Collisions=31/189=16%
+# Load=139/1024=14%, Rehash=0, Collisions=31/184=17%
 
 # Pattern-specific Variable Values
 
@@ -298,28 +298,27 @@ TERMINATOR_UUID = urn:uuid:c257cb7a-0cb5-461f-abce-ba475ff14c4d
 
 # Directories
 
-# srcs/maths (device 2049, inode 8315134): 5 files, no impossibilities.
-# srcs/image (device 2049, inode 8315133): 5 files, no impossibilities.
+# srcs/maths (device 2049, inode 8315349): 5 files, no impossibilities.
+# srcs/image (device 2049, inode 8315347): 5 files, no impossibilities.
 # srcs/maths/objs: could not be stat'd.
 # srcs/image/objs: could not be stat'd.
-# . (device 2049, inode 8315108): 13 files, no impossibilities.
- 
-# srcs/events (device 2049, inode 8315132): 14 files, no impossibilities.
+# . (device 2049, inode 8315321): 13 files, no impossibilities.
+# srcs/events (device 2049, inode 8315346): 14 files, no impossibilities.
 # srcs/events/objs: could not be stat'd.
-# includes (device 2049, inode 8315126): 15 files, no impossibilities.
-# srcs/parse (device 2049, inode 8315135): 6 files, no impossibilities.
-# srcs/raytracing/objects (device 2049, inode 8315137): 4 files, no impossibilities.
+# includes (device 2049, inode 8315340): 15 files, no impossibilities.
+# srcs/parse (device 2049, inode 8315350): 6 files, no impossibilities.
+# srcs/raytracing/objects (device 2049, inode 8315352): 4 files, no impossibilities.
 # includes/objs: could not be stat'd.
 # srcs/parse/objs: could not be stat'd.
-# srcs/utils (device 2049, inode 8315138): 4 files, no impossibilities.
-# srcs/lst (device 2049, inode 8315288): 4 files, no impossibilities.
+# srcs/utils (device 2049, inode 8315353): 4 files, no impossibilities.
+# srcs/lst (device 2049, inode 8315348): 4 files, no impossibilities.
 # srcs/lst/objs: could not be stat'd.
-# objs (device 2049, inode 8315289): No files, no impossibilities so far.
+# objs: could not be stat'd.
 # srcs/utils/objs: could not be stat'd.
-# srcs/raytracing (device 2049, inode 8315136): 6 files, no impossibilities.
+# srcs/raytracing (device 2049, inode 8315351): 6 files, no impossibilities.
 # srcs/raytracing/objects/objs: could not be stat'd.
 # srcs/raytracing/objs: could not be stat'd.
-# srcs (device 2049, inode 8315131): 11 files, no impossibilities.
+# srcs (device 2049, inode 8315345): 11 files, no impossibilities.
 # srcs/objs: could not be stat'd.
 
 # 87 files, no impossibilities in 22 directories.
@@ -336,21 +335,10 @@ objs/%.o: % | objs/
 # Files
 
 # Not a target:
-srcs/raytracing/objects/inter_plane.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-objs/inter_sphere.c.o: srcs/raytracing/objects/inter_sphere.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'inter_sphere.c'
-#  Last modified 2022-01-19 00:35:53.076998886
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/inter_sphere.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 all: minirt
 #  Phony target (prerequisite of .PHONY).
@@ -360,14 +348,7 @@ all: minirt
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
-
-# Not a target:
-srcs/events/object_properties.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:54:00.814336958
-#  File has been updated.
-#  Successfully updated.
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 
 .PHONY: all clean fclean re valgrind
 #  Implicit rule search has not been done.
@@ -375,48 +356,22 @@ srcs/events/object_properties.c:
 #  File has not been updated.
 
 # Not a target:
-srcs/parse/parse_elem.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:55:35.781351648
-#  File has been updated.
-#  Successfully updated.
-
-objs/object_properties.c.o: srcs/events/object_properties.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'object_properties.c'
-#  Last modified 2022-01-19 00:38:59.763248888
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-objs/parse_elem.c.o: srcs/parse/parse_elem.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parse_elem.c'
-#  Last modified 2022-01-19 00:32:37.530773946
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/object_properties.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/maths/vector_calculs.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
+objs/parse_elem.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-objs/light.c.o: srcs/raytracing/light.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'light.c'
-#  Last modified 2022-01-19 00:35:53.164998073
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+# Not a target:
+objs/light.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 del:
 #  Implicit rule search has not been done.
@@ -425,49 +380,56 @@ del:
 #  recipe to execute (from 'Makefile', line 146):
 		@rm -f test/test
 
-objs/maths.c.o: srcs/maths/maths.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'maths.c'
-#  Last modified 2022-01-19 00:35:53.352996334
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/maths.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-01-19 00:40:09.330586522
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-srcs/maths/points.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
+#  Last modified 2022-01-19 02:55:47.395085949
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-srcs/events/update_window.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:54:00.814336958
+#  Last modified 2022-01-25 14:03:29.59076541
 #  File has been updated.
 #  Successfully updated.
 
 objs/:
 #  Implicit rule search has not been done.
-#  Last modified 2022-01-19 00:39:38.954876323
+#  Implicit/static pattern stem: ''
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := objs/
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
 #  recipe to execute (from 'Makefile', line 116):
 			@mkdir -p $@
 
@@ -481,170 +443,66 @@ test: del
 		@gcc $(CFLAGS) test/test.c -o test/test lib/libft/libft.a lib/minilibx/libmlx.a -lXext -lX11 -lm -lz
 		@./test/test
 
+ 
 # Not a target:
-srcs/raytracing/objects/inter_sphere.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-srcs/events/objects_event.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:54:00.814336958
-#  File has been updated.
-#  Successfully updated.
-
-objs/update_window.c.o: srcs/events/update_window.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'update_window.c'
-#  Last modified 2022-01-19 00:38:30.867522545
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-objs/lst.c.o: srcs/lst/lst.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'lst.c'
-#  Last modified 2022-01-19 00:30:16.999998219
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/update_window.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/events/is_movement_keycode.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:54:00.814336958
-#  File has been updated.
-#  Successfully updated.
+objs/lst.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/events/mouse_hook.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
+objs/objects_event.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/events/init_mlx_events.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:51:51.687676783
-#  File has been updated.
-#  Successfully updated.
-
-objs/objects_event.c.o: srcs/events/objects_event.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'objects_event.c'
-#  Last modified 2022-01-19 00:38:30.835522847
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-# Not a target:
-srcs/image/color.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-objs/shadow.c.o: srcs/raytracing/shadow.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'shadow.c'
-#  Last modified 2022-01-19 00:35:53.204997703
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/shadow.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 objs/main.c.o: srcs/main.c | objs/
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main.c'
-#  Last modified 2022-01-19 00:30:16.963998525
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-objs/is_movement_keycode.c.o: srcs/events/is_movement_keycode.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'is_movement_keycode.c'
-#  Last modified 2022-01-19 00:38:59.803248509
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
- 
-
-# Not a target:
-srcs/utils/error.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-objs/mouse_hook.c.o: srcs/events/mouse_hook.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mouse_hook.c'
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# automatic
-# @ := objs/mouse_hook.c.o
-# automatic
-# % := 
-# automatic
-# * := mouse_hook.c
-# automatic
-# + := srcs/events/mouse_hook.c
-# automatic
-# | := objs/
-# automatic
-# < := srcs/events/mouse_hook.c
-# automatic
-# ^ := srcs/events/mouse_hook.c
-# automatic
-# ? := srcs/events/mouse_hook.c
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/19=5%
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-objs/init_mlx_events.c.o: srcs/events/init_mlx_events.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'init_mlx_events.c'
-#  Last modified 2022-01-19 00:36:40.9485545
-#  File has been updated.
-#  Successfully updated.
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 #  recipe to execute (from 'Makefile', line 119):
 			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
 			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
 
 # Not a target:
-srcs/parse/parse_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
+objs/is_movement_keycode.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-objs/error.c.o: srcs/utils/error.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'error.c'
-#  Last modified 2022-01-19 00:30:17.035997912
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+# Not a target:
+objs/mouse_hook.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/init_mlx_events.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/error.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -657,83 +515,35 @@ fclean: clean
 			@$(RM) $(NAME)
 			@printf "$(_RED) '$(NAME)' has been deleted. $(_END)🗑️\n"
 
-objs/parse_utils.c.o: srcs/parse/parse_utils.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parse_utils.c'
-#  Last modified 2022-01-19 00:32:37.634773021
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+# Not a target:
+objs/parse_utils.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/events/print_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:54:00.814336958
-#  File has been updated.
-#  Successfully updated.
-
-objs/mirror.c.o: srcs/raytracing/mirror.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mirror.c'
-#  Last modified 2022-01-19 00:35:53.24099737
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/mirror.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/events/mlx_exit.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-objs/color.c.o: srcs/image/color.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'color.c'
-#  Last modified 2022-01-19 00:35:52.992999663
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/color.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/image/ray.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
+objs/print_utils.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/raytracing/light.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-objs/print_utils.c.o: srcs/events/print_utils.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'print_utils.c'
-#  Last modified 2022-01-19 00:39:38.918876666
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-objs/mlx_exit.c.o: srcs/events/mlx_exit.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mlx_exit.c'
-#  Last modified 2022-01-19 00:36:40.984554165
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/mlx_exit.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -741,22 +551,11 @@ objs/mlx_exit.c.o: srcs/events/mlx_exit.c | objs/
 #  Modification time never checked.
 #  File has not been updated.
 
-objs/ray.c.o: srcs/image/ray.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ray.c'
-#  Last modified 2022-01-19 00:35:53.032999294
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
 # Not a target:
-srcs/maths/maths.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
+objs/ray.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
@@ -776,79 +575,28 @@ clean:
 			@printf "$(_RED) '$O' has been deleted. $(_END)🗑️\n"
 
 # Not a target:
-srcs/image/image.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-19 00:35:50.485022851
-#  File has been updated.
-#  Successfully updated.
+objs/inter_plane.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/events/print_status.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:54:00.814336958
-#  File has been updated.
-#  Successfully updated.
+objs/print_status.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/events/cameras_event.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:54:00.814336958
-#  File has been updated.
-#  Successfully updated.
-
-objs/inter_plane.c.o: srcs/raytracing/objects/inter_plane.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'inter_plane.c'
-#  Last modified 2022-01-19 00:35:53.116998517
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-objs/print_status.c.o: srcs/events/print_status.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'print_status.c'
-#  Last modified 2022-01-19 00:39:38.838877429
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/cameras_event.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/events/lights_event.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:54:00.814336958
-#  File has been updated.
-#  Successfully updated.
-
-objs/cameras_event.c.o: srcs/events/cameras_event.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'cameras_event.c'
-#  Last modified 2022-01-19 00:38:30.755523604
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-# Not a target:
-srcs/raytracing/shadow.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-objs/image.c.o: srcs/image/image.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'image.c'
-#  Last modified 2022-01-19 00:35:52.956999996
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/image.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 minirt: objs/main.c.o objs/lst.c.o objs/error.c.o objs/parse.c.o objs/parse_elem.c.o objs/parse_objects.c.o objs/parse_utils.c.o objs/image.c.o objs/color.c.o objs/ray.c.o objs/inter_sphere.c.o objs/inter_plane.c.o objs/light.c.o objs/shadow.c.o objs/mirror.c.o objs/vector_calculs.c.o objs/points.c.o objs/maths.c.o objs/init_mlx_events.c.o objs/mlx_exit.c.o objs/cameras_event.c.o objs/lights_event.c.o objs/objects_event.c.o objs/update_window.c.o objs/object_properties.c.o objs/is_movement_keycode.c.o objs/print_status.c.o objs/print_objects.c.o objs/print_utils.c.o objs/mouse_hook.c.o objs/lst.c.o objs/cam_lst.c.o
 #  Implicit rule search has not been done.
@@ -856,109 +604,50 @@ minirt: objs/main.c.o objs/lst.c.o objs/error.c.o objs/parse.c.o objs/parse_elem
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 #  recipe to execute (from 'Makefile', line 109):
+ 
 			@printf "\033[2K\r$(_GREEN) All files compiled into '$O'. $(_END)✅\n"
 			@$(MAKE) -s -C $(LIBFT)
- 
 			@$(MAKE) -s -C $(LIBX)
 			@$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 			@printf "$(_GREEN) Binary '$(NAME)' created. $(_END)✅\n"
 
 # Not a target:
-srcs/parse/parse_objects.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-objs/lights_event.c.o: srcs/events/lights_event.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'lights_event.c'
-#  Last modified 2022-01-19 00:38:30.791523263
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/lights_event.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/parse/parse.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-19 00:00:07.714529236
-#  File has been updated.
-#  Successfully updated.
+objs/vector_calculs.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/raytracing/mirror.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:44:28.496270488
-#  File has been updated.
-#  Successfully updated.
-
-objs/vector_calculs.c.o: srcs/maths/vector_calculs.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'vector_calculs.c'
-#  Last modified 2022-01-19 00:35:53.284996963
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-objs/parse_objects.c.o: srcs/parse/parse_objects.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parse_objects.c'
-#  Last modified 2022-01-19 00:32:37.590773413
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+objs/parse_objects.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/lst/lst.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-19 00:01:27.601699865
-#  File has been updated.
-#  Successfully updated.
+objs/parse.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/events/print_objects.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-18 23:54:00.814336958
-#  File has been updated.
-#  Successfully updated.
+objs/points.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-objs/parse.c.o: srcs/parse/parse.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parse.c'
-#  Last modified 2022-01-19 00:32:37.478774407
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-objs/points.c.o: srcs/maths/points.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'points.c'
-#  Last modified 2022-01-19 00:35:53.32099663
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
-
-objs/print_objects.c.o: srcs/events/print_objects.c | objs/
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'print_objects.c'
-#  Last modified 2022-01-19 00:39:38.882877009
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 119):
-			@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
-			@$(CC) $(CFLAGS) $I -O3 -c $< -o $@
+# Not a target:
+objs/print_objects.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 objs/cam_lst.c.o:
@@ -975,7 +664,7 @@ valgrind: all
 			@$(VALGRIND) $(VFLAGS) ./$(NAME)
 
 # files hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=63/842=7%
+# Load=45/1024=4%, Rehash=0, Collisions=2/148=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -983,12 +672,12 @@ valgrind: all
 # General ('VPATH' variable) search path:
 # includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths:srcs/events:srcs/lst
 
-# strcache buffers: 1 (0) / strings = 161 / storage = 2388 B / avg = 14 B
-# current buf: size = 8162 B / used = 2388 B / count = 161 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 133 / storage = 1659 B / avg = 12 B
+# current buf: size = 8162 B / used = 1659 B / count = 133 / avg = 12 B
 
-# strcache performance: lookups = 404 / hit rate = 60%
+# strcache performance: lookups = 202 / hit rate = 34%
 # hash-table stats:
-# Load=161/8192=2%, Rehash=0, Collisions=16/404=4%
-# Finished Make data base on Wed Jan 19 00:40:22 2022
+# Load=133/8192=2%, Rehash=0, Collisions=15/202=7%
+# Finished Make data base on Tue Jan 25 14:03:58 2022
 
  

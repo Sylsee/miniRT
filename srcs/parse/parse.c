@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/10 16:57:52 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:03:09 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ t_scene	parsing(char *file)
 	{
 		scene.id_current_obj = -1;
 	}
-	
+	if (!scene.cam)
+		internal_error("Insufficient number of cameras");
 	return (scene);
 }
