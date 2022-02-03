@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 17:10:27 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/15 23:18:05 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/03 21:45:21 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@
  */
 
 # define CAPS_KEY		65509
-
 
 /*
  ** Key for x translation or rotation to object.

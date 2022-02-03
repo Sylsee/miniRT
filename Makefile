@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/02/03 20:28:31 by spoliart         ###   ########.fr        #
+#    Updated: 2022/02/03 21:34:18 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ UTILS	=	lst.c \
 			error.c
 
 MATH	=	vector_calculs.c \
+			vector_calculs2.c \
 			points.c \
 			maths.c
 

@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 21:54:18 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/15 12:34:49 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/03 21:45:05 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define CYLINDER 4
 # define TRIANGLE 5
 
-typedef struct	s_sphere
+typedef struct s_sphere
 {
 	double		diameter;
 	t_p3		pos;
@@ -27,7 +27,7 @@ typedef struct	s_sphere
 	bool		mirror;
 }				t_sphere;
 
-typedef struct	s_plane
+typedef struct s_plane
 {
 	t_p3		pos;
 	t_p3		dir;
@@ -35,7 +35,7 @@ typedef struct	s_plane
 	bool		mirror;
 }				t_plane;
 
-typedef struct	s_square
+typedef struct s_square
 {
 	double		size;
 	t_p3		pos;
@@ -44,7 +44,7 @@ typedef struct	s_square
 	bool		mirror;
 }				t_square;
 
-typedef struct	s_cylinder
+typedef struct s_cylinder
 {
 	double		diameter;
 	double		height;
@@ -54,7 +54,7 @@ typedef struct	s_cylinder
 	bool		mirror;
 }				t_cylinder;
 
-typedef struct	s_triangle
+typedef struct s_triangle
 {
 	t_p3		first;
 	t_p3		second;

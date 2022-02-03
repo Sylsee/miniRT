@@ -6,11 +6,15 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 19:00:13 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/03 21:34:53 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+#ifndef MAX_REFLECT
+# define MAX_REFLECT 100
+#endif
 
 t_hit	intersection(t_scene scene, t_vector ray, int mode)
 {
@@ -36,10 +40,6 @@ t_hit	intersection(t_scene scene, t_vector ray, int mode)
 	}
 	return (t_min);
 }
-
-#ifndef MAX_REFLECT
- # define MAX_REFLECT 100
-#endif
 
 int	get_color(t_scene scene, t_vector ray, int nb_rebound)
 {

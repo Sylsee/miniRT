@@ -6,14 +6,12 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 21:57:14 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 18:31:18 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/03 21:44:42 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATH_H
-# define MATH_H
-
-# define PI 3.1415926535897932
+#ifndef MATHS_H
+# define MATHS_H
 
 double	min(double a, double b);
 double	max(double a, double b);

@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:04:49 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/07 14:09:56 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/03 21:45:49 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 # define CYLINDER_WIDTH_SIZE 1
 # define CYLINDER_HEIGHT_SIZE 1
 
-# define TRANSLATION true
-# define ROTATION false
-# define CAMERA true
-# define LIGHT	false
+# define TRANSLATION 1
+# define ROTATION 0
+# define CAMERA 1
+# define LIGHT	0
 
 # define RESET   "\033[0m"
 # define GREEN   "\033[32m"
