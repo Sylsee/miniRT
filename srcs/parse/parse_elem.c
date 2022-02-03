@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/12 22:23:30 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/03 20:49:20 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	parse_ambient(t_scene *scene, char **line)
 		internal_error("File format error");
 	scene->ambient.ratio = ft_atof(line[1]);
 	if (scene->ambient.ratio < 0 || scene->ambient.ratio > 1)
-		internal_error("Ratio must be a number beetween 0 and 1");
+		internal_error("Ratio must be a number between 0 and 1");
 	scene->ambient.color = parse_color(line[2], line[3], line[4]);
 }
 
@@ -48,12 +48,19 @@ void	parse_camera(t_scene *scene, char **line)
 	if (!cam)
 		internal_error("unable to allocate memory");
 	cam->origin = parse_point(line[1], line[2], line[3]);
-	cam->dir = parse_point(line[4], line[5], line[6]);
-	if (check_orientation(cam->dir))
-		internal_error("Camera orientation must be a number beetween -1 and 1");
-	if (cam->dir.x == 0 && cam->dir.y != 0 && cam->dir.z == 0)
-		cam->dir.x = 0.000000001;
+	cam->look_at = parse_point(line[4], line[5], line[6]);
+	if (check_orientation(cam->look_at))
+		internal_error("Camera orientation must be a number between -1 and 1");
+	if (cam->look_at.x == 0 && cam->look_at.y != 0 && cam->look_at.z == 0)
+		cam->look_at.x = 0.000000001;
+	if (get_norm(cam->look_at) == 0)
+		internal_error("Camera orientation canno't be null");
 	cam->fov = ft_atof(line[7]);
+	cam->fov = tan(cam->fov * M_PI / 180 / 2);
+	cam->v_up.x = 0;
+	cam->v_up.y = -1;
+	cam->v_up.z = 0;
+	param_cam(cam, scene->res.x, scene->res.y);
 	cam_lstadd_back(&(scene->cam), cam);
 }
 
@@ -69,7 +76,7 @@ void	parse_light(t_scene *scene, char **line)
 	light->pos = parse_point(line[1], line[2], line[3]);
 	light->ratio = ft_atof(line[4]);
 	if (scene->ambient.ratio < 0 || scene->ambient.ratio > 1)
-		internal_error("Ratio must be a number beetween 0 and 1");
+		internal_error("Ratio must be a number between 0 and 1");
 	light->color = parse_color(line[5], line[6], line[7]);
 	ft_lstadd_front(&(scene->light), ft_lstnew(light));
 }

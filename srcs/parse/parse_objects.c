@@ -43,7 +43,7 @@ void	parse_plane(t_scene *scene, char **line)
 	plane->pos = parse_point(line[1], line[2], line[3]);
 	plane->dir = parse_point(line[4], line[5], line[6]);
 	if (check_orientation(plane->dir))
-		internal_error("Orientation must be a number beetween -1 and 1");
+		internal_error("Orientation must be a number between -1 and 1");
 	plane->color = parse_color(line[7], line[8], line[9]);
 	if (line[10])
 		plane->mirror = ft_atoi(line[10]);
@@ -64,7 +64,7 @@ void	parse_square(t_scene *scene, char **line)
 	square->pos = parse_point(line[1], line[2], line[3]);
 	square->dir = parse_point(line[4], line[5], line[6]);
 	if (check_orientation(square->dir))
-		internal_error("Orientation must be a number beetween -1 and 1");
+		internal_error("Orientation must be a number between -1 and 1");
 	square->size = ft_atof(line[7]);
 	square->color = parse_color(line[8], line[9], line[10]);
 	if (line[11])
@@ -86,7 +86,7 @@ void	parse_cylinder(t_scene *scene, char **line)
 	cylinder->pos = parse_point(line[1], line[2], line[3]);
 	cylinder->dir = parse_point(line[4], line[5], line[6]);
 	if (check_orientation(cylinder->dir))
-		internal_error("Orientation must be a number beetween -1 and 1");
+		internal_error("Orientation must be a number between -1 and 1");
 	cylinder->diameter = ft_atof(line[7]);
 	cylinder->height = ft_atof(line[8]);
 	cylinder->color = parse_color(line[9], line[10], line[11]);

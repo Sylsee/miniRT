@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:36:04 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 17:49:07 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/03 18:30:55 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,16 @@ t_p3	v_scale(t_p3 v, double f)
 	ret.x = v.x * f;
 	ret.y = v.y * f;
 	ret.z = v.z * f;
+	return (ret);
+}
+
+t_p3	v_div(t_p3 v, double f)
+{
+	t_p3	ret;
+
+	ret.x = v.x / f;
+	ret.y = v.y / f;
+	ret.z = v.z / f;
 	return (ret);
 }
 

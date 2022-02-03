@@ -30,7 +30,7 @@ t_color	parse_color(char *r, char *g, char *b)
 	color.g = ft_atof(g);
 	color.b = ft_atof(b);
 	if (check_color(color))
-		internal_error("Color must be a number beetween 0 and 255");
+		internal_error("Color must be a number between 0 and 255");
 	return (color);
 }
 

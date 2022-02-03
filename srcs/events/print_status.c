@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:42:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/18 22:31:07 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/03 20:27:08 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	print_camera_infos(t_cam cam)
 	printf(YELLOW"%s\n"RESET, "Camera property:");
 	printf(GREEN"\t%s"RESET"%d\n", "Id: ", cam.id);
 	print_p3(cam.origin, "Origin:");
-	print_p3(cam.dir, "Direction:");
+	print_p3(cam.look_at, "Direction:");
 }
 
 static void	print_light_infos(t_list light)

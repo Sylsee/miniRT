@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/01/27 23:28:34 by spoliart         ###   ########.fr        #
+#    Updated: 2022/02/03 20:28:31 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ RAYTRACING	=	$(OBJECTS) \
 
 IMAGE	=	image.c \
 			color.c \
-			ray.c
+			ray.c \
+			cam.c
 
 PARSING	=	parse.c \
 			parse_elem.c \

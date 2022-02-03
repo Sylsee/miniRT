@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:55:57 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/13 23:33:35 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/03 19:00:03 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ void	create_img(t_data *data, t_scene scene);
 int		get_color(t_scene scene, t_vector ray, int nb_rebound);
 void	put_color(t_data *data, int x, int y, int color);
 
+/* cam */
+void	param_cam(t_cam *cam, double w, double h);
+
 /*	ray	*/
-t_vector	new_ray(t_cam *cam, t_scene scene, int x, int y);
+t_vector	new_ray(t_cam *cam, t_scene scene, double x, double y);
 
 /*	color	*/
 int		create_rgb(int r, int g, int b);

@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/22 20:04:57 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/03 18:21:59 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,14 @@ typedef struct s_cam
 {
 	int				id;
 	double			fov;
+	double			pov_w;
+	double			pov_h;
 	t_p3			origin;
-	t_p3			dir;
-	t_p3			up;
+	t_p3			v_up;
+	t_p3			look_at;
+	t_p3			lower_corner;
+	t_p3			horizontal;
+	t_p3			vertical;
 	struct s_cam	*next;
 	struct s_cam	*prev;
 }				t_cam;
