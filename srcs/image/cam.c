@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 20:28:05 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 21:06:32 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:32:08 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ static void	set_lower_point(t_cam *cam)
 	cam->lower_corner = v_sub(cam->lower_corner, focale);
 }
 
-void	param_cam(t_cam *cam, double w, double h)
+void	param_cam(t_cam *cam, t_couple res)
 {
 	double	ratio;
 	t_p3	focale;
 	t_p3	cross;
 
-	ratio = w / h;
-	cam->pov_w = 2.0 * cam->fov;
+	ratio = res.y / res.x;
+	cam->pov_w = 2.0 * cam->fov / 2;
 	cam->pov_h = cam->pov_w * ratio;
 	focale = v_scale(cam->look_at, -1);
 	cross = v_cross(cam->v_up, focale);

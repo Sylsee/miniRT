@@ -6,12 +6,14 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 18:21:59 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/05 22:40:12 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCENE_H
 # define SCENE_H
+
+typedef struct s_lst t_lst;
 
 typedef struct s_color
 {
@@ -29,8 +31,8 @@ typedef struct s_p3
 
 typedef struct s_couple
 {
-	int			x;
-	int			y;
+	double		x;
+	double		y;
 }				t_couple;
 
 typedef struct s_vector

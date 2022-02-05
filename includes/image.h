@@ -6,12 +6,14 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:55:57 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 21:44:11 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/05 22:34:11 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMAGE_H
 # define IMAGE_H
+
+typedef struct s_data t_data;
 
 typedef struct s_hit
 {
@@ -39,7 +41,7 @@ int			get_color(t_scene scene, t_vector ray, int nb_rebound);
 void		put_color(t_data *data, int x, int y, int color);
 
 /* cam */
-void		param_cam(t_cam *cam, double w, double h);
+void		param_cam(t_cam *cam, t_couple res);
 
 /*	ray	*/
 t_vector	new_ray(t_cam *cam, t_scene scene, double x, double y);

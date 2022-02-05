@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 21:34:53 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:58:12 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	get_color(t_scene scene, t_vector ray, int nb_rebound)
 		return (BACKGROUND_COLOR);
 	else if (hit.mirror == true)
 		return (mirror(scene, ray, hit, nb_rebound));
+//	else if (hit.transparent == true)
+//		return (fresnel(scene, ray, hit));
 	color = light(scene, hit);
 	return (create_rgb(color.r, color.g, color.b));
 }

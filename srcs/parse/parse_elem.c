@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 20:49:20 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/05 22:39:52 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	parse_resolution(t_scene *scene, char **line)
 {
 	if (ft_tablen(line) != 3)
 		internal_error("File format error");
-	scene->res.x = ft_atoi(line[1]);
-	if (scene->res.x > 2560)
-		scene->res.x = 2560;
-	else if (scene->res.x < 10)
-		scene->res.x = 10;
-	scene->res.y = ft_atoi(line[2]);
-	if (scene->res.y > 1440)
-		scene->res.y = 1440;
-	else if (scene->res.y < 10)
-		scene->res.y = 10;
+	scene->res.x = ft_atof(line[1]);
+	if (scene->res.x > (double)2560)
+		scene->res.x = (double)2560;
+	else if (scene->res.x < (double)10)
+		scene->res.x = (double)10;
+	scene->res.y = ft_atof(line[2]);
+	if (scene->res.y > (double)1440)
+		scene->res.y = (double)1440;
+	else if (scene->res.y < (double)10)
+		scene->res.y = (double)10;
 }
 
 void	parse_ambient(t_scene *scene, char **line)
@@ -56,11 +56,11 @@ void	parse_camera(t_scene *scene, char **line)
 	if (get_norm(cam->look_at) == 0)
 		internal_error("Camera orientation canno't be null");
 	cam->fov = ft_atof(line[7]);
-	cam->fov = tan(cam->fov * M_PI / 180 / 2);
+	cam->fov = tan(cam->fov * M_PI / 180);
 	cam->v_up.x = 0;
 	cam->v_up.y = -1;
 	cam->v_up.z = 0;
-	param_cam(cam, scene->res.x, scene->res.y);
+	param_cam(cam, scene->res);
 	cam_lstadd_back(&(scene->cam), cam);
 }
 

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:52:24 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/03 21:38:55 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/05 22:33:06 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	rotate_camera(int keycode, t_minirt *minirt)
 	tmp = v_scale(tmp, coef * 0.1);
 	cam->look_at = v_add(cam->look_at, tmp);
 	normalize(&cam->look_at);
-	param_cam(cam, minirt->scene->res.x, minirt->scene->res.y);
+	param_cam(cam, minirt->scene->res);
 	if (minirt->scene->cam->v_up.x == 0
 		&& minirt->scene->cam->v_up.y != 0 && minirt->scene->cam->v_up.z == 0)
 		minirt->scene->cam->v_up.x = 0.000000001;
