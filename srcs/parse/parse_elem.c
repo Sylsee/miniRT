@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/05 22:39:52 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:10:23 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,12 @@ void	parse_resolution(t_scene *scene, char **line)
 {
 	if (ft_tablen(line) != 3)
 		internal_error("File format error");
-	scene->res.x = ft_atof(line[1]);
-	if (scene->res.x > (double)2560)
-		scene->res.x = (double)2560;
-	else if (scene->res.x < (double)10)
-		scene->res.x = (double)10;
-	scene->res.y = ft_atof(line[2]);
-	if (scene->res.y > (double)1440)
-		scene->res.y = (double)1440;
-	else if (scene->res.y < (double)10)
-		scene->res.y = (double)10;
+	scene->res.x = ft_atoi(line[1]);
+	if (scene->res.x < 10)
+		scene->res.x = 10;
+	scene->res.y = ft_atoi(line[2]);
+	if (scene->res.y < 10)
+		scene->res.y = 10;
 }
 
 void	parse_ambient(t_scene *scene, char **line)

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:52:24 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/05 22:33:06 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:13:24 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	switch_camera(int keycode, t_minirt *minirt)
 	update_window(minirt);
 }
 
-static void	init_rotation(int keycode, t_cam *cam, int *coef, t_p3 *tmp)
+static void	init_rotation(int keycode, t_cam *cam, double *coef, t_p3 *tmp)
 {
 	if (keycode == D_KEY)
 		*tmp = cam->horizontal;
@@ -41,7 +41,7 @@ static void	init_rotation(int keycode, t_cam *cam, int *coef, t_p3 *tmp)
 
 static void	rotate_camera(int keycode, t_minirt *minirt)
 {
-	int		coef;
+	double	coef;
 	t_p3	tmp;
 	t_cam	*cam;
 

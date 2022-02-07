@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/05 22:40:12 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:08:10 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_p3
 
 typedef struct s_couple
 {
-	double		x;
-	double		y;
+	int			x;
+	int			y;
 }				t_couple;
 
 typedef struct s_vector

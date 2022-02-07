@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 20:28:05 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/05 23:32:08 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:09:01 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	param_cam(t_cam *cam, t_couple res)
 	t_p3	focale;
 	t_p3	cross;
 
-	ratio = res.y / res.x;
+	ratio = (double)res.y / (double)res.x;
 	cam->pov_w = 2.0 * cam->fov / 2;
 	cam->pov_h = cam->pov_w * ratio;
 	focale = v_scale(cam->look_at, -1);

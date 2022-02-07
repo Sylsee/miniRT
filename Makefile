@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/02/05 23:34:13 by spoliart         ###   ########.fr        #
+#    Updated: 2022/02/07 16:06:53 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ _YELLOW	=	\e[33m
 # [ COMPILATION VARIABLES ]#
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -Wno-conversionsih
+CFLAGS	=	-Wall -Wextra -Werror -Wconversion
 LDFLAGS	=	-Llib/libft -lft -Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lz
 
 # [ VALGRIND VARIABLES ] #

@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 14:14:17 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 20:34:47 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:09:18 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_vector	new_ray(t_cam *cam, t_scene scene, double x, double y)
 	t_p3		tmp;
 
 	ray.origin = cam->origin;
-	x = x / (scene.res.x - 1);
-	y = y / (scene.res.y - 1);
+	x = x / ((double)scene.res.x - 1);
+	y = y / ((double)scene.res.y - 1);
 	tmp = v_scale(cam->horizontal, x);
 	ray.dir = v_add(cam->lower_corner, tmp);
 	tmp = v_scale(cam->vertical, y);
