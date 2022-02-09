@@ -6,13 +6,13 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 23:47:33 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/05 23:57:54 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/09 03:46:51 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	fresnel(t_scene scene, t_vector ray, t_hit hit)
+t_color	fresnel(t_scene scene, t_vector ray, t_hit hit)
 {
 	t_vector	new_ray;
 

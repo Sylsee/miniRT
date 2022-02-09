@@ -6,13 +6,13 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:23:23 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/11 16:23:33 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/09 03:46:36 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	mirror(t_scene scene, t_vector ray, t_hit hit, int nb_rebound)
+t_color	mirror(t_scene scene, t_vector ray, t_hit hit, int nb_rebound)
 {
 	t_vector	reflect;
 
