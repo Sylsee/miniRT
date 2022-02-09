@@ -6,14 +6,14 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/07 16:08:10 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/09 20:15:24 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCENE_H
 # define SCENE_H
 
-typedef struct s_lst t_lst;
+typedef struct s_lst	t_lst;
 
 typedef struct s_color
 {

@@ -6,14 +6,14 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/05 21:56:32 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/09 20:15:46 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EVENTS_H
 # define EVENTS_H
 
-typedef struct s_minirt t_minirt;
+typedef struct s_minirt	t_minirt;
 
 int		destroy_window(t_data *data);
 int		exit_window(int keycode, t_data *data);

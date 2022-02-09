@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:55:57 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/09 16:05:04 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/09 20:15:37 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ enum
 	REFRACTION = 2
 };
 
-typedef struct s_data t_data;
+typedef struct s_data	t_data;
 
 typedef struct s_hit
 {
