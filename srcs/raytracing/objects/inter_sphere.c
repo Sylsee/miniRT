@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:56:45 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/22 17:12:03 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/09 15:51:37 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static void	get_hit_infos(t_sphere *s, t_vector ray, t_hit *hit)
 {
 	hit->color = s->color;
-	hit->mirror = s->mirror;
+	hit->material_type = s->material_type;
+	hit->ior = s->ior;
 	hit->normal.origin = v_add(ray.origin, v_scale(ray.dir, hit->dist));
 	hit->normal.dir = v_sub(hit->normal.origin, s->pos);
 	normalize(&hit->normal.dir);

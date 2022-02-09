@@ -6,14 +6,14 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/09 14:05:48 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:51:40 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 #ifndef ANTIALIASING
-# define ANTIALIASING 5.0
+# define ANTIALIASING 1.0
 #endif
 #ifndef MAX_REFLECT
 # define MAX_REFLECT 100
@@ -54,8 +54,10 @@ t_color	get_color(t_scene scene, t_vector ray, int nb_rebound)
 	hit = intersection(scene, ray, 1);
 	if (hit.dist == -1)
 		return (new_color(BACKGROUND_COLOR));
-	else if (hit.mirror == true)
-		return (mirror(scene, ray, hit, nb_rebound));
+	if (hit.material_type == REFLECTION)
+		return (reflection(scene, ray, hit, nb_rebound));
+	else if (hit.material_type == REFRACTION)
+		return (refraction(scene, ray, hit, nb_rebound));
 	color = light(scene, hit);
 	return (color);
 }

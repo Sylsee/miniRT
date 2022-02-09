@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 12:04:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 21:35:10 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/09 15:51:17 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static void	get_hit_infos(t_cylinder *cy, t_hit *hit, t_vector ray)
 	double	a;
 
 	hit->color = cy->color;
-	hit->mirror = cy->mirror;
+	hit->material_type = cy->material_type;
+	hit->ior = cy->ior;
 	a = v_dot(cy->dir, v_sub(hit->normal.origin, cy->pos));
 	hit->normal.dir = get_normalize(v_sub(hit->normal.origin,
 				v_add(cy->pos, v_scale(cy->dir, a))));
