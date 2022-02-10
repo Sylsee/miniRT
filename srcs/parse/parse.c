@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 21:40:15 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/10 23:33:17 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	check_line(char *line)
 {
 	while (ft_isalnum(*line) || ft_isspace(*line) || *line == '.'
-		|| *line == ',' || *line == '+' || *line == '-')
+		|| *line == ',' || *line == '+' || *line == '-' || *line == '_')
 		line++;
 	if (*line)
 		return (EXIT_FAILURE);
@@ -27,10 +27,10 @@ static int	parse_line(t_scene *scene, char *line)
 	int			i;
 	char		**data;
 	const char	*obj_name[] = {"sp", "pl", "sq", "cy", "tr", "R", "A", "C",
-		"L", NULL};
+		"L", "BONUS", NULL};
 	void		(*obj_func[])(t_scene *, char **) = {&parse_sphere,
 		&parse_plane, &parse_square, &parse_cylinder, &parse_triangle,
-		&parse_resolution, &parse_ambient, &parse_camera, &parse_light};
+		&parse_resolution, &parse_ambient, &parse_camera, &parse_light, &parse_bonus};
 
 	if (!line || line[0] == '\0')
 		return (EXIT_SUCCESS);
@@ -66,6 +66,9 @@ static void	init_scene(t_scene *scene)
 	scene->light = NULL;
 	scene->cam = NULL;
 	scene->obj = NULL;
+	scene->antialiasing = 1;
+	scene->ray_max_bounces = 10;
+	scene->bg_color = 0x000000;
 }
 
 t_scene	parsing(char *file)

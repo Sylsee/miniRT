@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/02/09 16:35:35 by spoliart         ###   ########.fr        #
+#    Updated: 2022/02/10 22:29:48 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,8 @@ IMAGE	=	image.c \
 PARSING	=	parse.c \
 			parse_elem.c \
 			parse_objects.c \
-			parse_utils.c
+			parse_utils.c \
+			parse_bonus.c
 
 UTILS	=	lst.c \
 			error.c

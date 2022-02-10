@@ -6,18 +6,11 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/09 22:40:57 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/10 23:07:22 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-#ifndef ANTIALIASING
-# define ANTIALIASING 2.0
-#endif
-#ifndef MAX_REFLECT
-# define MAX_REFLECT 10
-#endif
 
 t_hit	intersection(t_scene scene, t_vector ray, int mode)
 {
@@ -50,17 +43,17 @@ t_color	get_color(t_scene scene, t_vector ray, int nb_rebound)
 	t_color	color;
 	t_color	reflect;
 
-	if (nb_rebound == 0)
-		return (new_color(BACKGROUND_COLOR));
+	if (nb_rebound <= 0)
+		return (new_color(scene.bg_color));
 	hit = intersection(scene, ray, 1);
 	if (hit.dist == -1)
-		return (new_color(BACKGROUND_COLOR));
+		return (new_color(scene.bg_color));
 	if (hit.material_type == REFLECTION)
-		return (reflection(scene, ray, hit, nb_rebound));
+		return (mirror(scene, ray, hit, nb_rebound));
 	else if (hit.material_type == REFRACTION)
 		return (refraction(scene, ray, hit, nb_rebound));
 	color = light(scene, hit);
-	reflect = reflection(scene, ray, hit, nb_rebound);
+	reflect = reflection(scene, ray, hit, 0);
 	color.r = color.r * 0.93 + reflect.r * 0.07;
 	color.g = color.g * 0.93 + reflect.g * 0.07;
 	color.b = color.b * 0.93 + reflect.b * 0.07;
@@ -77,22 +70,22 @@ int	anti_aliasing(t_scene scene, double x, double y)
 
 	i = -1;
 	color = new_color(0);
-	while (++i < ANTIALIASING)
+	while (++i < scene.antialiasing)
 	{
 		j = -1;
-		while (++j < ANTIALIASING)
+		while (++j < scene.antialiasing)
 		{
-			ray = new_ray(scene.cam, scene, x + (double)i / ANTIALIASING,
-					y + (double)j / ANTIALIASING);
-			tmp_color = get_color(scene, ray, MAX_REFLECT);
+			ray = new_ray(scene.cam, scene, x + (double)i / scene.antialiasing,
+					y + (double)j / scene.antialiasing);
+			tmp_color = get_color(scene, ray, scene.ray_max_bounces);
 			color.r += tmp_color.r;
 			color.g += tmp_color.g;
 			color.b += tmp_color.b;
 		}
 	}
-	color.r /= ANTIALIASING * ANTIALIASING;
-	color.g /= ANTIALIASING * ANTIALIASING;
-	color.b /= ANTIALIASING * ANTIALIASING;
+	color.r /= scene.antialiasing * scene.antialiasing;
+	color.g /= scene.antialiasing * scene.antialiasing;
+	color.b /= scene.antialiasing * scene.antialiasing;
 	return (create_rgb((int)color.r, (int)color.g, (int)color.b));
 }
 

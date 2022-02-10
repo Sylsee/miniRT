@@ -6,38 +6,35 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:04:08 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/09 20:34:43 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/10 22:34:49 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
+#ifndef AIR_REFRACTIVE_IMPACT
+# define AIR_REFRACTIVE_IMPACT 1.000129
+#endif
+
 static t_p3	refract(t_vector ray, t_hit hit)
 {
-	double		cosi;
-	double		eta[4];
-	t_p3		n;
+	double			n;
+	double			cost;
+	double			sint2;
+	static bool		in = false;
+	const double	cosi = -v_dot(hit.normal.dir, ray.dir);
 
-	eta[0] = 1;
-	eta[1] = hit.ior;
-	cosi = max(-1, min(1, v_dot(ray.dir, hit.normal.dir)));
-	n = hit.normal.dir;
-	if (cosi < 0)
-		cosi = -cosi;
+	if (in)
+		n = hit.ior / AIR_REFRACTIVE_IMPACT;
 	else
-	{
-		eta[3] = eta[0];
-		eta[0] = eta[1];
-		eta[1] = eta[3];
-		n = v_scale(hit.normal.dir, -1);
-	}
-	eta[3] = eta[0] / eta[1];
-	eta[3] = 1 - eta[3] * eta[3] * (1 - cosi * cosi);
-	if (eta[3] < 0)
+		n = AIR_REFRACTIVE_IMPACT / hit.ior;
+	sint2 = n * n * (1.0 - cosi * cosi);
+	cost = sqrtf((float)(1.0 - sint2));
+	in = in ? false : true;
+	if (sint2 > 1.0)
 		return ((t_p3){0, 0, 0});
-	else
-		return (v_add(v_scale(ray.dir, eta[3]),
-				v_scale(n, eta[3] * cosi - sqrtf((float)eta[3]))));
+	return (v_add(v_scale(ray.dir, n),
+			v_scale(hit.normal.dir, n * cosi - cost)));
 }
 
 t_color	refraction(t_scene scene, t_vector ray, t_hit hit, int nb_rebound)
@@ -58,8 +55,8 @@ t_color	refraction(t_scene scene, t_vector ray, t_hit hit, int nb_rebound)
 					0.00001));
 	refract_color = get_color(scene, refrac, nb_rebound - 1);
 	kr = fresnel(ray.dir, hit);
-	color.r = reflect_color.r * kr * 0.1 + refract_color.r * (1 - kr) * 0.9;
-	color.g = reflect_color.g * kr * 0.1 + refract_color.g * (1 - kr) * 0.9;
-	color.b = reflect_color.b * kr * 0.1 + refract_color.b * (1 - kr) * 0.9;
+	color.r = reflect_color.r * kr + refract_color.r * (1.0 - kr);
+	color.g = reflect_color.g * kr + refract_color.g * (1.0 - kr);
+	color.b = reflect_color.b * kr + refract_color.b * (1.0 - kr);
 	return (color);
 }

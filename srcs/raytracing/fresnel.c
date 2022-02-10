@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:25:40 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/09 20:46:29 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/10 21:43:15 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,12 @@ double	fresnel(t_p3 dir, t_hit hit)
 	double	sint;
 
 	cosi = max(-1, min(1, v_dot(dir, hit.normal.dir)));
-	eta[0] = 1;
+	eta[0] = 1.000129;
 	eta[1] = hit.ior;
 	if (cosi > 0)
 	{
-		eta[2] = eta[0];
-		eta[0] = eta[1];
-		eta[1] = eta[2];
+		eta[0] = hit.ior;
+		eta[1] = 1.000129;
 	}
 	sint = eta[0] / eta[1] * sqrtf((float)max(0., 1 - cosi * cosi));
 	if (sint >= 1)

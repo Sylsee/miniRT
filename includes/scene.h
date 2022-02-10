@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/09 20:15:24 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/10 23:06:23 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,9 @@ typedef struct s_scene
 	t_lst		*obj;
 	int			id_current_obj;
 	void		*current_obj;
+	int			antialiasing;
+	int			ray_max_bounces;
+	int			bg_color;
 }				t_scene;
 
 #endif

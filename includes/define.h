@@ -6,16 +6,12 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:04:49 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 21:45:49 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/10 22:40:09 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
-
-# ifndef BACKGROUND_COLOR
-#  define BACKGROUND_COLOR 0x000000
-# endif
 
 # define SPHERE_DIAMETER_SIZE 1
 # define CYLINDER_WIDTH_SIZE 1
