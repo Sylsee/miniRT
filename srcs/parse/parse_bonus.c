@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:09:24 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/10 23:04:55 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/11 00:43:36 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	parse_bonus(t_scene *scene, char **data)
 		scene->ray_max_bounces = ft_atoi(data[2]);
 	else if (ft_strequ("BACKGROUND_COLOR", data[1]))
 		scene->bg_color = ft_xtoi(data[2]);
+	else if (ft_strequ("DO_REFLECTION", data[1]))
+		scene->do_reflection = ft_atoi(data[2]);
 }
 
 /*

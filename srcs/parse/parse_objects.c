@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:53:58 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/10 19:40:20 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/11 00:47:58 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	parse_sphere(t_scene *scene, char **line)
 	sphere->pos = parse_point(line[1], line[2], line[3]);
 	sphere->diameter = ft_atof(line[4]);
 	sphere->color = parse_color(line[5], line[6], line[7]);
+	sphere->material_type = NONE;
 	if (line[8])
 	{
 		sphere->material_type = ft_atoi(line[8]);
@@ -32,8 +33,6 @@ void	parse_sphere(t_scene *scene, char **line)
 		else
 			sphere->ior = 1.3;
 	}
-	else
-		sphere->material_type = 0;
 	lst_addfront(&(scene->obj), lstnew(sphere, SPHERE));
 }
 
@@ -51,6 +50,7 @@ void	parse_plane(t_scene *scene, char **line)
 	if (check_orientation(plane->dir))
 		internal_error("Orientation must be a number between -1 and 1");
 	plane->color = parse_color(line[7], line[8], line[9]);
+	plane->material_type = NONE;
 	if (line[10])
 	{
 		plane->material_type = ft_atoi(line[10]);
@@ -59,8 +59,6 @@ void	parse_plane(t_scene *scene, char **line)
 		else
 			plane->ior = 1.3;
 	}
-	else
-		plane->material_type = 0;
 	lst_addfront(&(scene->obj), lstnew(plane, PLANE));
 }
 
@@ -79,6 +77,7 @@ void	parse_square(t_scene *scene, char **line)
 		internal_error("Orientation must be a number between -1 and 1");
 	square->size = ft_atof(line[7]);
 	square->color = parse_color(line[8], line[9], line[10]);
+	square->material_type = NONE;
 	if (line[11])
 	{
 		square->material_type = ft_atoi(line[11]);
@@ -87,8 +86,6 @@ void	parse_square(t_scene *scene, char **line)
 		else
 			square->ior = 1.3;
 	}
-	else
-		square->material_type = 0;
 	lst_addfront(&(scene->obj), lstnew(square, SQUARE));
 }
 
@@ -108,6 +105,7 @@ void	parse_cylinder(t_scene *scene, char **line)
 	cylinder->diameter = ft_atof(line[7]);
 	cylinder->height = ft_atof(line[8]);
 	cylinder->color = parse_color(line[9], line[10], line[11]);
+	cylinder->material_type = NONE;
 	if (line[12])
 	{
 		cylinder->material_type = ft_atoi(line[12]);
@@ -116,8 +114,6 @@ void	parse_cylinder(t_scene *scene, char **line)
 		else
 			cylinder->ior = 1.3;
 	}
-	else
-		cylinder->material_type = 0;
 	lst_addfront(&(scene->obj), lstnew(cylinder, CYLINDER));
 }
 
@@ -134,6 +130,7 @@ void	parse_triangle(t_scene *scene, char **line)
 	triangle->second = parse_point(line[4], line[5], line[6]);
 	triangle->third = parse_point(line[7], line[8], line[9]);
 	triangle->color = parse_color(line[10], line[11], line[12]);
+	triangle->material_type = NONE;
 	if (line[13])
 	{
 		triangle->material_type = ft_atoi(line[13]);
@@ -142,7 +139,5 @@ void	parse_triangle(t_scene *scene, char **line)
 		else
 			triangle->ior = 1.3;
 	}
-	else
-		triangle->material_type = 0;
 	lst_addfront(&(scene->obj), lstnew(triangle, TRIANGLE));
 }

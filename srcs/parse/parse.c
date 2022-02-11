@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/10 23:33:17 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/11 00:43:09 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static void	init_scene(t_scene *scene)
 	scene->antialiasing = 1;
 	scene->ray_max_bounces = 10;
 	scene->bg_color = 0x000000;
+	scene->do_reflection = 0;
 }
 
 t_scene	parsing(char *file)

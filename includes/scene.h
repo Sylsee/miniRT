@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/10 23:06:23 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/11 00:42:51 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct s_scene
 	int			antialiasing;
 	int			ray_max_bounces;
 	int			bg_color;
+	int			do_reflection;
 }				t_scene;
 
 #endif

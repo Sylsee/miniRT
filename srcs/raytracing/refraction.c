@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:04:08 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/10 22:34:49 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/11 00:25:00 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,17 @@ static t_p3	refract(t_vector ray, t_hit hit)
 	const double	cosi = -v_dot(hit.normal.dir, ray.dir);
 
 	if (in)
+	{
+		in = false;
 		n = hit.ior / AIR_REFRACTIVE_IMPACT;
+	}
 	else
+	{
+		in = true;
 		n = AIR_REFRACTIVE_IMPACT / hit.ior;
+	}
 	sint2 = n * n * (1.0 - cosi * cosi);
 	cost = sqrtf((float)(1.0 - sint2));
-	in = in ? false : true;
 	if (sint2 > 1.0)
 		return ((t_p3){0, 0, 0});
 	return (v_add(v_scale(ray.dir, n),
