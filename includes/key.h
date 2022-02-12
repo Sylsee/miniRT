@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 17:10:27 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 21:45:21 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/12 16:49:50 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,10 @@
  */
 
 # define J_KEY			106
+
+# define SPACE_KEY		32
+
+# define SHIFT_KEY		65505
+
 
 #endif

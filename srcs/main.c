@@ -70,6 +70,8 @@ void	minirt(int argc, char **argv)
 	create_img(&data, scene);
 	if (data.save == false)
 		set_img(&data, &scene);
+	else
+		create_bmp(data, scene);
 }
 
 int	main(int argc, char **argv)
