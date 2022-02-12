@@ -22,23 +22,16 @@ static int	check_line(char *line)
 	return (EXIT_SUCCESS);
 }
 
-static int	parse_line(t_scene *scene, char *line)
+static int	match_parse_function(char *line, char **data, t_scene *scene)
 {
 	int			i;
-	char		**data;
 	const char	*obj_name[] = {"sp", "pl", "sq", "cy", "tr", "R", "A", "C",
 		"L", "BONUS", NULL};
-	void		(*obj_func[])(t_scene *, char **) = {&parse_sphere,
+	static void	(*obj_func[])(t_scene *, char **) = {&parse_sphere,
 		&parse_plane, &parse_square, &parse_cylinder, &parse_triangle,
-		&parse_resolution, &parse_ambient, &parse_camera, &parse_light, &parse_bonus};
+		&parse_resolution, &parse_ambient, &parse_camera, &parse_light,
+		&parse_bonus};
 
-	if (!line || line[0] == '\0')
-		return (EXIT_SUCCESS);
-	if (check_line(line) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	data = ft_split(line, "\t\n\v\f ,");
-	if (!data)
-		internal_error("unable to allocate memory");
 	i = 0;
 	while (obj_name[i] && !(line[0] == obj_name[i][0]
 		&& (!obj_name[i][1] || line[1] == obj_name[i][1])))
@@ -49,6 +42,20 @@ static int	parse_line(t_scene *scene, char *line)
 	if (obj_name[i] == NULL && line && line[0])
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
+}
+
+static int	parse_line(t_scene *scene, char *line)
+{
+	char		**data;
+
+	if (!line || line[0] == '\0')
+		return (EXIT_SUCCESS);
+	if (check_line(line) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	data = ft_split(line, "\t\n\v\f ,");
+	if (!data)
+		internal_error("unable to allocate memory");
+	return (match_parse_function(line, data, scene));
 }
 
 static void	init_scene(t_scene *scene)
@@ -95,15 +102,6 @@ t_scene	parsing(char *file)
 			break ;
 	}
 	close(fd);
-	link_cam_lst(scene.cam);
-	if (scene.light && scene.light->content)
-		scene.current_light = scene.light;
-	if (scene.obj)
-	{
-		scene.id_current_obj = ((t_lst *)scene.obj)->id;
-		scene.current_obj = ((t_lst *)scene.obj)->object;
-	}
-	else
-		scene.id_current_obj = -1;
+	manage_scene(&scene);
 	return (scene);
 }
