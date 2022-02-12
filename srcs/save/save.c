@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 20:07:10 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/13 00:32:22 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/13 00:42:39 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	bmp_header(char **buffer, int x, int y, unsigned int size)
 	*(unsigned int *)(*buffer + 10) = HEADER_SIZE;
 	*(unsigned int *)(*buffer + 14) = HEADER_SIZE - 14;
 	*(unsigned int *)(*buffer + 18) = (unsigned int)x;
-	*(unsigned int *)(*buffer + 22) = (unsigned int)y - 1;
+	*(unsigned int *)(*buffer + 22) = (unsigned int)y;
 	*(unsigned int *)(*buffer + 26) = 1;
 	*(unsigned int *)(*buffer + 28) = 24;
 	*(unsigned int *)(*buffer + 30) = 0;

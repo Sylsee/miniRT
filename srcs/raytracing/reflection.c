@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:23:23 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/12 22:37:17 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/13 00:40:55 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_color	mirror(t_scene scene, t_vector ray, t_hit hit, int nb_rebound)
 
 	reflect_color = reflection(scene, ray, hit, nb_rebound);
 	kr = fresnel(ray.dir, hit);
-	color.r = hit.color.r * (1 - kr) * 0.15 + reflect_color.r * 0.95;
-	color.g = hit.color.g * (1 - kr) * 0.15 + reflect_color.g * 0.95;
-	color.b = hit.color.b * (1 - kr) * 0.15 + reflect_color.b * 0.95;
+	color.r = hit.color.r * (1 - kr) * 0.15 + reflect_color.r * kr * 0.95;
+	color.g = hit.color.g * (1 - kr) * 0.15 + reflect_color.g * kr * 0.95;
+	color.b = hit.color.b * (1 - kr) * 0.15 + reflect_color.b * kr * 0.95;
 	return (color);
 }
