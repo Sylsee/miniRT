@@ -6,36 +6,25 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:04:08 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/11 00:25:00 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/12 22:36:08 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-#ifndef AIR_REFRACTIVE_IMPACT
-# define AIR_REFRACTIVE_IMPACT 1.000129
-#endif
 
 static t_p3	refract(t_vector ray, t_hit hit)
 {
 	double			n;
 	double			cost;
 	double			sint2;
-	static bool		in = false;
 	const double	cosi = -v_dot(hit.normal.dir, ray.dir);
 
-	if (in)
-	{
-		in = false;
+	if (cosi < 0)
 		n = hit.ior / AIR_REFRACTIVE_IMPACT;
-	}
 	else
-	{
-		in = true;
 		n = AIR_REFRACTIVE_IMPACT / hit.ior;
-	}
 	sint2 = n * n * (1.0 - cosi * cosi);
-	cost = sqrtf((float)(1.0 - sint2));
+	cost = sqrt(1.0 - sint2);
 	if (sint2 > 1.0)
 		return ((t_p3){0, 0, 0});
 	return (v_add(v_scale(ray.dir, n),

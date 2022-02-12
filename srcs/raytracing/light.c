@@ -6,14 +6,14 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:35:05 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/12 16:36:09 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/12 22:50:51 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 #ifndef BASE_COLOR_IMPACT
-# define BASE_COLOR_IMPACT 0.9
+# define BASE_COLOR_IMPACT 0.7
 #endif
 #ifndef LIGHT_IMPACT
 # define LIGHT_IMPACT 1000

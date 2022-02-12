@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 20:07:10 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/12 20:07:11 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/13 00:32:22 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	bmp_header(char **buffer, int x, int y, unsigned int size)
 	*(unsigned int *)(*buffer + 10) = HEADER_SIZE;
 	*(unsigned int *)(*buffer + 14) = HEADER_SIZE - 14;
 	*(unsigned int *)(*buffer + 18) = (unsigned int)x;
-	*(unsigned int *)(*buffer + 22) = (unsigned int)y;
+	*(unsigned int *)(*buffer + 22) = (unsigned int)y - 1;
 	*(unsigned int *)(*buffer + 26) = 1;
 	*(unsigned int *)(*buffer + 28) = 24;
 	*(unsigned int *)(*buffer + 30) = 0;
@@ -39,11 +39,11 @@ static void	bmp_data(char **buffer, t_scene scene, t_data data)
 	int	j;
 
 	i = HEADER_SIZE;
-	y = scene.res.y;
-	while (y--)
+	y = scene.res.y + 1;
+	while (--y)
 	{
 		x = 0;
-		while (x < scene.res.x)
+		while (x <= scene.res.x)
 		{
 			j = (x * (data.pixel_bits / 8)) + (y * data.line_bytes);
 			*(*buffer + i++) = *(data.data + j++);
