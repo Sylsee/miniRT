@@ -32,5 +32,6 @@ void		parse_cylinder(t_scene *scene, char **data);
 void		parse_triangle(t_scene *scene, char **data);
 
 void		parse_bonus(t_scene *scene, char **data);
+void	    manage_scene(t_scene *scene);
 
 #endif
