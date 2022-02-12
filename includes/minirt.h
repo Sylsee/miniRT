@@ -21,6 +21,7 @@
 # include "lst.h"
 # include "scene.h"
 # include "image.h"
+# include "save.h"
 # include "maths.h"
 # include "parsing.h"
 # include "error.h"

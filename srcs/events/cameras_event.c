@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:52:24 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/07 16:13:24 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/12 17:12:42 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,24 @@ static void	rotate_camera(int keycode, t_minirt *minirt)
 	update_window(minirt);
 }
 
+static void	translate_camera(int keycode, t_minirt *minirt, t_cam *cam)
+{
+	if (keycode == D_KEY)
+		cam->origin.x += MOVE_SIZE;
+	else if (keycode == A_KEY)
+		cam->origin.x -= MOVE_SIZE;
+	else if (keycode == SPACE_KEY)
+		cam->origin.y += MOVE_SIZE;
+	else if (keycode == SHIFT_KEY)
+		cam->origin.y -= MOVE_SIZE;
+	else if (keycode == W_KEY)
+		cam->origin.z += MOVE_SIZE;
+	else if (keycode == S_KEY)
+		cam->origin.z -= MOVE_SIZE;
+	param_cam(cam, minirt->scene->res);
+	update_window(minirt);
+}
+
 void	cameras_event(int keycode, t_minirt *minirt)
 {
 	if ((keycode == Q_KEY || keycode == E_KEY) && minirt->scene->cam->next)
@@ -67,6 +85,12 @@ void	cameras_event(int keycode, t_minirt *minirt)
 		minirt->scene->camera_mode = !minirt->scene->camera_mode;
 		print_status(minirt);
 	}
-	else if (is_movement_keycode(keycode))
-		rotate_camera(keycode, minirt);
+	if (is_movement_keycode(keycode))
+	{
+		if (!minirt->scene->camera_mode && keycode != SPACE_KEY
+			&& keycode != SHIFT_KEY)
+			rotate_camera(keycode, minirt);
+		else
+			translate_camera(keycode, minirt, minirt->scene->cam);
+	}
 }

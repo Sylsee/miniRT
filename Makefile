@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/02/10 22:29:48 by spoliart         ###   ########.fr        #
+#    Updated: 2022/02/12 20:00:56 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,8 @@ EVENT	=	init_mlx_events.c \
 			print_utils.c \
 			mouse_hook.c \
 
+SAVE	=	save.c \
+
 LST		=	lst.c \
 			cam_lst.c \
 
@@ -98,6 +100,7 @@ SRCS	=	main.c \
 			$(MATH) \
 			$(EVENT) \
 			$(LST) \
+			$(SAVE) \
 
 # [ OBJECTS ] #
 
@@ -105,7 +108,7 @@ OBJS	=	$(SRCS:%.c=$O%.o)
 
 # [ PATH ] #
 
-VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths:srcs/events:srcs/lst
+VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths:srcs/events:srcs/lst:srcs/save
 
 # [ RULES ] #
 
