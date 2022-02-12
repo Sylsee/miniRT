@@ -46,3 +46,17 @@ int	check_orientation(t_p3 dir)
 		|| dir.y < (double)-1 || dir.y > (double)1
 		|| dir.z < (double)-1 || dir.z > (double)1);
 }
+
+void	manage_scene(t_scene *scene)
+{
+	link_cam_lst(scene->cam);
+	if (scene->light && scene->light->content)
+		scene->current_light = scene->light;
+	if (scene->obj)
+	{
+		scene->id_current_obj = ((t_lst *)scene->obj)->id;
+		scene->current_obj = ((t_lst *)scene->obj)->object;
+	}
+	else
+		scene->id_current_obj = -1;
+}
