@@ -22,7 +22,7 @@ static void	bmp_header(char **buffer, int x, int y, unsigned int size)
 	*(unsigned int *)(*buffer + 18) = (unsigned int)x;
 	*(unsigned int *)(*buffer + 22) = (unsigned int)y;
 	*(unsigned int *)(*buffer + 26) = 1;
-	*(unsigned int *)(*buffer + 28) = 24;
+	*(unsigned int *)(*buffer + 28) = 32;
 	*(unsigned int *)(*buffer + 30) = 0;
 	*(unsigned int *)(*buffer + 34) = (unsigned int)size;
 	*(unsigned int *)(*buffer + 38) = 3780;
@@ -39,13 +39,14 @@ static void	bmp_data(char **buffer, t_scene scene, t_data data)
 	int	j;
 
 	i = HEADER_SIZE;
-	y = scene.res.y + 1;
-	while (--y)
+	y = scene.res.y;
+	while (y--)
 	{
 		x = 0;
-		while (x <= scene.res.x)
+		while (x < scene.res.x)
 		{
 			j = (x * (data.pixel_bits / 8)) + (y * data.line_bytes);
+			*(*buffer + i++) = *(data.data + j++);
 			*(*buffer + i++) = *(data.data + j++);
 			*(*buffer + i++) = *(data.data + j++);
 			*(*buffer + i++) = *(data.data + j);
@@ -62,7 +63,7 @@ void	create_bmp(t_data data, t_scene scene)
 	unsigned int	i;
 
 	i = 0;
-	size = (unsigned int)(scene.res.x * scene.res.y * 3);
+	size = (unsigned int)(scene.res.x * scene.res.y * 4);
 	buffer = alloc(sizeof(char) * (size + HEADER_SIZE), NULL);
 	if (!buffer)
 		exit(1);
