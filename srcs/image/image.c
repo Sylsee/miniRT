@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/12 22:43:13 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/18 22:32:29 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	create_img(t_data *data, t_scene scene)
 	y = 0;
 	while (y < scene.res.y)
 	{
-		printf("\r %.2f%%", (double)(y * 100 / scene.res.y));
+		printf("\r %.2f%%", (double)y * 100 / scene.res.y);
 		fflush(stdout);
 		x = 0;
 		while (x < scene.res.x)
