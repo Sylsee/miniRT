@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/07 16:07:48 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/19 18:58:06 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	minirt(int argc, char **argv)
 	if (argc == 3)
 		data.save = true;
 	scene = parsing(argv[1]);
+	if (scene.cam == NULL)
+		internal_error("You must provide a camera");
 	init_mlx(&data, &scene);
 	create_img(&data, scene);
 	if (data.save == false)

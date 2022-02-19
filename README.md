@@ -8,4 +8,10 @@
 - ~~Refaire le parsing~~
 - ~~Gestion lumiere ambiante~~, ~~spot~~, ~~ombres~~
 - ~~Intersection objets (sphere, plan, cylindre)~~
-- BONUS: ~~Mirroir~~, lumiere phong, ~~multi spots~~, ~~lumiere coloree~~, ~~antialiasing~~
+- BONUS:
+	- ~~Objets mirroir~~
+	- ~~Objets transparent~~
+	- ~~Reflection et refraction~~
+	- ~~Fresnel~~
+	- ~~Multi spots et lumiere coloree~~
+	- ~~Antialiasing~~

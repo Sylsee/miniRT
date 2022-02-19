@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/12 17:18:04 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/19 19:00:09 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	init_scene(t_scene *scene)
 	scene->cam = NULL;
 	scene->obj = NULL;
 	scene->antialiasing = 1;
-	scene->ray_max_bounces = 10;
+	scene->ray_max_bounces = 3;
 	scene->bg_color = 0x000000;
 	scene->do_reflection = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:55:57 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/09 20:15:37 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/19 18:03:16 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ enum
 {
 	NONE = 0,
 	REFLECTION = 1,
-	REFRACTION = 2
+	REFRACTION = 2,
+	CHECKBOARD = 3
 };
 
 typedef struct s_data	t_data;

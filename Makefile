@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/02/12 20:00:56 by arguilla         ###   ########.fr        #
+#    Updated: 2022/02/19 18:52:55 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,20 +44,21 @@ I		=	-Iincludes -Ilib/minilibx -I/usr/include
 
 # [ SOURCES ] #
 
-OBJECTS	=	inter_sphere.c \
-			inter_plane.c \
-			inter_cylinder.c
+OBJECTS_INTERSECTION	=	sphere.c \
+							plane.c \
+							cylinder.c
 
-RAYTRACING	=	$(OBJECTS) \
-				light.c \
-				shadow.c \
-				reflection.c \
-				refraction.c \
-				fresnel.c
+COLOR_COMPUTATION	=	light.c \
+						shadow.c \
+						reflection.c \
+						refraction.c \
+						fresnel.c
+
+RAYTRACING	=	$(COLOR_COMPUTATION) \
+				ray.c
 
 IMAGE	=	image.c \
 			color.c \
-			ray.c \
 			cam.c
 
 PARSING	=	parse.c \
@@ -65,9 +66,6 @@ PARSING	=	parse.c \
 			parse_objects.c \
 			parse_utils.c \
 			parse_bonus.c
-
-UTILS	=	lst.c \
-			error.c
 
 MATH	=	vector_calculs.c \
 			vector_calculs2.c \
@@ -85,22 +83,26 @@ EVENT	=	init_mlx_events.c \
 			print_status.c \
 			print_objects.c \
 			print_utils.c \
-			mouse_hook.c \
+			mouse_hook.c
 
-SAVE	=	save.c \
+SAVE	=	save.c
 
 LST		=	lst.c \
 			cam_lst.c \
+
+UTILS	=	$(LST) \
+			error.c
 
 SRCS	=	main.c \
 			$(UTILS) \
 			$(PARSING) \
 			$(IMAGE) \
+			$(OBJECTS_INTERSECTION) \
 			$(RAYTRACING) \
 			$(MATH) \
 			$(EVENT) \
 			$(LST) \
-			$(SAVE) \
+			$(SAVE)
 
 # [ OBJECTS ] #
 
@@ -108,7 +110,9 @@ OBJS	=	$(SRCS:%.c=$O%.o)
 
 # [ PATH ] #
 
-VPATH	=	includes:srcs:srcs/utils:srcs/parse:srcs/image:srcs/raytracing:srcs/raytracing/objects:srcs/maths:srcs/events:srcs/lst:srcs/save
+VPATH	=	includes:srcs:srcs/utils:srcs/utils/lst:srcs/save:srcs/parsing:\
+			srcs/raytracing:srcs/raytracing/color_computation:srcs/maths:\
+			srcs/objects_intersection:srcs/image:srcs/events
 
 # [ RULES ] #
 
