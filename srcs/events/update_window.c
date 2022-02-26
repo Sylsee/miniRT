@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_window.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 13:00:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 23:48:20 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:27:17 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@ void	update_window(t_minirt *minirt)
 	create_img(minirt->data, *(minirt->scene));
 	mlx_put_image_to_window(minirt->data->mlx,
 		minirt->data->win, minirt->data->img, 0, 0);
+	if (minirt->scene->video_mode)
+		create_bmp(*(minirt->data), *(minirt->scene));
 	print_status(minirt);
 }

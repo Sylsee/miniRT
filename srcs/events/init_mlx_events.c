@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx_events.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:00:59 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/14 01:16:30 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:20:28 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ static void	switch_object_type(int keycode, t_minirt *minirt)
 
 static int	key_events(int keycode, t_minirt *minirt)
 {
+	if (keycode == V_KEY)
+	{
+		minirt->scene->video_mode = !minirt->scene->video_mode;
+		print_status(minirt);
+	}
 	exit_window(keycode, minirt->data);
 	switch_object_type(keycode, minirt);
 	if (minirt->scene->obj && minirt->scene->obj->object)
