@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 19:48:22 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/10 22:30:35 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/26 17:34:46 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void		parse_cylinder(t_scene *scene, char **data);
 void		parse_triangle(t_scene *scene, char **data);
 
 void		parse_bonus(t_scene *scene, char **data);
-void	    manage_scene(t_scene *scene);
+void		manage_scene(t_scene *scene);
+
+void		check_arguments(int argc, char **argv);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/26 16:21:15 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:55:13 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct s_scene
 {
 	bool		camera_mode;
 	bool		video_mode;
+	char		*video_dir;
 	bool		object_type;
 	bool		object_mode;
 	t_couple	res;

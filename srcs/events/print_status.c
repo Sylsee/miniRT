@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:42:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/26 16:24:16 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:58:01 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	print_infos(t_scene scene)
 		printf(" active\n");
 	else
 		printf(" inactive\n");
+	printf(YELLOW"%s"RESET"%s\n", "Video directory: ", scene.video_dir);
 	printf(YELLOW"%s"RESET"%s\n", "Camera mode: ",
 		return_string(scene.camera_mode, "translation", "rotation"));
 	printf(YELLOW"%s"RESET"%s\n", "Object type: ",

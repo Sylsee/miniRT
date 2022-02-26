@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   is_dir.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/22 22:08:29 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/26 17:26:48 by arguilla         ###   ########.fr       */
+/*   Created: 2022/02/26 17:26:23 by arguilla          #+#    #+#             */
+/*   Updated: 2022/02/26 17:31:51 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
+#include "minirt.h"
 
-void	internal_error(char *s);
-bool	is_dir(char *dir);
-#endif
+bool	is_dir(char *dir)
+{
+	struct stat	s;
+	int			err;
+
+	err = stat(dir, &s);
+	if (err == -1)
+		return (false);
+	else if (S_ISDIR(s.st_mode) && (access(dir, F_OK | W_OK | R_OK) == 0))
+		return (true);
+	return (false);
+}

@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/26 16:21:00 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/26 17:31:27 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,12 @@ void	minirt(int argc, char **argv)
 		data.save = true;
 	scene = parsing(argv[1]);
 	scene.video_mode = false;
+	if (argc > 3 && is_dir(argv[3]))
+		scene.video_dir = ft_strdup(argv[3]);
+	else if (is_dir("saves"))
+		scene.video_dir = ft_strdup("saves");
+	else
+		internal_error("Can't find video directory");
 	if (scene.cam == NULL)
 		internal_error("You must provide a camera");
 	init_mlx(&data, &scene);
@@ -79,14 +85,7 @@ void	minirt(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	if (argc < 2)
-		internal_error("missing file operand\n");
-	else if (argc > 3)
-		internal_error("too many arguments");
-	else if (argc == 3 && ft_strequ(argv[2], "--save") == 0)
-		internal_error("Second argument must be `--save'");
-	else if (ft_strend(argv[1], ".rt") == 0)
-		internal_error("First argument must be a `.rt' file");
+	check_arguments(argc, argv);
 	init_area(NULL);
 	minirt(argc, argv);
 	exit(EXIT_SUCCESS);
