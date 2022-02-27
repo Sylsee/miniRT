@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/19 19:00:09 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/27 11:08:42 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	parse_line(t_scene *scene, char *line)
 {
 	char		**data;
 
-	if (!line || line[0] == '\0')
+	if (!line || line[0] == '\0' || line[0] == '#')
 		return (EXIT_SUCCESS);
 	if (check_line(line) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
@@ -77,6 +77,8 @@ static void	init_scene(t_scene *scene)
 	scene->ray_max_bounces = 3;
 	scene->bg_color = 0x000000;
 	scene->do_reflection = 0;
+	scene->frame_index = 0;
+	scene->video_mode = false;
 }
 
 t_scene	parsing(char *file)

@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/26 17:31:27 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/27 11:43:03 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,14 @@ void	minirt(int argc, char **argv)
 	if (argc == 3)
 		data.save = true;
 	scene = parsing(argv[1]);
-	scene.video_mode = false;
 	if (argc > 3 && is_dir(argv[3]))
-		scene.video_dir = ft_strdup(argv[3]);
+		scene.video_dir = ft_strjoin(argv[3], "/");
 	else if (is_dir("saves"))
-		scene.video_dir = ft_strdup("saves");
+		scene.video_dir = ft_strdup("saves/");
 	else
 		internal_error("Can't find video directory");
+	if (!scene.video_dir)
+		internal_error("Malloc failed.");
 	if (scene.cam == NULL)
 		internal_error("You must provide a camera");
 	init_mlx(&data, &scene);
@@ -80,7 +81,7 @@ void	minirt(int argc, char **argv)
 	if (data.save == false)
 		set_img(&data, &scene);
 	else
-		create_bmp(data, scene);
+		create_bmp(data, scene, &(scene.frame_index));
 }
 
 int	main(int argc, char **argv)

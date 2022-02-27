@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 13:00:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/26 16:27:17 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/27 11:10:08 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	update_window(t_minirt *minirt)
 	mlx_put_image_to_window(minirt->data->mlx,
 		minirt->data->win, minirt->data->img, 0, 0);
 	if (minirt->scene->video_mode)
-		create_bmp(*(minirt->data), *(minirt->scene));
+		create_bmp(*(minirt->data), *(minirt->scene),
+			&(minirt->scene->frame_index));
 	print_status(minirt);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/09 20:15:46 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/27 10:44:50 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 typedef struct s_minirt	t_minirt;
 
-int		destroy_window(t_data *data);
-int		exit_window(int keycode, t_data *data);
+int		destroy_window(t_minirt *minirt);
+int		exit_window(int keycode, t_minirt *minirt);
 void	cameras_event(int keycode, t_minirt *minirt);
 void	init_mlx_events(t_data *data, t_scene *scene);
 void	update_window(t_minirt *minirt);

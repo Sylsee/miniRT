@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 20:07:10 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/26 17:23:48 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/27 11:24:04 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,11 @@ static void	bmp_data(char **buffer, t_scene scene, t_data data)
 	}
 }
 
-static char	*get_bmp_name(char *dir)
+static char	*get_bmp_name(char *dir, int id)
 {
-	static int	id = 0;
 	char		*name;
 
-	name = ft_strjoin("/save", ft_itoa(++id));
+	name = ft_strjoin("save", ft_itoa(id));
 	name = ft_strjoin(name, ".bmp");
 	name = ft_strjoin(dir, name);
 	if (!name)
@@ -68,7 +67,7 @@ static char	*get_bmp_name(char *dir)
 	return (name);
 }
 
-void	create_bmp(t_data data, t_scene scene)
+void	create_bmp(t_data data, t_scene scene, int *id)
 {
 	int				fd;
 	char			*buffer;
@@ -85,7 +84,8 @@ void	create_bmp(t_data data, t_scene scene)
 		buffer[i++] = 0;
 	bmp_header(&buffer, scene.res.x, scene.res.y, size);
 	bmp_data(&buffer, scene, data);
-	fd = open(get_bmp_name(scene.video_dir), O_CREAT | O_TRUNC | O_RDWR, 0644);
+	fd = open(get_bmp_name(scene.video_dir, ++(*id)),
+			O_CREAT | O_TRUNC | O_RDWR, 0644);
 	if (fd < 0)
 		exit(1);
 	if (!write(fd, buffer, (size + HEADER_SIZE)))

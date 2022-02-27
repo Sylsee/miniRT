@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/02/26 17:26:56 by arguilla         ###   ########.fr        #
+#    Updated: 2022/02/27 10:42:55 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,8 @@ EVENT	=	init_mlx_events.c \
 			print_utils.c \
 			mouse_hook.c
 
-SAVE	=	save.c
+SAVE	=	save.c \
+			create_video.c \
 
 LST		=	lst.c \
 			cam_lst.c \
