@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/27 11:43:03 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/27 12:00:34 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	minirt(int argc, char **argv)
 	scene = parsing(argv[1]);
 	if (argc > 3 && is_dir(argv[3]))
 		scene.video_dir = ft_strjoin(argv[3], "/");
-	else if (is_dir("saves"))
+	else if (is_dir("saves") || argc <= 3)
 		scene.video_dir = ft_strdup("saves/");
 	else
 		internal_error("Can't find video directory");
