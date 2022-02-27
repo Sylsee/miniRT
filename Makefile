@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
+#    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/02/19 18:52:55 by spoliart         ###   ########.fr        #
+#    Updated: 2022/02/27 10:42:55 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ PARSING	=	parse.c \
 			parse_elem.c \
 			parse_objects.c \
 			parse_utils.c \
-			parse_bonus.c
+			parse_bonus.c \
+			check_arguments.c \
 
 MATH	=	vector_calculs.c \
 			vector_calculs2.c \
@@ -85,13 +86,15 @@ EVENT	=	init_mlx_events.c \
 			print_utils.c \
 			mouse_hook.c
 
-SAVE	=	save.c
+SAVE	=	save.c \
+			create_video.c \
 
 LST		=	lst.c \
 			cam_lst.c \
 
 UTILS	=	$(LST) \
-			error.c
+			error.c \
+			is_dir.c \
 
 SRCS	=	main.c \
 			$(UTILS) \

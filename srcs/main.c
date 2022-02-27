@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/19 18:58:06 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/27 11:43:03 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ void	minirt(int argc, char **argv)
 	if (argc == 3)
 		data.save = true;
 	scene = parsing(argv[1]);
+	if (argc > 3 && is_dir(argv[3]))
+		scene.video_dir = ft_strjoin(argv[3], "/");
+	else if (is_dir("saves"))
+		scene.video_dir = ft_strdup("saves/");
+	else
+		internal_error("Can't find video directory");
+	if (!scene.video_dir)
+		internal_error("Malloc failed.");
 	if (scene.cam == NULL)
 		internal_error("You must provide a camera");
 	init_mlx(&data, &scene);
@@ -73,19 +81,12 @@ void	minirt(int argc, char **argv)
 	if (data.save == false)
 		set_img(&data, &scene);
 	else
-		create_bmp(data, scene);
+		create_bmp(data, scene, &(scene.frame_index));
 }
 
 int	main(int argc, char **argv)
 {
-	if (argc < 2)
-		internal_error("missing file operand\n");
-	else if (argc > 3)
-		internal_error("too many arguments");
-	else if (argc == 3 && ft_strequ(argv[2], "--save") == 0)
-		internal_error("Second argument must be `--save'");
-	else if (ft_strend(argv[1], ".rt") == 0)
-		internal_error("First argument must be a `.rt' file");
+	check_arguments(argc, argv);
 	init_area(NULL);
 	minirt(argc, argv);
 	exit(EXIT_SUCCESS);

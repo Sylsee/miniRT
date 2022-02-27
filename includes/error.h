@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 22:08:29 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/13 18:52:03 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/26 17:26:48 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 # define ERROR_H
 
 void	internal_error(char *s);
-
+bool	is_dir(char *dir);
 #endif

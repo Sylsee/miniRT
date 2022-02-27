@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_status.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:42:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/03 20:27:08 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:58:01 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 static void	print_infos(t_scene scene)
 {
-	printf(BOLDCYAN"\t\t\t%s\n", "MINIRT STATUS ");
+	printf(BOLDCYAN"\t\t\t%s\n"RESET, "MINIRT STATUS ");
+	printf(YELLOW"%s"RESET, "Video mode: ");
+	if (scene.video_mode)
+		printf(" active\n");
+	else
+		printf(" inactive\n");
+	printf(YELLOW"%s"RESET"%s\n", "Video directory: ", scene.video_dir);
 	printf(YELLOW"%s"RESET"%s\n", "Camera mode: ",
 		return_string(scene.camera_mode, "translation", "rotation"));
 	printf(YELLOW"%s"RESET"%s\n", "Object type: ",

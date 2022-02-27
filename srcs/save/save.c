@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 20:07:10 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/13 00:42:39 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/27 11:24:04 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,19 @@ static void	bmp_data(char **buffer, t_scene scene, t_data data)
 	}
 }
 
-void	create_bmp(t_data data, t_scene scene)
+static char	*get_bmp_name(char *dir, int id)
+{
+	char		*name;
+
+	name = ft_strjoin("save", ft_itoa(id));
+	name = ft_strjoin(name, ".bmp");
+	name = ft_strjoin(dir, name);
+	if (!name)
+		internal_error("Malloc failed.");
+	return (name);
+}
+
+void	create_bmp(t_data data, t_scene scene, int *id)
 {
 	int				fd;
 	char			*buffer;
@@ -72,7 +84,8 @@ void	create_bmp(t_data data, t_scene scene)
 		buffer[i++] = 0;
 	bmp_header(&buffer, scene.res.x, scene.res.y, size);
 	bmp_data(&buffer, scene, data);
-	fd = open("save.bmp", O_CREAT | O_TRUNC | O_RDWR, 0644);
+	fd = open(get_bmp_name(scene.video_dir, ++(*id)),
+			O_CREAT | O_TRUNC | O_RDWR, 0644);
 	if (fd < 0)
 		exit(1);
 	if (!write(fd, buffer, (size + HEADER_SIZE)))

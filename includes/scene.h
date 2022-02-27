@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/12 17:16:19 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/27 11:08:39 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ typedef struct s_cam
 typedef struct s_scene
 {
 	bool		camera_mode;
+	bool		video_mode;
+	int			frame_index;
+	char		*video_dir;
 	bool		object_type;
 	bool		object_mode;
 	t_couple	res;

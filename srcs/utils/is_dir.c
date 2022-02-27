@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_exit.c                                         :+:      :+:    :+:   */
+/*   is_dir.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 08:36:39 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/27 11:08:47 by arguilla         ###   ########.fr       */
+/*   Created: 2022/02/26 17:26:23 by arguilla          #+#    #+#             */
+/*   Updated: 2022/02/26 17:31:51 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-#define ESC 65307
-
-int	exit_window(int keycode, t_minirt *minirt)
+bool	is_dir(char *dir)
 {
-	if (keycode == ESC)
-		destroy_window(minirt);
-	return (1);
-}
+	struct stat	s;
+	int			err;
 
-int	destroy_window(t_minirt *minirt)
-{
-	if (minirt->scene->frame_index > 0)
-		create_video(minirt);
-	mlx_destroy_image(minirt->data->mlx, minirt->data->img);
-	mlx_destroy_window(minirt->data->mlx, minirt->data->win);
-	mlx_destroy_display(minirt->data->mlx);
-	free(minirt->data->mlx);
-	exit(0);
+	err = stat(dir, &s);
+	if (err == -1)
+		return (false);
+	else if (S_ISDIR(s.st_mode) && (access(dir, F_OK | W_OK | R_OK) == 0))
+		return (true);
+	return (false);
 }
