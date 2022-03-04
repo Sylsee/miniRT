@@ -11,7 +11,8 @@
 - BONUS:
 	- ~~Objets mirroir~~
 	- ~~Objets transparent~~
-	- ~~Reflection et refraction~~
+	- ~~Reflection~~
+	- ~~Refraction~~
 	- ~~Fresnel~~
 	- ~~Multi spots et lumiere coloree~~
 	- ~~Antialiasing~~
