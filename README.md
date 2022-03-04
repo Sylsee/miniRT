@@ -1,7 +1,7 @@
 
 - Gestion de fenetre ✅
 - Selection objets et appliquer changement souhaite ✅
-- Gestion des objets en cliquant dessus (voir fonction intersection ✅
+- Gestion des objets en cliquant dessus ✅
 - Refaire le parsing ✅
 - Gestion lumiere ambiante spot ombres ✅
 - Intersection objets (sphere, plan, cylindre) ✅
