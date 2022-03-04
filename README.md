@@ -15,3 +15,4 @@
 	- ~~Gestion multicam~~
 	- ~~Save~~
 	- ~~Film~~
+	- ~~Progress bar~~
