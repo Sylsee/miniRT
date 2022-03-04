@@ -9,8 +9,6 @@
 - ~~Gestion lumiere ambiante~~, ~~spot~~, ~~ombres~~
 - ~~Intersection objets (sphere, plan, cylindre)~~
 - BONUS:
-	- ~~Objets mirroir~~
-	- ~~Objets transparent~~
 	- ~~Reflection~~
 	- ~~Refraction~~
 	- ~~Fresnel~~
