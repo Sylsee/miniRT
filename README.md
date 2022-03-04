@@ -1,7 +1,7 @@
 
 - Gestion de fenetre ✅
 - Selection objets et appliquer changement souhaite ✅
-- Gestion des objets en cliquant dessus ✅
+- Selection des objets ✅
 - Refaire le parsing ✅
 - Gestion lumiere ambiante spot ombres ✅
 - Intersection objets (sphere, plan, cylindre) ✅
@@ -16,3 +16,4 @@
 	- Save ✅
 	- Film ✅
 	- Progress bar ✅
+	- Cliquer pour selectionner un objet ✅
