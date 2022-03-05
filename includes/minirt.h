@@ -39,7 +39,7 @@ typedef struct s_lst
 	int				id;
 	void			*object;
 	struct s_lst	*next;
-}				t_lst;
+}				t_object_list;
 
 typedef struct s_data
 {

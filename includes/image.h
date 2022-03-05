@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:55:57 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/19 18:03:16 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:44:19 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ enum
 {
 	NONE = 0,
 	REFLECTION = 1,
-	REFRACTION = 2,
-	CHECKBOARD = 3
+	REFRACTION = 2
 };
 
 typedef struct s_data	t_data;
@@ -43,7 +42,7 @@ typedef struct s_hit
 	};
 }			t_hit;
 
-t_hit		intersection(t_scene scene, t_vector ray, int mode);
+t_hit		intersection(t_object_list *objects, t_vector ray, int mode);
 void		set_img(t_data *data, t_scene *scene);
 void		create_img(t_data *data, t_scene scene);
 t_color		get_color(t_scene scene, t_vector ray, int nb_rebound);

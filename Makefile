@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/02/27 10:42:55 by arguilla         ###   ########.fr        #
+#    Updated: 2022/03/04 20:12:19 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ _YELLOW	=	\e[33m
 # [ COMPILATION VARIABLES ]#
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -Wconversion
+CFLAGS	=	-Wall -Wextra -Werror -Wconversion -ggdb
 LDFLAGS	=	-Llib/libft -lft -Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lz
 
 # [ VALGRIND VARIABLES ] #
@@ -48,13 +48,14 @@ OBJECTS_INTERSECTION	=	sphere.c \
 							plane.c \
 							cylinder.c
 
-COLOR_COMPUTATION	=	light.c \
-						shadow.c \
-						reflection.c \
-						refraction.c \
-						fresnel.c
+MATERIAL_COMPUTATION	=	light.c \
+							shadow.c \
+							reflection.c \
+							refraction.c \
+							fresnel.c \
+							compute_material.c
 
-RAYTRACING	=	$(COLOR_COMPUTATION) \
+RAYTRACING	=	$(MATERIAL_COMPUTATION) \
 				ray.c
 
 IMAGE	=	image.c \

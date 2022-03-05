@@ -6,14 +6,14 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:20:44 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/27 11:08:39 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:47:13 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCENE_H
 # define SCENE_H
 
-typedef struct s_lst	t_lst;
+typedef struct s_lst	t_object_list;
 
 typedef struct s_color
 {
@@ -66,24 +66,24 @@ typedef struct s_cam
 
 typedef struct s_scene
 {
-	bool		camera_mode;
-	bool		video_mode;
-	int			frame_index;
-	char		*video_dir;
-	bool		object_type;
-	bool		object_mode;
-	t_couple	res;
-	t_light		ambient;
-	t_list		*light;
-	t_list		*current_light;
-	t_cam		*cam;
-	t_lst		*obj;
-	int			id_current_obj;
-	void		*current_obj;
-	int			antialiasing;
-	int			ray_max_bounces;
-	int			bg_color;
-	int			do_reflection;
+	bool			camera_mode;
+	bool			video_mode;
+	int				frame_index;
+	char			*video_dir;
+	bool			object_type;
+	bool			object_mode;
+	t_couple		res;
+	t_light			ambient;
+	t_list			*light;
+	t_list			*current_light;
+	t_cam			*cam;
+	t_object_list	*obj;
+	int				id_current_obj;
+	void			*current_obj;
+	int				antialiasing;
+	int				ray_max_bounces;
+	int				bg_color;
+	int				do_reflection;
 }				t_scene;
 
 #endif

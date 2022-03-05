@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 20:42:14 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/15 23:34:25 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/04 19:53:13 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static void	get_object_dir(t_p3 **coord, int id, void *obj)
 {
 	if (id == PLANE)
 		*coord = &((t_plane *)obj)->dir;
-	else if (id == SQUARE)
-		*coord = &((t_square *)obj)->dir;
 	else if (id == CYLINDER)
 		*coord = &((t_cylinder *)obj)->dir;
 	else
@@ -30,8 +28,6 @@ static void	get_object_pos(t_p3 **coord, int id, void *obj)
 		*coord = &((t_sphere *)obj)->pos;
 	else if (id == PLANE)
 		*coord = &((t_plane *)obj)->pos;
-	else if (id == SQUARE)
-		*coord = &((t_square *)obj)->pos;
 	else if (id == CYLINDER)
 		*coord = &((t_cylinder *)obj)->pos;
 	else
@@ -42,6 +38,7 @@ static void	init_coord(t_p3 **coord, t_p3 *size, t_scene *scene)
 {
 	if (scene->object_mode == ROTATION && scene->id_current_obj != SPHERE)
 	{
+		printf("tg\n");
 		get_object_dir(coord, scene->id_current_obj, scene->current_obj);
 		size->x = X_ROTATION_SIZE;
 		size->y = Y_ROTATION_SIZE;

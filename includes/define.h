@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:04:49 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/26 17:35:06 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:45:45 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@
 # define X_MOVE_LIGHT 1
 # define Y_MOVE_LIGHT 1
 # define Z_MOVE_LIGHT 1
+
+# define PROGRESS_EMPTY "------------------------------------------------------"
+# define PROGRESS_FULL  "######################################################"
 
 #endif

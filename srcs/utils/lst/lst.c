@@ -12,11 +12,11 @@
 
 #include "minirt.h"
 
-t_lst	*lstnew(void *object, int id)
+t_object_list	*lstnew(void *object, int id)
 {
-	t_lst	*new;
+	t_object_list	*new;
 
-	new = alloc(sizeof(t_lst), NULL);
+	new = alloc(sizeof(t_object_list), NULL);
 	if (!new)
 		return (NULL);
 	new->id = id;
@@ -25,7 +25,7 @@ t_lst	*lstnew(void *object, int id)
 	return (new);
 }
 
-void	lst_addfront(t_lst **alst, t_lst *new)
+void	lst_addfront(t_object_list **alst, t_object_list *new)
 {
 	if (new)
 	{
@@ -34,10 +34,10 @@ void	lst_addfront(t_lst **alst, t_lst *new)
 	}
 }
 
-void	lstclear(t_lst **lst, void (*del)(void *))
+void	lstclear(t_object_list **lst, void (*del)(void *))
 {
-	t_lst	*next;
-	t_lst	*curr;
+	t_object_list	*next;
+	t_object_list	*curr;
 
 	next = *lst;
 	while (next)
@@ -49,7 +49,7 @@ void	lstclear(t_lst **lst, void (*del)(void *))
 	*lst = NULL;
 }
 
-void	lstdelone(t_lst *lst, void (*del)(void *))
+void	lstdelone(t_object_list *lst, void (*del)(void *))
 {
 	if (lst)
 	{

@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:14:53 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/03 20:30:02 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:45:27 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	select_object(int x, int y, t_scene *scene)
 	t_hit		hit;
 
 	ray = new_ray(scene->cam, *scene, x, y);
-	hit = intersection(*scene, ray, 2);
+	hit = intersection(scene->obj, ray, 2);
 	if (hit.dist == -1)
 		return (0);
 	scene->id_current_obj = hit.type;

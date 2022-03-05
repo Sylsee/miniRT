@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:24:07 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/19 19:03:27 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/04 18:46:31 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_color	light(t_scene scene, t_hit hit);
 int		is_shaded(t_scene scene, t_hit hit, t_light *light);
 
 /*	MATERIAL_COLOR_COMPUTATION	*/
+t_color	compute_material(t_scene scene, t_vector ray, t_hit hit,
+			int nb_rebound);
 t_color	mirror(t_scene scene, t_vector ray, t_hit hit, int nb_rebound);
 double	fresnel(t_p3 dir, t_hit hit);
 t_color	reflection(t_scene scene, t_vector ray, t_hit hit, int nb_rebound);

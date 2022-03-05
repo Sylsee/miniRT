@@ -54,8 +54,8 @@ void	manage_scene(t_scene *scene)
 		scene->current_light = scene->light;
 	if (scene->obj)
 	{
-		scene->id_current_obj = ((t_lst *)scene->obj)->id;
-		scene->current_obj = ((t_lst *)scene->obj)->object;
+		scene->id_current_obj = ((t_object_list *)scene->obj)->id;
+		scene->current_obj = ((t_object_list *)scene->obj)->object;
 	}
 	else
 		scene->id_current_obj = -1;
