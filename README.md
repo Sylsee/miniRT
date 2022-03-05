@@ -1,19 +1,17 @@
-## arguilla part :
-- ~~Gestion de fenetre~~
-- ~~Selection objets~~ et appliquer changement souhaite
-- ~~Gestion des objets en cliquant dessus (voir fonction intersection)~~
-- BONUS:
-	- ~~Gestion multicam~~
-	- ~~Save~~
-	- ~~Film~~
 
-## spoliart part :
-- ~~Refaire le parsing~~
-- ~~Gestion lumiere ambiante~~, ~~spot~~, ~~ombres~~
-- ~~Intersection objets (sphere, plan, cylindre)~~
+- Gestion de fenetre ✅
+- Selection objets et appliquer changement souhaite ✅
+- Gestion lumiere ambiante, spot et ombres ✅
+- Intersection objets (sphere, plan, cylindre) ✅
+
 - BONUS:
-	- ~~Reflection~~
-	- ~~Refraction~~
-	- ~~Fresnel~~
-	- ~~Multi spots et lumiere coloree~~
-	- ~~Antialiasing~~
+	- Reflection ✅
+	- Refraction ✅
+	- Fresnel ✅
+	- Multi spots et lumiere coloree ✅
+	- Antialiasing ✅
+	- Gestion multicam ✅
+	- Save ✅
+	- Film ✅
+	- Progress bar ✅
+	- Cliquer pour selectionner un objet ✅
