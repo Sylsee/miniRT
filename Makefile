@@ -6,13 +6,13 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/03/04 20:12:19 by spoliart         ###   ########.fr        #
+#    Updated: 2022/03/06 15:56:19 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # [ VARIABLES ] #
 
-NAME	=	minirt
+NAME	=	miniRT
 RM		=	/bin/rm -rf
 MAKE	=	make
 LIBFT	=	lib/libft

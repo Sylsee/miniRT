@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:53:58 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/04 19:58:56 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/06 17:14:27 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void	parse_cylinder(t_scene *scene, char **line)
 	cylinder->dir = parse_point(line[4], line[5], line[6]);
 	if (check_orientation(cylinder->dir))
 		internal_error("Orientation must be a number between -1 and 1");
-	printf("x: %f\ny: %f\nz: %f\n", cylinder->dir.x, cylinder->dir.y, cylinder->dir.z);
 	cylinder->diameter = ft_atof(line[7]);
 	cylinder->height = ft_atof(line[8]);
 	cylinder->color = parse_color(line[9], line[10], line[11]);

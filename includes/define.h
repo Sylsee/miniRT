@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:04:49 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/04 17:45:45 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/06 15:41:07 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define CYAN    "\033[36m"
 # define BOLDCYAN   "\033[1m\033[36m"
 
-# define MOVE_SIZE 1
+# define MOVE_SIZE 100
 # define X_TRANSLATION_SIZE MOVE_SIZE
 # define Y_TRANSLATION_SIZE MOVE_SIZE
 # define Z_TRANSLATION_SIZE MOVE_SIZE

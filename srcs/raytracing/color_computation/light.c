@@ -6,23 +6,23 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:35:05 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/04 15:15:06 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/06 17:14:47 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 #ifndef BASE_COLOR_IMPACT
-# define BASE_COLOR_IMPACT 0.7
+# define BASE_COLOR_IMPACT 1
 #endif
 #ifndef LIGHT_IMPACT
-# define LIGHT_IMPACT 1000
+# define LIGHT_IMPACT 1000000
 #endif
 #ifndef LIGHT_COLOR_IMPACT
-# define LIGHT_COLOR_IMPACT 0.7
+# define LIGHT_COLOR_IMPACT 1
 #endif
 #ifndef AMBIENT_IMPACT
-# define AMBIENT_IMPACT 0.1
+# define AMBIENT_IMPACT 0.5
 #endif
 #ifndef AMBIENT_COLOR_IMPACT
 # define AMBIENT_COLOR_IMPACT 0.1
@@ -67,7 +67,6 @@ static t_color	init_color(t_scene scene, t_hit hit)
 t_color	light(t_scene scene, t_hit hit)
 {
 	double	intensity;
-	double	norm;
 	t_list	*tmp;
 	t_color	color;
 	t_light	*light;
@@ -78,10 +77,9 @@ t_color	light(t_scene scene, t_hit hit)
 	while (tmp)
 	{
 		light = tmp->content;
-		norm = max(v_dot(get_normalize(v_sub(light->pos, hit.normal.origin)),
-					hit.normal.dir), 0);
-		intensity += is_shaded(scene, hit, light) * light->ratio * LIGHT_IMPACT
-			* norm
+		intensity = is_shaded(scene, hit, light) * light->ratio * LIGHT_IMPACT
+			* max(v_dot(get_normalize(v_sub(light->pos, hit.normal.origin)),
+					hit.normal.dir), 0)
 			/ get_norm2(v_sub(light->pos, hit.normal.origin));
 		calculate_color(hit, light, intensity, &color);
 		tmp = tmp->next;

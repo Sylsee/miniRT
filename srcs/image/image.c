@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/04 19:27:01 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/06 11:41:54 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_color	get_color(t_scene scene, t_vector ray, int nb_rebound)
 		return (new_color(scene.bg_color));
 	color = light(scene, hit);
 	if (hit.material_type == REFLECTION || hit.material_type == REFRACTION)
-		compute_material(scene, ray, hit, nb_rebound);
+		return (compute_material(scene, ray, hit, nb_rebound));
 	if (hit.material_type == NONE && scene.do_reflection)
 	{
 		reflect = reflection(scene, ray, hit, nb_rebound);
