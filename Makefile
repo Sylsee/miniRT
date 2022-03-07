@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/03/06 15:56:19 by spoliart         ###   ########.fr        #
+#    Updated: 2022/03/07 18:47:52 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,7 +148,8 @@ fclean:		clean
 			@$(RM) $(NAME)
 			@printf "$(_RED) '$(NAME)' has been deleted. $(_END)🗑️\n"
 
-re:			fclean all
+re:			fclean
+			@make -s -j 8
 
 valgrind: 	all
 			@$(VALGRIND) $(VFLAGS) ./$(NAME)

@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-int	is_shaded(t_scene scene, t_hit hit, t_light *light)
+bool	is_shaded(t_scene scene, t_hit hit, t_light *light)
 {
 	t_vector	ray;
 	t_hit		obj_hit;
@@ -23,6 +23,6 @@ int	is_shaded(t_scene scene, t_hit hit, t_light *light)
 	light_dist = sqrt(get_norm2(v_sub(light->pos, hit.normal.origin)));
 	obj_hit = intersection(scene.obj, ray, 3);
 	if (obj_hit.dist == -1 || obj_hit.dist > light_dist)
-		return (1);
-	return (0);
+		return (true);
+	return (false);
 }
