@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/07 15:01:09 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/09 13:31:53 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,7 @@ t_hit	intersection(t_object_list *objects, t_vector ray, int mode)
 		else if (objects->id == CYLINDER)
 			has_inter = inter_cylinder(objects->object, ray, &t, mode);
 		if (has_inter == true && (t_min.dist == -1 || t.dist < t_min.dist))
-		{
 			t_min = t;
-			if (mode == 3)
-				return (t_min);
-		}
 		objects = objects->next;
 	}
 	return (t_min);
@@ -70,15 +66,15 @@ t_color	get_color(t_scene scene, t_vector ray, int nb_rebound)
 	hit = intersection(scene.obj, ray, 1);
 	if (hit.dist == -1)
 		return (new_color(scene.bg_color));
-	color = light(scene, hit, ray);
 	if (hit.material_type == REFLECTION || hit.material_type == REFRACTION)
 		return (compute_material(scene, ray, hit, nb_rebound));
+	color = light(scene, hit, ray);
 	if (hit.material_type == NONE && scene.do_reflection)
 	{
 		reflected_color = reflection(scene, ray, hit, nb_rebound);
-		color.r = color.r * 0.93 + reflected_color.r * 0.07;
-		color.g = color.g * 0.93 + reflected_color.g * 0.07;
-		color.b = color.b * 0.93 + reflected_color.b * 0.07;
+		color.r = color.r * 0.9 + reflected_color.r * 0.1;
+		color.g = color.g * 0.9 + reflected_color.g * 0.1;
+		color.b = color.b * 0.9 + reflected_color.b * 0.1;
 	}
 	return (color);
 }

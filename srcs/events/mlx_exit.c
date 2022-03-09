@@ -6,13 +6,11 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 08:36:39 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/27 11:08:47 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/09 12:09:58 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-#define ESC 65307
 
 int	exit_window(int keycode, t_minirt *minirt)
 {

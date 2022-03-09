@@ -6,16 +6,11 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:14:53 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/04 15:45:27 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/09 12:09:40 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-#define RIGHT_CLICK 1
-#define LEFT_CLICK 3
-#define ROLL_UP 4
-#define ROLL_DOWN 5
 
 static void	manage_cylinder(t_cylinder *cy, int mouse_code)
 {
