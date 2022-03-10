@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/27 12:00:34 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/11 00:28:58 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	minirt(int argc, char **argv)
 	if (data.save == false)
 		set_img(&data, &scene);
 	else
-		create_bmp(data, scene, &(scene.frame_index));
+		create_bmp(data, scene, &scene.frame_index);
 }
 
 int	main(int argc, char **argv)

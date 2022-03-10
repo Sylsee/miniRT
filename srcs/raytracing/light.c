@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:35:05 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/09 12:25:48 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/10 22:53:35 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,38 +61,36 @@ static void	init_light(t_scene scene, t_vector ray,
 	infos->specular_color.r = 0;
 	infos->specular_color.g = 0;
 	infos->specular_color.b = 0;
-	infos->ambient_color.r = scene.ambient.color.r * AMBIENT_COLOR_IMPACT
-		* scene.ambient.ratio * AMBIENT_IMPACT;
-	infos->ambient_color.g = scene.ambient.color.g * AMBIENT_COLOR_IMPACT
-		* scene.ambient.ratio * AMBIENT_IMPACT;
-	infos->ambient_color.b = scene.ambient.color.b * AMBIENT_COLOR_IMPACT
-		* scene.ambient.ratio * AMBIENT_IMPACT;
-	infos->ambient_color.r = max(min(infos->ambient_color.r, 255), 0);
-	infos->ambient_color.g = max(min(infos->ambient_color.g, 255), 0);
-	infos->ambient_color.b = max(min(infos->ambient_color.b, 255), 0);
+	infos->ambient_color.r = scene.ambient.color.r * scene.ambient.ratio;
+	infos->ambient_color.g = scene.ambient.color.g * scene.ambient.ratio;
+	infos->ambient_color.b = scene.ambient.color.b * scene.ambient.ratio;
+	infos->ambient_color.r = max(min(infos->ambient_color.r, 255), 1);
+	infos->ambient_color.g = max(min(infos->ambient_color.g, 255), 1);
+	infos->ambient_color.b = max(min(infos->ambient_color.b, 255), 1);
+	infos->ambient_color.r /= 255;
+	infos->ambient_color.g /= 255;
+	infos->ambient_color.b /= 255;
 }
 
 static t_color	assemble_light(t_light_infos infos, t_hit hit)
 {
 	t_color	color;
-	(void)infos;
 
-	color.r = hit.color.r * BASE_COLOR_IMPACT
-		+ infos.ambient_color.r * AMBIENT_COEF
-	//	+ infos.diffuse_color.r * DIFFUSE_COEF
-		+ infos.specular_color.r * SPECULAR_COEF;
-	color.g = hit.color.g * BASE_COLOR_IMPACT
-		+ infos.ambient_color.g * AMBIENT_COEF
-	//	+ infos.diffuse_color.g * DIFFUSE_COEF
-		+ infos.specular_color.g * SPECULAR_COEF;
-	color.b = hit.color.b * BASE_COLOR_IMPACT
-		+ infos.ambient_color.b * AMBIENT_COEF
-	//	+ infos.diffuse_color.b * DIFFUSE_COEF
-		+ infos.specular_color.b * SPECULAR_COEF;
+	color.r = hit.color.r * infos.ambient_color.r
+		+ hit.color.r * infos.diffuse_color.r
+		+ infos.specular_color.r;
+	color.g = hit.color.g * infos.ambient_color.g
+		+ hit.color.g * infos.diffuse_color.g
+		+ infos.specular_color.g;
+	color.b = hit.color.b * infos.ambient_color.b
+		+ hit.color.b * infos.diffuse_color.b
+		+ infos.specular_color.b;
 	color.r = max(min(color.r, 255), 0);
 	color.g = max(min(color.g, 255), 0);
 	color.b = max(min(color.b, 255), 0);
-	return (color);
+//	return (color);
+//	return (infos.specular_color);
+	return (infos.diffuse_color);
 }
 
 t_color	light(t_scene scene, t_hit hit, t_vector ray)

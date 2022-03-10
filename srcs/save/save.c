@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 20:07:10 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/27 11:24:04 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/11 00:27:28 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ static void	bmp_data(char **buffer, t_scene scene, t_data data)
 
 static char	*get_bmp_name(char *dir, int id)
 {
-	char		*name;
+	char	*name;
 
 	name = ft_strjoin("save", ft_itoa(id));
 	name = ft_strjoin(name, ".bmp");
 	name = ft_strjoin(dir, name);
 	if (!name)
-		internal_error("Malloc failed.");
+		internal_error("unable to allocate memory");
 	return (name);
 }
 
@@ -84,7 +84,7 @@ void	create_bmp(t_data data, t_scene scene, int *id)
 		buffer[i++] = 0;
 	bmp_header(&buffer, scene.res.x, scene.res.y, size);
 	bmp_data(&buffer, scene, data);
-	fd = open(get_bmp_name(scene.video_dir, ++(*id)),
+	fd = open(get_bmp_name("saves/tmp/", ++(*id)),
 			O_CREAT | O_TRUNC | O_RDWR, 0644);
 	if (fd < 0)
 		exit(1);
