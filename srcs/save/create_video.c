@@ -17,7 +17,7 @@ void	create_video(t_minirt *minirt)
 	char		*buffer;
 	const char	*dir = minirt->scene->video_dir;
 
-	buffer = alloc(sizeof(char) * (80 + (ft_strlen(dir) * 2)), NULL);
+	buffer = alloc(sizeof(char) * (91 + ft_strlen(dir)), NULL);
 	if (!buffer)
 		return ;
 	sprintf(buffer, "ffmpeg -y -f image2 -r 30 -i "
