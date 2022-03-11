@@ -21,7 +21,7 @@ void	create_video(t_minirt *minirt)
 	if (!buffer)
 		return ;
 	sprintf(buffer, "ffmpeg -y -f image2 -r 30 -i "
-		"%ssave%%d.bmp -b 100000k %s/video.mov > /dev/null 2>&1", "saves/tmp/", dir);
+		"saves/tmp/save%%d.bmp -b 100000k %s/video.mov > /dev/null 2>&1", dir);
 	if (system(buffer))
 		printf("minirt: system() call: %s\n", strerror(errno));
 	free_one(buffer, NULL);
