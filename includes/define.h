@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:04:49 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/10 22:55:26 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/14 19:18:12 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,6 @@
 # endif
 # ifndef AMBIENT_COLOR_IMPACT
 #  define AMBIENT_COLOR_IMPACT 0.1
-# endif
-
-/* Diffuse color */
-# ifndef LIGHT_IMPACT
-#  define LIGHT_IMPACT 500000000
-# endif
-# ifndef LIGHT_COLOR_IMPACT
-#  define LIGHT_COLOR_IMPACT 0.2
-# endif
-# ifndef INTENSITY_IMPACT
-#  define INTENSITY_IMPACT 0.2
-# endif
-
-/* Combine color */
-# ifndef DIFFUSE_COEF
-#  define DIFFUSE_COEF 0.5
-# endif
-# ifndef SPECULAR_COEF
-#  define SPECULAR_COEF 0.5
 # endif
 
 /* ********** Color computation ********** */

@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 14:24:11 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/09 13:38:08 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/12 17:24:25 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ bool	is_shaded(t_scene scene, t_hit hit, t_light *light)
 	ray.dir = get_normalize(v_sub(light->pos, hit.normal.origin));
 	ray.origin = v_add(hit.normal.origin, v_scale(ray.dir, 0.000000001));
 	light_dist = sqrt(get_norm2(v_sub(light->pos, hit.normal.origin)));
-	return (intersection_shadow(scene.obj, ray, light_dist));
+	return (!intersection_shadow(scene.obj, ray, light_dist));
 }
