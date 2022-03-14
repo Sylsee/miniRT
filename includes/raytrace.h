@@ -16,7 +16,6 @@
 /*	LIGHT	*/
 typedef struct s_light_infos
 {
-	bool		vis;
 	t_color		specular_color;
 	t_color		ambient_color;
 	t_color		diffuse_color;

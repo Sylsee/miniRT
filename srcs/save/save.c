@@ -61,12 +61,15 @@ static char	*get_bmp_name(char *dir, int id)
 	char		*s_id;
 
 	s_id = ft_itoa(id);
+  if (!s_id)
+    internal_error("unable to allocate memory");
 	name = alloc(sizeof(char) * (9 + ft_strlen(s_id) + ft_strlen(dir)), NULL);
 	if (!name)
-		internal_error("Malloc failed.");
+		internal_error("unable to allocate memory");
 	sprintf(name, "%ssave%s.bmp", dir, s_id);
+  free_one(s_id, NULL);
 	if (!name)
-		exit(1);
+		exit(EXIT_FAILURE);
 	return (name);
 }
 
@@ -82,7 +85,7 @@ void	create_bmp(t_data data, t_scene scene, int *id)
 	size = (unsigned int)(scene.res.x * scene.res.y * 4);
 	buffer = alloc(sizeof(char) * (size + HEADER_SIZE), NULL);
 	if (!buffer)
-		exit(1);
+		internal_error("unable to allocate memory");
 	i = 0;
 	while (i < size + HEADER_SIZE)
 		buffer[i++] = 0;
@@ -90,9 +93,11 @@ void	create_bmp(t_data data, t_scene scene, int *id)
 	bmp_data(&buffer, scene, data);
 	name = get_bmp_name("saves/tmp/", ++(*id));
 	fd = open(name, O_CREAT | O_TRUNC | O_RDWR, 0644);
+  free_one(name, NULL);
 	if (fd < 0)
 		exit(1);
 	if (!write(fd, buffer, (size + HEADER_SIZE)))
 		exit (1);
+  free_one(buffer, NULL);
 	close(fd);
 }

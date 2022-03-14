@@ -38,7 +38,6 @@ static void	init_coord(t_p3 **coord, t_p3 *size, t_scene *scene)
 {
 	if (scene->object_mode == ROTATION && scene->id_current_obj != SPHERE)
 	{
-		printf("tg\n");
 		get_object_dir(coord, scene->id_current_obj, scene->current_obj);
 		size->x = X_ROTATION_SIZE;
 		size->y = Y_ROTATION_SIZE;

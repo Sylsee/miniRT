@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:42:10 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/11 22:05:05 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/11 00:30:07 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	create_video(t_minirt *minirt)
 		return ;
 	sprintf(buffer, "ffmpeg -y -f image2 -r 30 -i "
 		"saves/tmp/save%%d.bmp -b 100000k %s/video.mov > /dev/null 2>&1"
-		"&& rm -rf ./saves/tmp/save*.bmp", dir);
+		"; rm -rf ./saves/tmp/save*.bmp", dir);
 	if (system(buffer))
 		printf("minirt: system() call: %s\n", strerror(errno));
 	free_one(buffer, NULL);

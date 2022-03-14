@@ -31,7 +31,7 @@ void	normalize(t_p3 *v)
 {
 	double	norme;
 
-	norme = sqrt(get_norm2(*v));
+	norme = get_norm(*v);
 	v->x /= norme;
 	v->y /= norme;
 	v->z /= norme;
@@ -42,7 +42,7 @@ t_p3	get_normalize(t_p3 v)
 	t_p3	res;
 	double	norme;
 
-	norme = sqrt(get_norm2(v));
+	norme = get_norm(v);
 	res.x = v.x / norme;
 	res.y = v.y / norme;
 	res.z = v.z / norme;
