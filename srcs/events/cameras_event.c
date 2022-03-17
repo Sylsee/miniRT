@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:52:24 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/12 17:12:42 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/17 19:28:41 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ static void	init_rotation(int keycode, t_cam *cam, double *coef, t_p3 *tmp)
 
 static void	rotate_camera(int keycode, t_minirt *minirt)
 {
-	double	coef;
 	t_p3	tmp;
 	t_cam	*cam;
+	double	coef;
 
-	coef = 0.5;
+	coef = 0.03;
 	cam = minirt->scene->cam;
 	init_rotation(keycode, cam, &coef, &tmp);
-	tmp = v_scale(tmp, coef * 0.1);
+	tmp = v_scale(tmp, coef);
 	cam->look_at = v_add(cam->look_at, tmp);
 	normalize(&cam->look_at);
 	param_cam(cam, minirt->scene->res);
