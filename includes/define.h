@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:04:49 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/14 19:18:12 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/18 17:59:54 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,7 @@
 # define PROGRESS_EMPTY "------------------------------------------------------"
 # define PROGRESS_FULL  "######################################################"
 
+/* ********** Bmp Directories ********** */
+# define TMP_DIR	"saves/tmp/"	
+# define SAVE_DIR	"saves/"
 #endif

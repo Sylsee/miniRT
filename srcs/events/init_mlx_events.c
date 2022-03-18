@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:00:59 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/04 15:15:16 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/18 20:16:16 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	key_events(int keycode, t_minirt *minirt)
 		minirt->scene->video_mode = !minirt->scene->video_mode;
 		if (minirt->scene->video_mode)
 			create_bmp(*(minirt->data),
-				*(minirt->scene), &(minirt->scene->frame_index));
+				*(minirt->scene), &(minirt->scene->frame_index), TMP_DIR);
 		print_status(minirt);
 	}
 	exit_window(keycode, minirt);

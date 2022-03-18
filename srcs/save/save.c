@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 20:07:10 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/14 20:29:00 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/18 20:15:33 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static char	*get_bmp_name(char *dir, int id)
 	return (name);
 }
 
-void	create_bmp(t_data data, t_scene scene, int *id)
+void	create_bmp(t_data data, t_scene scene, int *id, char *dir)
 {
 	int				fd;
 	char			*buffer;
@@ -91,7 +91,7 @@ void	create_bmp(t_data data, t_scene scene, int *id)
 		buffer[i++] = 0;
 	bmp_header(&buffer, scene.res.x, scene.res.y, size);
 	bmp_data(&buffer, scene, data);
-	name = get_bmp_name("saves/tmp/", ++(*id));
+	name = get_bmp_name(dir, ++(*id));
 	fd = open(name, O_CREAT | O_TRUNC | O_RDWR, 0644);
 	free_one(name, NULL);
 	if (fd < 0)
