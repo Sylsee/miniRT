@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:35:05 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/17 20:31:40 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/18 23:27:49 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ static void	init_light(t_scene scene, t_vector ray, t_hit hit,
 	infos->specular_color.r = 0;
 	infos->specular_color.g = 0;
 	infos->specular_color.b = 0;
-	infos->ambient_color.r = scene.ambient.color.r * scene.ambient.ratio / 5
+	infos->ambient_color.r = scene.ambient.color.r * scene.ambient.ratio / 2
 		/ 255 * hit.color.r;
-	infos->ambient_color.g = scene.ambient.color.g * scene.ambient.ratio / 5
+	infos->ambient_color.g = scene.ambient.color.g * scene.ambient.ratio / 2
 		/ 255 * hit.color.g;
-	infos->ambient_color.b = scene.ambient.color.b * scene.ambient.ratio / 5
+	infos->ambient_color.b = scene.ambient.color.b * scene.ambient.ratio / 2
 		/ 255 * hit.color.b;
 }
 
