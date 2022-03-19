@@ -5,13 +5,15 @@
 - Intersection objets (sphere, plan, cylindre) ✅
 
 - BONUS:
-	- Reflection ✅
-	- Refraction ✅
-	- Fresnel ✅
+	- Status et progress bar ✅
+	- Intéractions scène ✅
+	- Multicam ✅
 	- Multi spots et lumiere coloree ✅
+	- Screen ✅
+	- Video ✅
+	- Réflection ✅
+	- Réfraction ✅
+	- Fresnel ✅
 	- Antialiasing ✅
-	- Gestion multicam ✅
-	- Save ✅
-	- Film ✅
-	- Progress bar ✅
-	- Cliquer pour selectionner un objet ✅
+	- Lumière spéculaire ✅
+	- Réflection sur objets ✅
