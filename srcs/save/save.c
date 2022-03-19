@@ -69,7 +69,7 @@ static char	*get_bmp_name(char *dir, int id)
 	sprintf(name, "%ssave%s.bmp", dir, s_id);
 	free_one(s_id, NULL);
 	if (!name)
-		exit(EXIT_FAILURE);
+		internal_error("sprint error");
 	return (name);
 }
 
@@ -95,9 +95,9 @@ void	create_bmp(t_data data, t_scene scene, int *id, char *dir)
 	fd = open(name, O_CREAT | O_TRUNC | O_RDWR, 0644);
 	free_one(name, NULL);
 	if (fd < 0)
-		exit(1);
+		internal_error(ft_str3join(name, ": ", strerror(errno)));
 	if (!write(fd, buffer, (size + HEADER_SIZE)))
-		exit (1);
+		internal_error("write error");
 	free_one(buffer, NULL);
 	close(fd);
 }

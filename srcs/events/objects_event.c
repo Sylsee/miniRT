@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 20:42:14 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/04 19:53:13 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:47:25 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,6 @@ static void	move_object(int keycode, t_minirt *minirt)
 		coord->y += size.y;
 	else if (keycode == DOWN_KEY)
 		coord->y -= size.y;
-	else if (keycode == O_KEY)
-		coord->z += size.z;
-	else if (keycode == P_KEY)
-		coord->z -= size.z;
 	update_window(minirt);
 }
 

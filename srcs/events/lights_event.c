@@ -35,13 +35,13 @@ static void	move_light(int keycode, t_minirt *minirt)
 		coord->x += X_MOVE_LIGHT;
 	else if (keycode == A_KEY)
 		coord->x -= X_MOVE_LIGHT;
-	else if (keycode == W_KEY)
+	else if (keycode == SPACE_KEY)
 		coord->y += Y_MOVE_LIGHT;
-	else if (keycode == S_KEY)
+	else if (keycode == SHIFT_KEY)
 		coord->y -= Y_MOVE_LIGHT;
-	else if (keycode == R_KEY)
+	else if (keycode == W_KEY)
 		coord->z += Z_MOVE_LIGHT;
-	else if (keycode == T_KEY)
+	else if (keycode == S_KEY)
 		coord->z -= Z_MOVE_LIGHT;
 	update_window(minirt);
 }

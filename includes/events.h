@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/09 12:18:34 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:36:36 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 # define ROLL_DOWN 5
 
 /* ********** User modification ********** */
-# define SPHERE_DIAMETER_SIZE 1
-# define CYLINDER_WIDTH_SIZE 1
-# define CYLINDER_HEIGHT_SIZE 1
+# define SPHERE_DIAMETER_SIZE 100
+# define CYLINDER_WIDTH_SIZE 100
+# define CYLINDER_HEIGHT_SIZE 100
 
 # define TRANSLATION 1
 # define ROTATION 0
@@ -38,9 +38,9 @@
 # define X_ROTATION_SIZE 0.1
 # define Y_ROTATION_SIZE 0.1
 # define Z_ROTATION_SIZE 0.1
-# define X_MOVE_LIGHT 1
-# define Y_MOVE_LIGHT 1
-# define Z_MOVE_LIGHT 1
+# define X_MOVE_LIGHT 100
+# define Y_MOVE_LIGHT 100
+# define Z_MOVE_LIGHT 100
 
 typedef struct s_minirt	t_minirt;
 

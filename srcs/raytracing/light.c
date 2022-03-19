@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:35:05 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/18 23:27:49 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:19:10 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	diffuse(t_hit hit, t_light *light, t_light_infos *infos)
 	angle = max(v_dot(get_normalize(v_sub(light->pos, hit.normal.origin)),
 				hit.normal.dir), 0);
 	distance = get_norm2(v_sub(light->pos, hit.normal.origin));
-	intensity = light->ratio * 5000000 * angle / distance;
+	intensity = light->ratio * INTENSITY_IMPACT * angle / distance;
 	infos->diffuse_color.r += (hit.color.r + light->color.r) * intensity;
 	infos->diffuse_color.g += (hit.color.g + light->color.g) * intensity;
 	infos->diffuse_color.b += (hit.color.b + light->color.b) * intensity;

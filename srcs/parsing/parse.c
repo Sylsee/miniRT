@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/27 11:08:42 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:48:50 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ static void	init_scene(t_scene *scene)
 	scene->do_reflection = 0;
 	scene->frame_index = 0;
 	scene->video_mode = false;
+	scene->ambient.ratio = -1;
 }
 
 t_scene	parsing(char *file)

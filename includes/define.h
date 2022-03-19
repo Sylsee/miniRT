@@ -15,13 +15,7 @@
 
 /* ********** Light ********** */
 
-/* Ambient */
-# ifndef AMBIENT_IMPACT
-#  define AMBIENT_IMPACT 10
-# endif
-# ifndef AMBIENT_COLOR_IMPACT
-#  define AMBIENT_COLOR_IMPACT 0.1
-# endif
+# define INTENSITY_IMPACT 5000000
 
 /* ********** Color computation ********** */
 # ifndef AIR_REFRACTIVE_IMPACT

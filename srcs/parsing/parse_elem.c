@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:49:20 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/04 15:41:04 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:53:33 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	parse_resolution(t_scene *scene, char **line)
 
 void	parse_ambient(t_scene *scene, char **line)
 {
-	if (ft_tablen(line) != 5)
+	if (ft_tablen(line) != 5 || scene->ambient.ratio != -1)
 		internal_error("File format error");
 	scene->ambient.ratio = ft_atof(line[1]);
 	if (scene->ambient.ratio < 0 || scene->ambient.ratio > 1)
@@ -71,7 +71,7 @@ void	parse_light(t_scene *scene, char **line)
 		internal_error("unable to allocate memory");
 	light->pos = parse_point(line[1], line[2], line[3]);
 	light->ratio = ft_atof(line[4]);
-	if (scene->ambient.ratio < 0 || scene->ambient.ratio > 1)
+	if (light->ratio < 0 || light->ratio > 1)
 		internal_error("Ratio must be a number between 0 and 1");
 	light->color = parse_color(line[5], line[6], line[7]);
 	ft_lstadd_front(&(scene->light), ft_lstnew(light));

@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/03/11 00:03:16 by spoliart         ###   ########.fr        #
+#    Updated: 2022/03/19 20:52:23 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ _YELLOW	=	\e[33m
 # [ COMPILATION VARIABLES ]#
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -Wconversion
+CFLAGS	=	-Wall -Wextra -Werror -Wconversion -g
 LDFLAGS	=	-Llib/libft -lft -Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lz
 
 # [ VALGRIND VARIABLES ] #

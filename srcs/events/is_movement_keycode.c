@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 17:12:01 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/12 17:05:40 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:47:54 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ bool	is_movement_keycode(int keycode)
 bool	is_object_movement_keycode(int keycode)
 {
 	return (keycode == UP_KEY || keycode == LEFT_KEY
-		|| keycode == DOWN_KEY || keycode == RIGHT_KEY || keycode == O_KEY
-		|| keycode == P_KEY);
+		|| keycode == DOWN_KEY || keycode == RIGHT_KEY);
 }
