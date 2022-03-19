@@ -19,7 +19,7 @@
 	- Réflection sur objets ✅
 
 
-RTFM:
+- RTFM:
 	- escape and red cross to quit
 	- wasd to mouv camera or light
 	- caps to change camera mode (translate or rotate)
