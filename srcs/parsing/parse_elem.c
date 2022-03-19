@@ -17,11 +17,11 @@ void	parse_resolution(t_scene *scene, char **line)
 	if (ft_tablen(line) != 3)
 		internal_error("File format error");
 	scene->res.x = ft_atoi(line[1]);
-	if (scene->res.x < 10)
-		scene->res.x = 10;
+	if (scene->res.x < 20)
+		scene->res.x = 20;
 	scene->res.y = ft_atoi(line[2]);
-	if (scene->res.y < 10)
-		scene->res.y = 10;
+	if (scene->res.y < 20)
+		scene->res.y = 20;
 }
 
 void	parse_ambient(t_scene *scene, char **line)
