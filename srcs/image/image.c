@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/09 13:31:53 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/20 05:58:52 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,26 +131,18 @@ int	anti_aliasing(t_scene scene, double x, double y)
 
 void	create_img(t_data *data, t_scene scene)
 {
-	int			x;
-	int			y;
-	int			color;
+	t_thread_data	thread_data;
+	pthread_t		threads[MAX_THREADS];
+	int				i;
 
-	y = 0;
+	init_thread_data(&thread_data, &scene, data);
 	printf("\n");
-	while (y < scene.res.y)
-	{
-		printf("\r  |%.*s%.*s| %.2f%%", y * 53 / scene.res.y, PROGRESS_FULL,
-			53 - y * 53 / scene.res.y, PROGRESS_EMPTY,
-			(double)y * 100 / scene.res.y);
-		fflush(stdout);
-		x = 0;
-		while (x < scene.res.x)
-		{
-			color = anti_aliasing(scene, (double)x, (double)y);
-			put_color(data, x, y, color);
-			x++;
-		}
-		y++;
-	}
+	i = -1;
+	while (++i < MAX_THREADS)
+		pthread_create(&(threads[i]), NULL, routine, &thread_data);
+	i = -1;
+	while (++i < MAX_THREADS)
+		pthread_join(threads[i], NULL);
+	pthread_mutex_destroy(thread_data.id_mutex);
 	printf("\r  |%s| 100.00%%\n\n", PROGRESS_FULL);
 }

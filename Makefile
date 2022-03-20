@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/03/19 20:52:23 by spoliart         ###   ########.fr        #
+#    Updated: 2022/03/20 05:57:16 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ _YELLOW	=	\e[33m
 # [ COMPILATION VARIABLES ]#
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -Wconversion -g
+CFLAGS	=	-Wall -Wextra -Werror -Wconversion -g -pthread
 LDFLAGS	=	-Llib/libft -lft -Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lz
 
 # [ VALGRIND VARIABLES ] #
@@ -97,6 +97,10 @@ UTILS	=	$(LST) \
 			error.c \
 			is_dir.c \
 
+THREAD	=	progress_bar.c \
+			init_data.c \
+			routine.c \
+
 SRCS	=	main.c \
 			$(UTILS) \
 			$(PARSING) \
@@ -106,7 +110,8 @@ SRCS	=	main.c \
 			$(MATH) \
 			$(EVENT) \
 			$(LST) \
-			$(SAVE)
+			$(SAVE) \
+			$(THREAD)
 
 # [ OBJECTS ] #
 
@@ -116,7 +121,7 @@ OBJS	=	$(SRCS:%.c=$O%.o)
 
 VPATH	=	includes:srcs:srcs/utils:srcs/utils/lst:srcs/save:srcs/parsing:\
 			srcs/raytracing:srcs/raytracing/color_computation:srcs/maths:\
-			srcs/objects_intersection:srcs/image:srcs/events
+			srcs/objects_intersection:srcs/image:srcs/events:srcs/thread
 
 # [ RULES ] #
 
