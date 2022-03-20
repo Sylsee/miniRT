@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 05:51:12 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/20 05:51:44 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:06:28 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	*routine(void *arg)
 	init_routine_data(&data, arg);
 	while (data.start < data.end)
 	{
-		display_progress_bar(data.id, data.range);
+		if (data.id == MAX_THREADS - 1)
+			display_progress_bar(data.range);
 		data.x = 0;
 		while (data.x < data.scene->res.x)
 		{
