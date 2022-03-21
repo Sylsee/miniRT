@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 05:45:27 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/20 05:52:38 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:58:39 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	init_routine_data(t_routine_data *data, void *arg);
 void	init_thread_data(t_thread_data *thread_data, t_scene *scene,
 			t_data *data);
 void	*routine(void *arg);
-void	display_progress_bar(int id, int end);
+void	display_progress_bar(int end);
 
 #endif

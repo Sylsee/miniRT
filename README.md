@@ -1,3 +1,7 @@
+```
+./minirt [file].rt [--save]
+./minirt [file].rt [--video] [directory]
+```
 
 - Gestion de fenetre ✅
 - Selection objets et appliquer changement souhaite ✅
@@ -29,8 +33,3 @@
 	- v to start/stop video mode
 	- arrow key to move selected object
 	- hjkl to change object properties
-	
-```
-./minirt [file].rt [--save]
-./minirt [file].rt [--video] [directory]
-```
