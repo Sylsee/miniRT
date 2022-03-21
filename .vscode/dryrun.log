@@ -1,0 +1,252 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/arnaud/42/rendus/minirt'
+mkdir -p objs/
+printf "\033[2K\r \e[33mCompiling srcs/main.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/main.c -o objs/main.o
+printf "\033[2K\r \e[33mCompiling srcs/utils/lst/lst.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/utils/lst/lst.c -o objs/lst.o
+printf "\033[2K\r \e[33mCompiling srcs/utils/lst/cam_lst.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/utils/lst/cam_lst.c -o objs/cam_lst.o
+printf "\033[2K\r \e[33mCompiling srcs/utils/error.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/utils/error.c -o objs/error.o
+printf "\033[2K\r \e[33mCompiling srcs/utils/is_dir.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/utils/is_dir.c -o objs/is_dir.o
+printf "\033[2K\r \e[33mCompiling srcs/parsing/parse.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/parsing/parse.c -o objs/parse.o
+printf "\033[2K\r \e[33mCompiling srcs/parsing/parse_elem.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/parsing/parse_elem.c -o objs/parse_elem.o
+printf "\033[2K\r \e[33mCompiling srcs/parsing/parse_objects.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/parsing/parse_objects.c -o objs/parse_objects.o
+printf "\033[2K\r \e[33mCompiling srcs/parsing/parse_utils.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/parsing/parse_utils.c -o objs/parse_utils.o
+printf "\033[2K\r \e[33mCompiling srcs/parsing/parse_bonus.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/parsing/parse_bonus.c -o objs/parse_bonus.o
+printf "\033[2K\r \e[33mCompiling srcs/parsing/check_arguments.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/parsing/check_arguments.c -o objs/check_arguments.o
+printf "\033[2K\r \e[33mCompiling srcs/image/image.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/image/image.c -o objs/image.o
+printf "\033[2K\r \e[33mCompiling srcs/image/color.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/image/color.c -o objs/color.o
+printf "\033[2K\r \e[33mCompiling srcs/image/cam.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/image/cam.c -o objs/cam.o
+printf "\033[2K\r \e[33mCompiling srcs/objects_intersection/sphere.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/objects_intersection/sphere.c -o objs/sphere.o
+printf "\033[2K\r \e[33mCompiling srcs/objects_intersection/plane.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/objects_intersection/plane.c -o objs/plane.o
+printf "\033[2K\r \e[33mCompiling srcs/objects_intersection/cylinder.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/objects_intersection/cylinder.c -o objs/cylinder.o
+printf "\033[2K\r \e[33mCompiling srcs/raytracing/light.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/raytracing/light.c -o objs/light.o
+printf "\033[2K\r \e[33mCompiling srcs/raytracing/shadow.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/raytracing/shadow.c -o objs/shadow.o
+printf "\033[2K\r \e[33mCompiling srcs/raytracing/color_computation/reflection.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/raytracing/color_computation/reflection.c -o objs/reflection.o
+printf "\033[2K\r \e[33mCompiling srcs/raytracing/color_computation/refraction.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/raytracing/color_computation/refraction.c -o objs/refraction.o
+printf "\033[2K\r \e[33mCompiling srcs/raytracing/color_computation/fresnel.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/raytracing/color_computation/fresnel.c -o objs/fresnel.o
+printf "\033[2K\r \e[33mCompiling srcs/raytracing/color_computation/compute_material.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/raytracing/color_computation/compute_material.c -o objs/compute_material.o
+printf "\033[2K\r \e[33mCompiling srcs/raytracing/ray.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/raytracing/ray.c -o objs/ray.o
+printf "\033[2K\r \e[33mCompiling srcs/maths/vector_calculs.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/maths/vector_calculs.c -o objs/vector_calculs.o
+printf "\033[2K\r \e[33mCompiling srcs/maths/vector_calculs2.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/maths/vector_calculs2.c -o objs/vector_calculs2.o
+printf "\033[2K\r \e[33mCompiling srcs/maths/points.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/maths/points.c -o objs/points.o
+printf "\033[2K\r \e[33mCompiling srcs/maths/maths.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/maths/maths.c -o objs/maths.o
+printf "\033[2K\r \e[33mCompiling srcs/events/init_mlx_events.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/init_mlx_events.c -o objs/init_mlx_events.o
+printf "\033[2K\r \e[33mCompiling srcs/events/mlx_exit.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/mlx_exit.c -o objs/mlx_exit.o
+printf "\033[2K\r \e[33mCompiling srcs/events/cameras_event.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/cameras_event.c -o objs/cameras_event.o
+printf "\033[2K\r \e[33mCompiling srcs/events/lights_event.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/lights_event.c -o objs/lights_event.o
+printf "\033[2K\r \e[33mCompiling srcs/events/objects_event.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/objects_event.c -o objs/objects_event.o
+printf "\033[2K\r \e[33mCompiling srcs/events/update_window.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/update_window.c -o objs/update_window.o
+printf "\033[2K\r \e[33mCompiling srcs/events/object_properties.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/object_properties.c -o objs/object_properties.o
+printf "\033[2K\r \e[33mCompiling srcs/events/is_movement_keycode.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/is_movement_keycode.c -o objs/is_movement_keycode.o
+printf "\033[2K\r \e[33mCompiling srcs/events/print_status.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/print_status.c -o objs/print_status.o
+printf "\033[2K\r \e[33mCompiling srcs/events/print_objects.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/print_objects.c -o objs/print_objects.o
+printf "\033[2K\r \e[33mCompiling srcs/events/print_utils.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/print_utils.c -o objs/print_utils.o
+printf "\033[2K\r \e[33mCompiling srcs/events/mouse_hook.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/events/mouse_hook.c -o objs/mouse_hook.o
+printf "\033[2K\r \e[33mCompiling srcs/save/save.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/save/save.c -o objs/save.o
+printf "\033[2K\r \e[33mCompiling srcs/save/create_video.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/save/create_video.c -o objs/create_video.o
+printf "\033[2K\r \e[33mCompiling srcs/thread/progress_bar.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/thread/progress_bar.c -o objs/progress_bar.o
+printf "\033[2K\r \e[33mCompiling srcs/thread/init_data.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/thread/init_data.c -o objs/init_data.o
+printf "\033[2K\r \e[33mCompiling srcs/thread/routine.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread -Iincludes -Ilib/minilibx -I/usr/include -O3 -c srcs/thread/routine.c -o objs/routine.o
+printf "\033[2K\r\e[32m All files compiled into 'objs/'. \e[0m✅\n"
+make -s -C lib/libft
+make[1]: Entering directory '/home/arnaud/42/rendus/minirt/lib/libft'
+mkdir -p objs/. objs/char objs/str objs/print objs/mem objs/lst objs/nbr objs/alloc objs/gnl
+mkdir -p objs/. objs/char objs/str objs/print objs/mem objs/lst objs/nbr objs/alloc objs/gnl
+mkdir -p objs/. objs/char objs/str objs/print objs/mem objs/lst objs/nbr objs/alloc objs/gnl
+mkdir -p objs/. objs/char objs/str objs/print objs/mem objs/lst objs/nbr objs/alloc objs/gnl
+mkdir -p objs/. objs/char objs/str objs/print objs/mem objs/lst objs/nbr objs/alloc objs/gnl
+mkdir -p objs/. objs/char objs/str objs/print objs/mem objs/lst objs/nbr objs/alloc objs/gnl
+mkdir -p objs/. objs/char objs/str objs/print objs/mem objs/lst objs/nbr objs/alloc objs/gnl
+mkdir -p objs/. objs/char objs/str objs/print objs/mem objs/lst objs/nbr objs/alloc objs/gnl
+mkdir -p objs/. objs/char objs/str objs/print objs/mem objs/lst objs/nbr objs/alloc objs/gnl
+printf "\033[2K\r \e[33mCompiling srcs/char/ft_isalnum.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/char/ft_isalnum.c -o objs/char/ft_isalnum.o
+printf "\033[2K\r \e[33mCompiling srcs/char/ft_isspace.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/char/ft_isspace.c -o objs/char/ft_isspace.o
+printf "\033[2K\r \e[33mCompiling srcs/char/ft_isalpha.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/char/ft_isalpha.c -o objs/char/ft_isalpha.o
+printf "\033[2K\r \e[33mCompiling srcs/char/ft_isascii.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/char/ft_isascii.c -o objs/char/ft_isascii.o
+printf "\033[2K\r \e[33mCompiling srcs/char/ft_isdigit.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/char/ft_isdigit.c -o objs/char/ft_isdigit.o
+printf "\033[2K\r \e[33mCompiling srcs/char/ft_isprint.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/char/ft_isprint.c -o objs/char/ft_isprint.o
+printf "\033[2K\r \e[33mCompiling srcs/char/ft_tolower.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/char/ft_tolower.c -o objs/char/ft_tolower.o
+printf "\033[2K\r \e[33mCompiling srcs/char/ft_toupper.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/char/ft_toupper.c -o objs/char/ft_toupper.o
+printf "\033[2K\r \e[33mCompiling srcs/char/ft_isnumeric.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/char/ft_isnumeric.c -o objs/char/ft_isnumeric.o
+printf "\033[2K\r \e[33mCompiling srcs/print/ft_putchar_fd.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/print/ft_putchar_fd.c -o objs/print/ft_putchar_fd.o
+printf "\033[2K\r \e[33mCompiling srcs/print/ft_putxchar_fd.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/print/ft_putxchar_fd.c -o objs/print/ft_putxchar_fd.o
+printf "\033[2K\r \e[33mCompiling srcs/print/ft_putendl_fd.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/print/ft_putendl_fd.c -o objs/print/ft_putendl_fd.o
+printf "\033[2K\r \e[33mCompiling srcs/print/ft_putnbr_fd.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/print/ft_putnbr_fd.c -o objs/print/ft_putnbr_fd.o
+printf "\033[2K\r \e[33mCompiling srcs/print/ft_putstr_fd.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/print/ft_putstr_fd.c -o objs/print/ft_putstr_fd.o
+printf "\033[2K\r \e[33mCompiling srcs/print/ft_putbits_fd.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/print/ft_putbits_fd.c -o objs/print/ft_putbits_fd.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_split.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_split.c -o objs/str/ft_split.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_free_tab.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_free_tab.c -o objs/str/ft_free_tab.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strchr.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strchr.c -o objs/str/ft_strchr.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strdup.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strdup.c -o objs/str/ft_strdup.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strjoin.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strjoin.c -o objs/str/ft_strjoin.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_str3join.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_str3join.c -o objs/str/ft_str3join.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strlcat.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strlcat.c -o objs/str/ft_strlcat.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strlcpy.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strlcpy.c -o objs/str/ft_strlcpy.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strlen.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strlen.c -o objs/str/ft_strlen.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_tablen.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_tablen.c -o objs/str/ft_tablen.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strmapi.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strmapi.c -o objs/str/ft_strmapi.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strndup.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strndup.c -o objs/str/ft_strndup.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strncmp.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strncmp.c -o objs/str/ft_strncmp.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strcmp.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strcmp.c -o objs/str/ft_strcmp.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strict_strcmp.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strict_strcmp.c -o objs/str/ft_strict_strcmp.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strnstr.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strnstr.c -o objs/str/ft_strnstr.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strrchr.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strrchr.c -o objs/str/ft_strrchr.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strtrim.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strtrim.c -o objs/str/ft_strtrim.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_substr.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_substr.c -o objs/str/ft_substr.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strrev.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strrev.c -o objs/str/ft_strrev.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strextract.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strextract.c -o objs/str/ft_strextract.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strend.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strend.c -o objs/str/ft_strend.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_charset.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_charset.c -o objs/str/ft_charset.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strequ.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strequ.c -o objs/str/ft_strequ.o
+printf "\033[2K\r \e[33mCompiling srcs/str/ft_strcontains.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/str/ft_strcontains.c -o objs/str/ft_strcontains.o
+printf "\033[2K\r \e[33mCompiling srcs/nbr/ft_atoi.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/nbr/ft_atoi.c -o objs/nbr/ft_atoi.o
+printf "\033[2K\r \e[33mCompiling srcs/nbr/ft_atof.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/nbr/ft_atof.c -o objs/nbr/ft_atof.o
+printf "\033[2K\r \e[33mCompiling srcs/nbr/ft_itoa.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/nbr/ft_itoa.c -o objs/nbr/ft_itoa.o
+printf "\033[2K\r \e[33mCompiling srcs/nbr/ft_nbrlen.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/nbr/ft_nbrlen.c -o objs/nbr/ft_nbrlen.o
+printf "\033[2K\r \e[33mCompiling srcs/nbr/ft_itox.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/nbr/ft_itox.c -o objs/nbr/ft_itox.o
+printf "\033[2K\r \e[33mCompiling srcs/nbr/ft_xtoi.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/nbr/ft_xtoi.c -o objs/nbr/ft_xtoi.o
+printf "\033[2K\r \e[33mCompiling srcs/mem/ft_bzero.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/mem/ft_bzero.c -o objs/mem/ft_bzero.o
+printf "\033[2K\r \e[33mCompiling srcs/mem/ft_calloc.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/mem/ft_calloc.c -o objs/mem/ft_calloc.o
+printf "\033[2K\r \e[33mCompiling srcs/mem/ft_memalloc.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/mem/ft_memalloc.c -o objs/mem/ft_memalloc.o
+printf "\033[2K\r \e[33mCompiling srcs/mem/ft_memchr.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/mem/ft_memchr.c -o objs/mem/ft_memchr.o
+printf "\033[2K\r \e[33mCompiling srcs/mem/ft_memcmp.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/mem/ft_memcmp.c -o objs/mem/ft_memcmp.o
+printf "\033[2K\r \e[33mCompiling srcs/mem/ft_memcpy.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/mem/ft_memcpy.c -o objs/mem/ft_memcpy.o
+printf "\033[2K\r \e[33mCompiling srcs/mem/ft_memccpy.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/mem/ft_memccpy.c -o objs/mem/ft_memccpy.o
+printf "\033[2K\r \e[33mCompiling srcs/mem/ft_memmove.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/mem/ft_memmove.c -o objs/mem/ft_memmove.o
+printf "\033[2K\r \e[33mCompiling srcs/mem/ft_memset.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/mem/ft_memset.c -o objs/mem/ft_memset.o
+printf "\033[2K\r \e[33mCompiling srcs/lst/ft_lstadd_back.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/lst/ft_lstadd_back.c -o objs/lst/ft_lstadd_back.o
+printf "\033[2K\r \e[33mCompiling srcs/lst/ft_lstadd_front.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/lst/ft_lstadd_front.c -o objs/lst/ft_lstadd_front.o
+printf "\033[2K\r \e[33mCompiling srcs/lst/ft_lstclear.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/lst/ft_lstclear.c -o objs/lst/ft_lstclear.o
+printf "\033[2K\r \e[33mCompiling srcs/lst/ft_lstdelone.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/lst/ft_lstdelone.c -o objs/lst/ft_lstdelone.o
+printf "\033[2K\r \e[33mCompiling srcs/lst/ft_lstiter.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/lst/ft_lstiter.c -o objs/lst/ft_lstiter.o
+printf "\033[2K\r \e[33mCompiling srcs/lst/ft_lstlast.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/lst/ft_lstlast.c -o objs/lst/ft_lstlast.o
+printf "\033[2K\r \e[33mCompiling srcs/lst/ft_lstmap.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/lst/ft_lstmap.c -o objs/lst/ft_lstmap.o
+printf "\033[2K\r \e[33mCompiling srcs/lst/ft_lstnew.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/lst/ft_lstnew.c -o objs/lst/ft_lstnew.o
+printf "\033[2K\r \e[33mCompiling srcs/lst/ft_lstsize.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/lst/ft_lstsize.c -o objs/lst/ft_lstsize.o
+printf "\033[2K\r \e[33mCompiling srcs/alloc/alloc.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/alloc/alloc.c -o objs/alloc/alloc.o
+printf "\033[2K\r \e[33mCompiling srcs/gnl/get_next_line.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/gnl/get_next_line.c -o objs/gnl/get_next_line.o
+printf "\033[2K\r \e[33mCompiling srcs/gnl/get_next_line_utils.c \e[0m⌛"
+gcc -Wall -Wextra -Werror -g -I includes/ -c srcs/gnl/get_next_line_utils.c -o objs/gnl/get_next_line_utils.o
+printf "\033[2K\r\e[32m All files compiled into 'objs/'. \e[0m✅\n"
+ar rcs libft.a objs/char/ft_isalnum.o objs/char/ft_isspace.o objs/char/ft_isalpha.o objs/char/ft_isascii.o objs/char/ft_isdigit.o objs/char/ft_isprint.o objs/char/ft_isspace.o objs/char/ft_tolower.o objs/char/ft_toupper.o objs/char/ft_isnumeric.o objs/print/ft_putchar_fd.o objs/print/ft_putxchar_fd.o objs/print/ft_putendl_fd.o objs/print/ft_putnbr_fd.o objs/print/ft_putstr_fd.o objs/print/ft_putbits_fd.o objs/str/ft_split.o objs/str/ft_free_tab.o objs/str/ft_strchr.o objs/str/ft_strdup.o objs/str/ft_strjoin.o objs/str/ft_str3join.o objs/str/ft_strlcat.o objs/str/ft_strlcpy.o objs/str/ft_strlen.o objs/str/ft_tablen.o objs/str/ft_strmapi.o objs/str/ft_strndup.o objs/str/ft_strncmp.o objs/str/ft_strcmp.o objs/str/ft_strict_strcmp.o objs/str/ft_strnstr.o objs/str/ft_strrchr.o objs/str/ft_strtrim.o objs/str/ft_substr.o objs/str/ft_strrev.o objs/str/ft_strextract.o objs/str/ft_strend.o objs/str/ft_charset.o objs/str/ft_strequ.o objs/str/ft_strcontains.o objs/nbr/ft_atoi.o objs/nbr/ft_atof.o objs/nbr/ft_itoa.o objs/nbr/ft_nbrlen.o objs/nbr/ft_itox.o objs/nbr/ft_xtoi.o objs/mem/ft_bzero.o objs/mem/ft_calloc.o objs/mem/ft_memalloc.o objs/mem/ft_memchr.o objs/mem/ft_memcmp.o objs/mem/ft_memcpy.o objs/mem/ft_memccpy.o objs/mem/ft_memmove.o objs/mem/ft_memset.o objs/lst/ft_lstadd_back.o objs/lst/ft_lstadd_front.o objs/lst/ft_lstclear.o objs/lst/ft_lstdelone.o objs/lst/ft_lstiter.o objs/lst/ft_lstlast.o objs/lst/ft_lstmap.o objs/lst/ft_lstnew.o objs/lst/ft_lstsize.o objs/alloc/alloc.o objs/gnl/get_next_line.o objs/gnl/get_next_line_utils.o
+ranlib libft.a
+printf "\e[32m Library 'libft.a' created. \e[0m✅\n"
+make[1]: Leaving directory '/home/arnaud/42/rendus/minirt/lib/libft'
+make -s -C lib/minilibx
+make[1]: Entering directory '/home/arnaud/42/rendus/minirt/lib/minilibx'
+./configure
+make[1]: Leaving directory '/home/arnaud/42/rendus/minirt/lib/minilibx'
+gcc -Wall -Wextra -Werror -Wconversion -g -pthread objs/main.o objs/lst.o objs/cam_lst.o objs/error.o objs/is_dir.o objs/parse.o objs/parse_elem.o objs/parse_objects.o objs/parse_utils.o objs/parse_bonus.o objs/check_arguments.o objs/image.o objs/color.o objs/cam.o objs/sphere.o objs/plane.o objs/cylinder.o objs/light.o objs/shadow.o objs/reflection.o objs/refraction.o objs/fresnel.o objs/compute_material.o objs/ray.o objs/vector_calculs.o objs/vector_calculs2.o objs/points.o objs/maths.o objs/init_mlx_events.o objs/mlx_exit.o objs/cameras_event.o objs/lights_event.o objs/objects_event.o objs/update_window.o objs/object_properties.o objs/is_movement_keycode.o objs/print_status.o objs/print_objects.o objs/print_utils.o objs/mouse_hook.o objs/save.o objs/create_video.o objs/progress_bar.o objs/init_data.o objs/routine.o -o miniRT -Llib/libft -lft -Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lz
+printf "\e[32m Binary 'miniRT' created. \e[0m✅\n"
+make: Leaving directory '/home/arnaud/42/rendus/minirt'
+ 

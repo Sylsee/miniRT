@@ -144,5 +144,6 @@ void	create_img(t_data *data, t_scene scene)
 	while (++i < MAX_THREADS)
 		pthread_join(threads[i], NULL);
 	pthread_mutex_destroy(thread_data.id_mutex);
+	free_one(thread_data.id_mutex, NULL);
 	printf("\r  |%s| 100.00%%\n\n", PROGRESS_FULL);
 }

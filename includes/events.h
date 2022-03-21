@@ -38,9 +38,9 @@
 # define X_ROTATION_SIZE 0.1
 # define Y_ROTATION_SIZE 0.1
 # define Z_ROTATION_SIZE 0.1
-# define X_MOVE_LIGHT 100
-# define Y_MOVE_LIGHT 100
-# define Z_MOVE_LIGHT 100
+# define X_MOVE_LIGHT 1000
+# define Y_MOVE_LIGHT 1000
+# define Z_MOVE_LIGHT 1000
 
 typedef struct s_minirt	t_minirt;
 
