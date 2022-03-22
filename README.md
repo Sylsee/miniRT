@@ -12,16 +12,17 @@
 	- Status et progress bar ✅
 	- Intéractions scène ✅
 	- Multicam ✅
-	- Multi spots et lumiere coloree ✅
 	- Screen ✅
 	- Video ✅
+	- Multithreads ✅
+
 	- Réflection ✅
 	- Réfraction ✅
 	- Fresnel ✅
 	- Antialiasing ✅
 	- Lumière spéculaire ✅
 	- Réflection sur objets ✅
-	- Multithreads ✅
+	- Multi spots et lumiere coloree ✅
 
 
 - RTFM:
