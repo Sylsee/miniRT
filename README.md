@@ -17,6 +17,7 @@
 	- Antialiasing ✅
 	- Lumière spéculaire ✅
 	- Réflection sur objets ✅
+	- Multithreads ✅
 
 
 - RTFM:
@@ -27,7 +28,8 @@
 	- space and shift to go up and down
 	- eq to switch camera and light
 	- v to start/stop video mode
-	- arrow key to move selected object
+	- arrow key, O and P to move selected object
+	- ctrl to change object mode
 	- hjkl to change object properties
 	
 ```
