@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 05:44:33 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/20 05:49:24 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:57:13 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	init_routine_data(t_routine_data *data, void *arg)
 	t_thread_data	*thread_data;
 
 	thread_data = (t_thread_data *)arg;
-	pthread_mutex_lock(thread_data->id_mutex);
+	pthread_mutex_lock(&thread_data->id_mutex);
 	data->id = thread_data->id;
 	thread_data->id++;
-	pthread_mutex_unlock(thread_data->id_mutex);
+	pthread_mutex_unlock(&thread_data->id_mutex);
 	data->scene = thread_data->scene;
 	data->data = thread_data->data;
 	data->start = (data->scene->res.y / MAX_THREADS) * data->id;
@@ -37,9 +37,6 @@ void	init_thread_data(t_thread_data *thread_data, t_scene *scene,
 	thread_data->id = 0;
 	thread_data->scene = scene;
 	thread_data->data = data;
-	thread_data->id_mutex = alloc(sizeof(pthread_mutex_t), NULL);
-	if (!thread_data->id_mutex)
-		internal_error("Malloc failed");
-	if (pthread_mutex_init(thread_data->id_mutex, NULL) != 0)
+	if (pthread_mutex_init(&thread_data->id_mutex, NULL) != 0)
 		internal_error("Mutex initialisation failed");
 }

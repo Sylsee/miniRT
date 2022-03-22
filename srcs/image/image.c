@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:25:02 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/22 04:33:31 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:35:20 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,6 @@ void	create_img(t_data *data, t_scene scene)
 	i = -1;
 	while (++i < MAX_THREADS)
 		pthread_join(threads[i], NULL);
-	pthread_mutex_destroy(thread_data.id_mutex);
-	free_one(thread_data.id_mutex, NULL);
-	printf("\r  |%s| 100.00%%\n\n", PROGRESS_FULL);
+	pthread_mutex_destroy(&thread_data.id_mutex);
+	printf("\r  |%s| 100.00%%\n", PROGRESS_FULL);
 }

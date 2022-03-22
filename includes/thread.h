@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 05:45:27 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/21 16:38:31 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:56:42 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_thread_data
 {
 	int				id;
-	pthread_mutex_t	*id_mutex;
+	pthread_mutex_t	id_mutex;
 	t_scene			*scene;
 	t_data			*data;
 }	t_thread_data;
