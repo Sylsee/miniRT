@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/19 19:03:06 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/22 04:32:40 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "../lib/minilibx/mlx.h"
 # include "scene.h"
 # include "define.h"
-# include "utils.h"
 # include "lst.h"
 # include "scene.h"
 # include "image.h"
@@ -29,10 +28,14 @@
 # include "key.h"
 # include "raytrace.h"
 # include "events.h"
+# include "thread.h"
+# include "utils.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
+# include <pthread.h>
+# include <sys/time.h>
 
 typedef struct s_lst
 {
