@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 17:10:27 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/26 16:18:11 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:17:32 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,7 @@
 # define SHIFT_KEY		65505
 
 # define V_KEY	118
+
+# define CTRL_KEY	65507
 
 #endif
