@@ -1,7 +1,0 @@
-[submodule "lib/libft"]
-	path = lib/libft
-	url = git@github.com:Sylsee/libft.git
-	branch = main
-[submodule "lib/minilibx"]
-	path = lib/minilibx
-	url = git@github.com:42Paris/minilibx-linux.git
