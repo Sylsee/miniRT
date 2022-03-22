@@ -9,20 +9,22 @@
 - Intersection objets (sphere, plan, cylindre) ✅
 
 - BONUS:
-	- Status et progress bar ✅
-	- Intéractions scène ✅
-	- Multicam ✅
-	- Screen ✅
-	- Video ✅
-	- Multithreads ✅
+	- Arnaud
+		- Status et progress bar ✅
+		- Intéractions scène ✅
+		- Multicam ✅
+		- Screen ✅
+		- Video ✅
+		- Multithreads ✅
 
-	- Réflection ✅
-	- Réfraction ✅
-	- Fresnel ✅
-	- Antialiasing ✅
-	- Lumière spéculaire ✅
-	- Réflection sur objets ✅
-	- Multi spots et lumiere coloree ✅
+	- Sylvio
+		- Réflection ✅
+		- Réfraction ✅
+		- Fresnel ✅
+		- Antialiasing ✅
+		- Lumière spéculaire ✅
+		- Réflection sur objets ✅
+		- Multi spots et lumiere coloree ✅
 
 
 - RTFM:
