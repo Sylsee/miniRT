@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 20:42:14 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/19 21:47:25 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:17:22 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,11 @@ static void	move_object(int keycode, t_minirt *minirt)
 
 void	objects_event(int keycode, t_minirt *minirt)
 {
-	if (keycode == SHIFT_KEY)
+	if (keycode == CTRL_KEY)
+	{
 		minirt->scene->object_mode = !minirt->scene->object_mode;
+		print_status(minirt);
+	}
 	else if (is_object_movement_keycode(keycode))
 		move_object(keycode, minirt);
 	else if (is_object_properties_keycode(keycode))
