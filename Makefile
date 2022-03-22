@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/03/20 05:57:16 by arguilla         ###   ########.fr        #
+#    Updated: 2022/03/22 04:31:52 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,7 @@ LST		=	lst.c \
 UTILS	=	$(LST) \
 			error.c \
 			is_dir.c \
+			utils.c \
 
 THREAD	=	progress_bar.c \
 			init_data.c \

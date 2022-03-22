@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/20 05:59:58 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/22 04:32:40 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "../lib/minilibx/mlx.h"
 # include "scene.h"
 # include "define.h"
-# include "utils.h"
 # include "lst.h"
 # include "scene.h"
 # include "image.h"
@@ -30,6 +29,7 @@
 # include "raytrace.h"
 # include "events.h"
 # include "thread.h"
+# include "utils.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
