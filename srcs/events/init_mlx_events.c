@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:00:59 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/22 14:11:05 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/30 00:29:27 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ static void	switch_object_type(int keycode, t_minirt *minirt)
 
 static int	key_events(int keycode, t_minirt *minirt)
 {
-	if (keycode == V_KEY)
+	if (keycode == ESC_KEY)
+		destroy_window(minirt);
+	else if (keycode == V_KEY)
 	{
 		minirt->scene->video_mode = !minirt->scene->video_mode;
 		if (minirt->scene->video_mode)
@@ -30,7 +32,6 @@ static int	key_events(int keycode, t_minirt *minirt)
 				*(minirt->scene), &(minirt->scene->frame_index), TMP_DIR);
 		print_status(minirt);
 	}
-	exit_window(keycode, minirt);
 	switch_object_type(keycode, minirt);
 	if (minirt->scene->obj && minirt->scene->obj->object)
 		objects_event(keycode, minirt);

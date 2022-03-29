@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:14:07 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/22 04:32:40 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/29 23:49:31 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "image.h"
 # include "save.h"
 # include "maths.h"
-# include "parsing.h"
+# include "parse.h"
 # include "error.h"
 # include "objects.h"
 # include "key.h"
@@ -30,6 +30,7 @@
 # include "events.h"
 # include "thread.h"
 # include "utils.h"
+# include "__mlx.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>

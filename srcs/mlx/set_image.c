@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_exit.c                                         :+:      :+:    :+:   */
+/*   set_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 08:36:39 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/30 00:29:12 by spoliart         ###   ########.fr       */
+/*   Created: 2022/03/29 23:56:14 by spoliart          #+#    #+#             */
+/*   Updated: 2022/03/29 23:56:25 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	destroy_window(t_minirt *minirt)
+void	set_img(t_data *data, t_scene *scene)
 {
-	if (minirt->scene->frame_index > 0)
-		create_video(minirt);
-	free_mlx(*minirt->data);
-	exit(EXIT_SUCCESS);
+	init_mlx_events(data, scene);
+	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	mlx_loop(data->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/22 04:40:01 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/29 23:55:14 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,70 +19,25 @@ void	free_leaks(void)
 	free_area(NULL);
 }
 
-/*
-**	Initialize minilibx utilities
-*/
-
-void	init_mlx(t_data *data, t_scene *scene)
-{
-	int	x;
-	int	y;
-
-	data->mlx = mlx_init();
-	if (!data->mlx)
-		internal_error("unable to initialize minilibx");
-	mlx_get_screen_size(data->mlx, &x, &y);
-	if (scene->res.x > x)
-		scene->res.x = x;
-	if (scene->res.y > y)
-		scene->res.y = y;
-	if (data->save == false)
-	{
-		data->win = mlx_new_window(data->mlx, scene->res.x,
-				scene->res.y, "MiniRT");
-		if (!data->win)
-			internal_error("unable to create minilibx window");
-	}
-	data->img = mlx_new_image(data->mlx, scene->res.x, scene->res.y);
-	if (!data->img)
-		internal_error("unable to create minilibx image");
-	data->data = mlx_get_data_addr(data->img, &data->pixel_bits,
-			&data->line_bytes, &data->endian);
-}
-
-void	set_img(t_data *data, t_scene *scene)
-{
-	init_mlx_events(data, scene);
-	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
-	mlx_loop(data->mlx);
-}
-
-void	minirt(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	data;
 	t_scene	scene;
 
+	init_area(NULL);
+	check_arguments(argc, argv);
 	data.save = false;
 	if (argc == 3)
 		data.save = true;
-	scene = parsing(argv[1]);
+	scene = parse(argv[1]);
 	find_video_dir(argc, argv, &scene);
 	init_mlx(&data, &scene);
 	create_img(&data, scene);
 	if (data.save == false)
 		set_img(&data, &scene);
 	else
-	{
 		create_bmp(data, scene, &scene.frame_index, SAVE_DIR);
-		free_mlx(data);
-	}
-}
-
-int	main(int argc, char **argv)
-{
-	check_arguments(argc, argv);
-	init_area(NULL);
-	minirt(argc, argv);
+	free_mlx(data);
 	exit(EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }

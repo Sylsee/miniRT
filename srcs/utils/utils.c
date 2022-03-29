@@ -6,19 +6,11 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 04:30:49 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/22 04:31:13 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/29 23:59:08 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-void	free_mlx(t_data data)
-{
-	mlx_destroy_image(data.mlx, data.img);
-	mlx_destroy_display(data.mlx);
-	free(data.mlx);
-	exit(0);
-}
 
 void	find_video_dir(int argc, char **argv, t_scene *scene)
 {

@@ -6,14 +6,14 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 19:48:22 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/26 17:34:46 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/29 23:38:26 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
 
-t_scene		parsing(char *file);
+t_scene		parse(char *file);
 
 t_p3		parse_point(char *x, char *y, char *z);
 t_color		parse_color(char *r, char *g, char *b);

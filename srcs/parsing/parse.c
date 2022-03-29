@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:26:10 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/19 20:48:50 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/29 23:38:17 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static void	init_scene(t_scene *scene)
 	scene->ambient.ratio = -1;
 }
 
-t_scene	parsing(char *file)
+t_scene	parse(char *file)
 {
 	int		fd;
 	int		ret;

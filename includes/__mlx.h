@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_exit.c                                         :+:      :+:    :+:   */
+/*   __mlx.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 08:36:39 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/30 00:29:12 by spoliart         ###   ########.fr       */
+/*   Created: 2022/03/29 23:45:24 by spoliart          #+#    #+#             */
+/*   Updated: 2022/03/30 00:00:27 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef __MLX_H
+# define __MLX_H
 
-int	destroy_window(t_minirt *minirt)
-{
-	if (minirt->scene->frame_index > 0)
-		create_video(minirt);
-	free_mlx(*minirt->data);
-	exit(EXIT_SUCCESS);
-}
+void	init_mlx(t_data *data, t_scene *scene);
+void	free_mlx(t_data data);
+void	set_img(t_data *data, t_scene *scene);
+
+#endif /* __MLX_H */

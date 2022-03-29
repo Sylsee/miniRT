@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/03/22 15:33:18 by spoliart         ###   ########.fr        #
+#    Updated: 2022/03/30 00:00:43 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,9 @@ O		=	objs/
 I		=	-Iincludes -Ilib/minilibx -I/usr/include
 
 # [ SOURCES ] #
+
+MLX	=	mlx.c \
+		set_image.c
 
 OBJECTS_INTERSECTION	=	sphere.c \
 							plane.c \
@@ -112,7 +115,8 @@ SRCS	=	main.c \
 			$(EVENT) \
 			$(LST) \
 			$(SAVE) \
-			$(THREAD)
+			$(THREAD) \
+			$(MLX)
 
 # [ OBJECTS ] #
 
@@ -122,7 +126,8 @@ OBJS	=	$(SRCS:%.c=$O%.o)
 
 VPATH	=	includes:srcs:srcs/utils:srcs/utils/lst:srcs/save:srcs/parsing:\
 			srcs/raytracing:srcs/raytracing/color_computation:srcs/maths:\
-			srcs/objects_intersection:srcs/image:srcs/events:srcs/thread
+			srcs/objects_intersection:srcs/image:srcs/events:srcs/thread:\
+			srcs/mlx
 
 # [ RULES ] #
 
