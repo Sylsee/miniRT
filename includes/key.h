@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 17:10:27 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/22 14:17:32 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/30 00:31:48 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  ** Exit program key.
  */
 
-# define ESC			65307
+# define ESC_KEY		65307
 
 /*
  ** Switch cameras or lights depending on mode.

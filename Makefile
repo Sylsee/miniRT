@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/03/30 00:00:43 by spoliart         ###   ########.fr        #
+#    Updated: 2022/03/30 01:01:07 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ MATH	=	vector_calculs.c \
 
 EVENT	=	init_mlx_events.c \
 			mlx_exit.c \
+			key_events.c \
 			cameras_event.c \
 			lights_event.c \
 			objects_event.c \
@@ -88,7 +89,8 @@ EVENT	=	init_mlx_events.c \
 			print_status.c \
 			print_objects.c \
 			print_utils.c \
-			mouse_hook.c
+			mouse_hook.c \
+			video_mode.c
 
 SAVE	=	save.c \
 			create_video.c \

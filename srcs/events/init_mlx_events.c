@@ -6,41 +6,11 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:00:59 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/30 00:29:27 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/30 00:58:56 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-static void	switch_object_type(int keycode, t_minirt *minirt)
-{
-	if (keycode != TAB_KEY)
-		return ;
-	minirt->scene->object_type = !minirt->scene->object_type;
-	print_status(minirt);
-}
-
-static int	key_events(int keycode, t_minirt *minirt)
-{
-	if (keycode == ESC_KEY)
-		destroy_window(minirt);
-	else if (keycode == V_KEY)
-	{
-		minirt->scene->video_mode = !minirt->scene->video_mode;
-		if (minirt->scene->video_mode)
-			create_bmp(*(minirt->data),
-				*(minirt->scene), &(minirt->scene->frame_index), TMP_DIR);
-		print_status(minirt);
-	}
-	switch_object_type(keycode, minirt);
-	if (minirt->scene->obj && minirt->scene->obj->object)
-		objects_event(keycode, minirt);
-	if (minirt->scene->object_type == CAMERA)
-		cameras_event(keycode, minirt);
-	else if (minirt->scene->object_type == LIGHT)
-		lights_event(keycode, minirt);
-	return (1);
-}
 
 void	init_mlx_events(t_data *data, t_scene *scene)
 {
@@ -53,6 +23,6 @@ void	init_mlx_events(t_data *data, t_scene *scene)
 	minirt->scene = scene;
 	print_status(minirt);
 	mlx_mouse_hook(data->win, &mouse_hook, minirt);
-	mlx_hook(data->win, 33, 0, &destroy_window, minirt);
+	mlx_hook(data->win, 33, 0, &exit_minirt, minirt);
 	mlx_key_hook(minirt->data->win, &key_events, minirt);
 }

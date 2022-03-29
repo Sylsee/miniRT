@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_exit.c                                         :+:      :+:    :+:   */
+/*   video_mode.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 08:36:39 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/30 00:56:27 by spoliart         ###   ########.fr       */
+/*   Created: 2022/03/30 00:59:14 by spoliart          #+#    #+#             */
+/*   Updated: 2022/03/30 00:59:20 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	exit_minirt(t_minirt *minirt)
+void	video_mode(t_minirt *minirt)
 {
-	if (minirt->scene->frame_index > 0)
-		create_video(minirt);
-	free_mlx(*minirt->data);
-	exit(EXIT_SUCCESS);
+	minirt->scene->video_mode = !minirt->scene->video_mode;
+	if (minirt->scene->video_mode)
+		create_bmp(*(minirt->data), *(minirt->scene),
+			&(minirt->scene->frame_index), TMP_DIR);
+	print_status(minirt);
 }

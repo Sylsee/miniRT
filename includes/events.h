@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 08:33:48 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/19 21:36:36 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/03/30 00:59:29 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@
 
 typedef struct s_minirt	t_minirt;
 
-int		destroy_window(t_minirt *minirt);
-int		exit_window(int keycode, t_minirt *minirt);
-void	cameras_event(int keycode, t_minirt *minirt);
+int		key_events(int keycode, t_minirt *minirt);
 void	init_mlx_events(t_data *data, t_scene *scene);
+
+void	video_mode(t_minirt *minirt);
+int		exit_minirt(t_minirt *minirt);
+void	cameras_event(int keycode, t_minirt *minirt);
 void	update_window(t_minirt *minirt);
 bool	is_movement_keycode(int keycode);
 bool	is_object_movement_keycode(int keycode);
