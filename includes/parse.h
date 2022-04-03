@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 19:48:22 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/29 23:38:26 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/04/03 13:55:21 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void		parse_triangle(t_scene *scene, char **data);
 void		parse_bonus(t_scene *scene, char **data);
 void		manage_scene(t_scene *scene);
 
-void		check_arguments(int argc, char **argv);
+void		check_arguments(int argc, char **argv, t_scene *scene, t_data *data);
 
 #endif

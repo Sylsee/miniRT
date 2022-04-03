@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 23:59:22 by spoliart          #+#    #+#             */
-/*   Updated: 2022/03/30 00:25:14 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/04/03 13:40:58 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	init_mlx(t_data *data, t_scene *scene)
 void	free_mlx(t_data data)
 {
 	mlx_destroy_image(data.mlx, data.img);
-	mlx_destroy_window(data.mlx, data.win);
+	if (data.save == false)
+		mlx_destroy_window(data.mlx, data.win);
 	mlx_destroy_display(data.mlx);
 	free(data.mlx);
 }

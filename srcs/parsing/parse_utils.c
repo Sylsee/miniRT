@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:47:46 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/07 00:59:45 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/04/03 13:49:16 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	check_orientation(t_p3 dir)
 
 void	manage_scene(t_scene *scene)
 {
+	if (scene->cam == NULL)
+		internal_error("You must provide a camera");
 	link_cam_lst(scene->cam);
 	if (scene->light && scene->light->content)
 		scene->current_light = scene->light;
