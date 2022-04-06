@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2022/03/30 01:01:07 by spoliart         ###   ########.fr        #
+#    Updated: 2022/04/06 18:49:40 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,8 +69,7 @@ PARSING	=	parse.c \
 			parse_elem.c \
 			parse_objects.c \
 			parse_utils.c \
-			parse_bonus.c \
-			check_arguments.c \
+			parse_bonus.c
 
 MATH	=	vector_calculs.c \
 			vector_calculs2.c \
@@ -93,15 +92,15 @@ EVENT	=	init_mlx_events.c \
 			video_mode.c
 
 SAVE	=	save.c \
-			create_video.c \
+			create_video.c
 
 LST		=	lst.c \
-			cam_lst.c \
+			cam_lst.c
 
 UTILS	=	$(LST) \
 			error.c \
 			is_dir.c \
-			utils.c \
+			check_arguments.c
 
 THREAD	=	progress_bar.c \
 			init_data.c \

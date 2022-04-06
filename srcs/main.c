@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 14:36:51 by spoliart          #+#    #+#             */
-/*   Updated: 2022/04/03 14:18:50 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/04/06 18:48:37 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(int argc, char **argv)
 	t_scene	scene;
 
 	init_area(NULL);
-	check_arguments(argc, argv, &scene, &data);
-//	printf("video_dir: [%s]\n", scene.video_dir);
+	check_arguments(argc, argv);
 	scene = parse(argv[1]);
+	get_video_dir(argc, argv, &scene, &data);
 	init_mlx(&data, &scene);
 	create_img(&data, scene);
 	if (data.save == false)
