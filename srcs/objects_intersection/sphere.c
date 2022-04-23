@@ -37,12 +37,9 @@ static bool	has_inter(t_sphere *s, t_vector ray, t_hit *hit)
 	delta = b * b - 4 * c;
 	if (delta < 0)
 		return (false);
-	t[0] = (-b - sqrt(delta)) / 2;
-	t[1] = (-b + sqrt(delta)) / 2;
-	if (t[0] > 0)
-		hit->dist = t[0];
-	else
-		hit->dist = t[1];
+	double t1 = (-b - sqrt(delta)) / 2;
+	double t2 = (-b + sqrt(delta)) / 2;
+	hit->dist = t1 > 0 ? t1 : t2;
 	if (hit->dist < 0)
 		return (false);
 	return (true);
