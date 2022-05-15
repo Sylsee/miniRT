@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inter_sphere.c                                     :+:      :+:    :+:   */
+/*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:56:45 by spoliart          #+#    #+#             */
-/*   Updated: 2022/02/09 15:51:37 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/05/15 23:27:27 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static bool	has_inter(t_sphere *s, t_vector ray, t_hit *hit)
 	double	b;
 	double	c;
 	double	delta;
-	double	t[2];
 
 	b = 2 * v_dot(ray.dir, v_sub(ray.origin, s->pos));
 	c = get_norm2(v_sub(ray.origin, s->pos))
