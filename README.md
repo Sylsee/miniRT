@@ -89,10 +89,10 @@ MiniRT comes with a wide range of features that allow for complex scene renderin
 - **Escape** and red cross to quit
 - **WASD** to move camera or light
 - **Caps** to change camera mode (translate or rotate)
-- **Tab** to change camera or light selection
+- **Tab** to change camera or light selection (only if multiple camera was specify in the .rt file)
 - **Space** and **Shift** to go up and down
 - **EQ** to switch camera and light
-- **V** to start/stop video mode
+- **V** to start/stop video mode (only if binary was launch with `--video` flag)
 - **Arrow key**, **O** and **P** to move selected object
 - **Ctrl** to change object mode
 - **HJKL** to change object properties
