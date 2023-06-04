@@ -97,6 +97,11 @@ MiniRT comes with a wide range of features that allow for complex scene renderin
 - **Ctrl** to change object mode
 - **HJKL** to change object properties
 
+## Authors
+
+-   Arnaud Guillard - [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/arnaud35300)
+-   Sylvio Poliart - [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/Sylsee)
+
 ## License
 
 MiniRT is licensed under the [LICENSE](LICENSE).
