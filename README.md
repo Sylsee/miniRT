@@ -4,7 +4,7 @@
 
 MiniRT is a ray tracer coded in C, normed and humble but functional. Ray tracing is a method for rendering 3-dimensional computer-generated images, developed for the first time in 1968. It is more computationally expensive than the commonly used "Rasterization" method, but it produces a much higher degree of visual realism. The main goal of miniRT is to prove that you can implement any mathematics or physics formulas without being a mathematician. We will only implement the most basic ray tracing features here, so just keep calm, take a deep breath and don't panic!
 
-![Ray Tracing Example](2_lights.bmp)
+![Ray Tracing Example](saves/bonus/2_lights.bmp)
 
 ## Installation
 
@@ -12,15 +12,21 @@ To install MiniRT, follow these steps:
 
 1. Clone the repository:
 
-   `git clone --recursive https://github.com/Sylsee/miniRT.git`
+   ```
+   git clone --recursive https://github.com/Sylsee/miniRT.git
+   ```
 
    If you've already cloned the repository without the `--recursive` flag, you can initialize and update the submodules with:
 
-   `git submodule update --init --recursive`
+   ```
+   git submodule update --init --recursive
+   ```
 
 2. Compile the project using the Makefile:
 
-   `make`
+   ```
+   make
+   ```
 
 ## Usage
 
@@ -28,15 +34,21 @@ To use MiniRT, you have several options:
 
 1. To generate an image:
 
-   `./miniRT [file].rt`
+   ```
+   ./miniRT [file].rt
+   ```
 
 2. To save the generated image:
 
-   `./miniRT [file].rt --save`
+   ```
+   ./miniRT [file].rt --save
+   ```
 
 3. To generate a video:
 
-   `./miniRT [file].rt --video [directory]`
+   ```
+   ./miniRT [file].rt --video [directory]
+   ```
 
 ## Capabilities
 
