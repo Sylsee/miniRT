@@ -2,7 +2,7 @@
 
 ## Introduction
 
-MiniRT is a ray tracer coded in C, normed and humble but functional. Ray tracing is a method for rendering 3-dimensional computer-generated images, developed for the first time in 1968. It is more computationally expensive than the commonly used "Rasterization" method, but it produces a much higher degree of visual realism. The main goal of miniRT is to prove that you can implement any mathematics or physics formulas without being a mathematician. We will only implement the most basic ray tracing features here, so just keep calm, take a deep breath and don't panic!
+MiniRT is a ray tracer coded in C, normed and humble but functional. Ray tracing is a method for rendering 3-dimensional computer-generated images, developed for the first time in 1968. It is more computationally expensive than the commonly used "Rasterization" method, but it produces a much higher degree of visual realism. The main goal of miniRT is to prove that you can implement any mathematics or physics formulas without being a mathematician. We will only implement the most basic ray tracing features here.
 
 ![Ray Tracing Example](saves/bonus/2_lights.bmp)
 
