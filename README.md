@@ -104,7 +104,7 @@ MiniRT comes with a wide range of features that allow for complex scene renderin
 
 ## License
 
-MiniRT is licensed under the [LICENSE](LICENSE).
+MiniRT is [MIT licensed](LICENSE).
 
 ## Contact
 
